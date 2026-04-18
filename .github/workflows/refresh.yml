@@ -50,6 +50,12 @@ jobs:
       - name: Push
         run: git pull --rebase && git push
 
+      - name: Trigger Netlify Deploy
+        if: env.NETLIFY_BUILD_HOOK != ''
+        run: curl -s -X POST -d {} "$NETLIFY_BUILD_HOOK"
+        env:
+          NETLIFY_BUILD_HOOK: ${{ secrets.NETLIFY_BUILD_HOOK }}
+
       - name: Upload eval report
         uses: actions/upload-artifact@v4
         if: always()
