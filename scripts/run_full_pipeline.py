@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent))
 
 from pipeline import normalize as norm_module
 from pipeline.normalize import Normalizer, save_parquets
-from pipeline.scrape_ghsa import scrape_all_teams
+from pipeline.scrape_ghsa import scrape_all_teams, scrape_region_alignments
 from pipeline.scrape_maxpreps import MaxPrepsAbort, MaxPrepsClient, discover_slugs, enrich_games
 from pipeline.brackets import ingest_all_brackets, save_brackets, load_brackets
 from model import massey as massey_module
@@ -47,9 +47,33 @@ DATA_DIR = Path("data")
 MINI_TEAM_IDS = [76, 38, 611, 100, 200, 300, 400, 500, 600, 700]
 
 
+def _resolve_region_alignments(region_map: dict, teams_raw: list[dict]) -> dict[int, str]:
+    """Fuzzy-match region alignment school names to team_ids, class-scoped."""
+    from rapidfuzz import fuzz, process as fz_process
+    class_teams: dict[str, list[tuple[str, int]]] = {}
+    for t in teams_raw:
+        cls = t.get("class", "")
+        if cls and t.get("name"):
+            class_teams.setdefault(cls, []).append((t["name"], int(t["team_id"])))
+
+    result: dict[int, str] = {}
+    for school_name, (region_label, school_class) in region_map.items():
+        candidates = class_teams.get(school_class, [])
+        if not candidates:
+            continue
+        names = [n for n, _ in candidates]
+        match = fz_process.extractOne(school_name, names, scorer=fuzz.WRatio)
+        if match and match[1] >= 80:
+            tid = candidates[names.index(match[0])][1]
+            result[tid] = region_label
+    log.info("region alignment: matched %d/%d teams", len(result), len(region_map))
+    return result
+
+
 def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                        dc_result: dict, massey_result: dict,
-                       enrichment_coverage: dict) -> dict:
+                       enrichment_coverage: dict,
+                       team_regions: dict[int, str] | None = None) -> dict:
     id_to_meta: dict[int, dict] = {
         int(r["team_id"]): r for r in teams_df.to_dict("records")
     }
@@ -119,7 +143,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             "team_id": tid,
             "name": meta.get("name", str(tid)),
             "class": cls,
-            "region_or_area": meta.get("region_or_area"),
+            "region_or_area": (team_regions or {}).get(tid) or meta.get("region_or_area"),
             "playoff_bracket": bracket,
             "record": rec,
             "attack": round(alpha.get(tid, 1.0), 4),
@@ -129,7 +153,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             "rating_rank_class": class_rank.get(tid),
             "rating_rank_region": region_rank.get(tid),
             "maxpreps_state_rank": meta.get("maxpreps_ranking"),
-            "psr_rank": None,  # PSR not ingested yet
+            "psr_rank": meta.get("psr_rank"),
         })
 
     return {
@@ -164,6 +188,14 @@ def main():
     log.info("=== M1: GHSA scrape ===")
     teams_raw, games_raw = scrape_all_teams(playoffs=playoffs, team_ids=team_ids)
     log.info("GHSA: %d teams, %d raw game records", len(teams_raw), len(games_raw))
+
+    log.info("=== M1b: Region alignments ===")
+    try:
+        region_map = scrape_region_alignments()
+        team_regions = _resolve_region_alignments(region_map, teams_raw)
+    except Exception as e:
+        log.warning("Region alignment scrape failed: %s — regions will be unassigned", e)
+        team_regions = {}
 
     # -----------------------------------------------------------------------
     # M2: MaxPreps slug discovery & enrichment
@@ -257,7 +289,7 @@ def main():
 
     # Build and save ratings.json
     ratings_json = build_ratings_json(teams_df, games_df, dc_result, massey_result,
-                                       enrichment_coverage)
+                                       enrichment_coverage, team_regions=team_regions)
     PUBLIC_DIR.mkdir(parents=True, exist_ok=True)
     (PUBLIC_DIR / "ratings.json").write_text(json.dumps(ratings_json, indent=2))
     log.info("saved ratings.json with %d teams", len(ratings_json["teams"]))

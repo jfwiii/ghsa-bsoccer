@@ -392,6 +392,50 @@ def _parse_schedule_rows(rows, reporting_id: int,
 # Main entry point
 # ---------------------------------------------------------------------------
 
+REGION_ALIGNMENT_URL = f"{BASE_URL}/2025-2026-region-alignments"
+
+
+def scrape_region_alignments(session: Optional[requests.Session] = None) -> dict[str, tuple[str, str]]:
+    """
+    Scrape GHSA region alignments page.
+    Returns {school_name: (region_label, classification)}
+    e.g. {"North Cobb": ("5-AAAAAA", "AAAAAA")}.
+    Strips 'NR' (not ranked) and '**' (charter/magnet) suffixes from names.
+    """
+    if session is None:
+        session = _session()
+    html = _fetch_html(session, REGION_ALIGNMENT_URL)
+    soup = BeautifulSoup(html, "lxml")
+    content = soup.find(class_="field-item") or soup.find("article") or soup
+    result: dict[str, tuple[str, str]] = {}
+    current_class = ""
+    current_region = ""
+
+    for line in content.get_text(separator="\n").splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        # Region header: "1-AAAAAA (6)", "7-AAA (7)", "1-A DI (4)"
+        m = re.match(r'^(\d+-[A-Z]+(?: [A-Z]+)*)\s*\(\d+\)$', line)
+        if m:
+            current_region = m.group(1).strip()
+            continue
+        # Class header: "AAAAAA (58)", "A DI (32)" — no leading digit
+        m = re.match(r'^([A-Z]+(?: [A-Z]+)*)\s*\(\d+\)$', line)
+        if m:
+            current_class = m.group(1).strip()
+            current_region = ""
+            continue
+        if not current_region:
+            continue
+        name = re.sub(r'\s*(NR|\*\*)\s*$', '', line).strip()
+        if name:
+            result[name] = (current_region, current_class)
+
+    log.info("region alignments: %d entries", len(result))
+    return result
+
+
 def scrape_all_teams(playoffs: bool = False,
                      team_ids: Optional[list[int]] = None) -> tuple[list[dict], list[dict]]:
     """
