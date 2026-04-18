@@ -190,12 +190,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             result = "W" if gf > ga else ("L" if ga > gf else "T")
             opp_rank = overall_rank.get(opp_id, n_teams)
             opp_pct = 1 - (opp_rank - 1) / max(1, n_teams - 1)
-            if result == "W":
-                impact = round(opp_pct * 10, 1)
-            elif result == "L":
-                impact = round((1 - opp_pct) * 10, 1)
-            else:
-                impact = 5.0
+            impact = round(opp_pct * 10, 1)
             opp_meta = id_to_meta.get(opp_id, {})
             schedules.setdefault(tid, []).append({
                 "date": date_str,
