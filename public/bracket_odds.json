@@ -1,0 +1,2582 @@
+[
+  {
+    "bracket": "AAAAAA",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 574,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.9242,
+          "SF": 0.711,
+          "F": 0.5434,
+          "Champ": 0.4278
+        }
+      },
+      {
+        "team_id": 241,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9998,
+          "QF": 0.7184,
+          "SF": 0.5916,
+          "F": 0.3142,
+          "Champ": 0.1084
+        }
+      },
+      {
+        "team_id": 390,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.811,
+          "QF": 0.6086,
+          "SF": 0.4372,
+          "F": 0.1722,
+          "Champ": 0.106
+        }
+      },
+      {
+        "team_id": 76,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9964,
+          "QF": 0.5664,
+          "SF": 0.3906,
+          "F": 0.2492,
+          "Champ": 0.0984
+        }
+      },
+      {
+        "team_id": 309,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9936,
+          "QF": 0.4334,
+          "SF": 0.29,
+          "F": 0.1726,
+          "Champ": 0.0608
+        }
+      },
+      {
+        "team_id": 10,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9958,
+          "QF": 0.6362,
+          "SF": 0.187,
+          "F": 0.1008,
+          "Champ": 0.0574
+        }
+      },
+      {
+        "team_id": 384,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7,
+          "QF": 0.62,
+          "SF": 0.2974,
+          "F": 0.0928,
+          "Champ": 0.047
+        }
+      },
+      {
+        "team_id": 84,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8432,
+          "QF": 0.5854,
+          "SF": 0.2322,
+          "F": 0.1206,
+          "Champ": 0.0374
+        }
+      },
+      {
+        "team_id": 133,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9826,
+          "QF": 0.3636,
+          "SF": 0.0822,
+          "F": 0.0362,
+          "Champ": 0.0142
+        }
+      },
+      {
+        "team_id": 59,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8214,
+          "QF": 0.2634,
+          "SF": 0.1852,
+          "F": 0.068,
+          "Champ": 0.0138
+        }
+      },
+      {
+        "team_id": 54,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5982,
+          "QF": 0.2126,
+          "SF": 0.1146,
+          "F": 0.0236,
+          "Champ": 0.0086
+        }
+      },
+      {
+        "team_id": 83,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8212,
+          "QF": 0.5154,
+          "SF": 0.138,
+          "F": 0.0372,
+          "Champ": 0.0062
+        }
+      },
+      {
+        "team_id": 66,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4018,
+          "QF": 0.102,
+          "SF": 0.053,
+          "F": 0.01,
+          "Champ": 0.0038
+        }
+      },
+      {
+        "team_id": 109,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9632,
+          "QF": 0.367,
+          "SF": 0.0834,
+          "F": 0.0256,
+          "Champ": 0.0038
+        }
+      },
+      {
+        "team_id": 116,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.189,
+          "QF": 0.0768,
+          "SF": 0.0304,
+          "F": 0.0058,
+          "Champ": 0.0026
+        }
+      },
+      {
+        "team_id": 577,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3,
+          "QF": 0.2008,
+          "SF": 0.0482,
+          "F": 0.0086,
+          "Champ": 0.0012
+        }
+      },
+      {
+        "team_id": 225,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5286,
+          "QF": 0.236,
+          "SF": 0.0442,
+          "F": 0.0074,
+          "Champ": 0.001
+        }
+      },
+      {
+        "team_id": 63,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4186,
+          "QF": 0.0308,
+          "SF": 0.0082,
+          "F": 0.003,
+          "Champ": 0.0006
+        }
+      },
+      {
+        "team_id": 68,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5814,
+          "QF": 0.045,
+          "SF": 0.0116,
+          "F": 0.0024,
+          "Champ": 0.0006
+        }
+      },
+      {
+        "team_id": 308,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4714,
+          "QF": 0.2056,
+          "SF": 0.0316,
+          "F": 0.0034,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 392,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9624,
+          "QF": 0.1792,
+          "SF": 0.0192,
+          "F": 0.0012,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 9,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0042,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 16,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0174,
+          "QF": 0.0002,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 17,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0368,
+          "QF": 0.0008,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 18,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0376,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 48,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0064,
+          "QF": 0.0002,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 60,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 62,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0036,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 77,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1786,
+          "QF": 0.0182,
+          "SF": 0.0058,
+          "F": 0.0008,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 90,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1788,
+          "QF": 0.043,
+          "SF": 0.0036,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 360,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 370,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1568,
+          "QF": 0.0468,
+          "SF": 0.0038,
+          "F": 0.001,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "AAAAA",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 568,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9688,
+          "QF": 0.9686,
+          "SF": 0.9056,
+          "F": 0.7898,
+          "Champ": 0.7078
+        }
+      },
+      {
+        "team_id": 74,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9942,
+          "QF": 0.9574,
+          "SF": 0.7604,
+          "F": 0.5058,
+          "Champ": 0.1142
+        }
+      },
+      {
+        "team_id": 137,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5164,
+          "QF": 0.4492,
+          "SF": 0.3774,
+          "F": 0.0822,
+          "Champ": 0.0516
+        }
+      },
+      {
+        "team_id": 73,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4836,
+          "QF": 0.411,
+          "SF": 0.3436,
+          "F": 0.074,
+          "Champ": 0.0416
+        }
+      },
+      {
+        "team_id": 570,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9018,
+          "QF": 0.6514,
+          "SF": 0.409,
+          "F": 0.197,
+          "Champ": 0.037
+        }
+      },
+      {
+        "team_id": 229,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9944,
+          "QF": 0.9364,
+          "SF": 0.084,
+          "F": 0.038,
+          "Champ": 0.0162
+        }
+      },
+      {
+        "team_id": 65,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8604,
+          "QF": 0.6086,
+          "SF": 0.3294,
+          "F": 0.1426,
+          "Champ": 0.0156
+        }
+      },
+      {
+        "team_id": 49,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9972,
+          "QF": 0.3246,
+          "SF": 0.132,
+          "F": 0.0366,
+          "Champ": 0.0036
+        }
+      },
+      {
+        "team_id": 67,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6726,
+          "QF": 0.5832,
+          "SF": 0.1522,
+          "F": 0.01,
+          "Champ": 0.0034
+        }
+      },
+      {
+        "team_id": 86,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9912,
+          "QF": 0.5344,
+          "SF": 0.1246,
+          "F": 0.044,
+          "Champ": 0.0028
+        }
+      },
+      {
+        "team_id": 296,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.474,
+          "QF": 0.2112,
+          "SF": 0.0496,
+          "F": 0.019,
+          "Champ": 0.002
+        }
+      },
+      {
+        "team_id": 169,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9258,
+          "QF": 0.1386,
+          "SF": 0.0824,
+          "F": 0.0032,
+          "Champ": 0.0014
+        }
+      },
+      {
+        "team_id": 29,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.998,
+          "QF": 0.3494,
+          "SF": 0.1172,
+          "F": 0.03,
+          "Champ": 0.0012
+        }
+      },
+      {
+        "team_id": 150,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.526,
+          "QF": 0.2544,
+          "SF": 0.0584,
+          "F": 0.0232,
+          "Champ": 0.001
+        }
+      },
+      {
+        "team_id": 280,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0312,
+          "QF": 0.028,
+          "SF": 0.0094,
+          "F": 0.0022,
+          "Champ": 0.0004
+        }
+      },
+      {
+        "team_id": 184,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3274,
+          "QF": 0.2376,
+          "SF": 0.0364,
+          "F": 0.0006,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 8,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.43,
+          "QF": 0.001,
+          "SF": 0.0004,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 15,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0056,
+          "QF": 0.0018,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 21,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.57,
+          "QF": 0.0024,
+          "SF": 0.0002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 43,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 50,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3592,
+          "QF": 0.0082,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 58,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1456,
+          "QF": 0.003,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 61,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0028,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 79,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1396,
+          "QF": 0.042,
+          "SF": 0.0062,
+          "F": 0.0006,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 167,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0982,
+          "QF": 0.024,
+          "SF": 0.0062,
+          "F": 0.0004,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 231,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6408,
+          "QF": 0.0536,
+          "SF": 0.0004,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 279,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 313,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0088,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 314,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0742,
+          "QF": 0.0012,
+          "SF": 0.0002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 319,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8544,
+          "QF": 0.1762,
+          "SF": 0.0078,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 371,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.0414,
+          "SF": 0.007,
+          "F": 0.0008,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 605,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0058,
+          "QF": 0.0012,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "AAAA",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 369,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.699,
+          "SF": 0.548,
+          "F": 0.5122,
+          "Champ": 0.4642
+        }
+      },
+      {
+        "team_id": 134,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.9878,
+          "SF": 0.2804,
+          "F": 0.2182,
+          "Champ": 0.1684
+        }
+      },
+      {
+        "team_id": 232,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9992,
+          "QF": 0.301,
+          "SF": 0.1714,
+          "F": 0.1368,
+          "Champ": 0.1042
+        }
+      },
+      {
+        "team_id": 321,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9984,
+          "QF": 0.8766,
+          "SF": 0.6136,
+          "F": 0.4044,
+          "Champ": 0.1002
+        }
+      },
+      {
+        "team_id": 581,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9938,
+          "QF": 0.8674,
+          "SF": 0.5548,
+          "F": 0.271,
+          "Champ": 0.055
+        }
+      },
+      {
+        "team_id": 193,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9988,
+          "QF": 0.5886,
+          "SF": 0.3432,
+          "F": 0.0582,
+          "Champ": 0.0316
+        }
+      },
+      {
+        "team_id": 329,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9158,
+          "QF": 0.5842,
+          "SF": 0.2892,
+          "F": 0.0436,
+          "Champ": 0.0222
+        }
+      },
+      {
+        "team_id": 285,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5404,
+          "QF": 0.5044,
+          "SF": 0.2008,
+          "F": 0.0966,
+          "Champ": 0.0146
+        }
+      },
+      {
+        "team_id": 272,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8866,
+          "QF": 0.54,
+          "SF": 0.2456,
+          "F": 0.0968,
+          "Champ": 0.012
+        }
+      },
+      {
+        "team_id": 640,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.988,
+          "QF": 0.4108,
+          "SF": 0.209,
+          "F": 0.0168,
+          "Champ": 0.0082
+        }
+      },
+      {
+        "team_id": 548,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4596,
+          "QF": 0.4292,
+          "SF": 0.1454,
+          "F": 0.0652,
+          "Champ": 0.008
+        }
+      },
+      {
+        "team_id": 292,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9862,
+          "QF": 0.4402,
+          "SF": 0.1678,
+          "F": 0.0536,
+          "Champ": 0.006
+        }
+      },
+      {
+        "team_id": 702,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8272,
+          "QF": 0.369,
+          "SF": 0.1532,
+          "F": 0.014,
+          "Champ": 0.0052
+        }
+      },
+      {
+        "team_id": 382,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9518,
+          "QF": 0.1234,
+          "SF": 0.0376,
+          "F": 0.009,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 23,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0012,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 27,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1728,
+          "QF": 0.0322,
+          "SF": 0.0036,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 117,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2686,
+          "QF": 0.0162,
+          "SF": 0.0016,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 161,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0138,
+          "QF": 0.0002,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 165,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0016,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 168,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 217,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5244,
+          "QF": 0.0452,
+          "SF": 0.002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 243,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0842,
+          "QF": 0.0146,
+          "SF": 0.0018,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 246,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 264,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0062,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 268,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2288,
+          "QF": 0.0006,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 315,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4756,
+          "QF": 0.0212,
+          "SF": 0.0006,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 355,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0008,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 375,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1134,
+          "QF": 0.0196,
+          "SF": 0.0032,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 379,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7712,
+          "QF": 0.0116,
+          "SF": 0.0002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 380,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0482,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 405,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.012,
+          "QF": 0.0006,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 571,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7314,
+          "QF": 0.1164,
+          "SF": 0.027,
+          "F": 0.0034,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "AAA",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 173,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9898,
+          "QF": 0.9626,
+          "SF": 0.8724,
+          "F": 0.8604,
+          "Champ": 0.7572
+        }
+      },
+      {
+        "team_id": 611,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9998,
+          "QF": 0.8182,
+          "SF": 0.722,
+          "F": 0.4436,
+          "Champ": 0.1
+        }
+      },
+      {
+        "team_id": 212,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9846,
+          "QF": 0.8826,
+          "SF": 0.1128,
+          "F": 0.099,
+          "Champ": 0.0472
+        }
+      },
+      {
+        "team_id": 14,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9404,
+          "QF": 0.9376,
+          "SF": 0.505,
+          "F": 0.255,
+          "Champ": 0.0418
+        }
+      },
+      {
+        "team_id": 171,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.994,
+          "QF": 0.8652,
+          "SF": 0.462,
+          "F": 0.238,
+          "Champ": 0.0416
+        }
+      },
+      {
+        "team_id": 378,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5826,
+          "QF": 0.1354,
+          "SF": 0.0844,
+          "F": 0.0234,
+          "Champ": 0.0028
+        }
+      },
+      {
+        "team_id": 12,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9628,
+          "QF": 0.671,
+          "SF": 0.4828,
+          "F": 0.02,
+          "Champ": 0.0026
+        }
+      },
+      {
+        "team_id": 144,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8016,
+          "QF": 0.0318,
+          "SF": 0.0106,
+          "F": 0.007,
+          "Champ": 0.0016
+        }
+      },
+      {
+        "team_id": 194,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9542,
+          "QF": 0.802,
+          "SF": 0.1576,
+          "F": 0.0286,
+          "Champ": 0.0014
+        }
+      },
+      {
+        "team_id": 189,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9166,
+          "QF": 0.5694,
+          "SF": 0.2078,
+          "F": 0.0068,
+          "Champ": 0.0012
+        }
+      },
+      {
+        "team_id": 243,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8418,
+          "QF": 0.1314,
+          "SF": 0.0288,
+          "F": 0.0074,
+          "Champ": 0.001
+        }
+      },
+      {
+        "team_id": 113,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6962,
+          "QF": 0.2558,
+          "SF": 0.1528,
+          "F": 0.0028,
+          "Champ": 0.0006
+        }
+      },
+      {
+        "team_id": 269,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0102,
+          "QF": 0.0044,
+          "SF": 0.0008,
+          "F": 0.0006,
+          "Champ": 0.0004
+        }
+      },
+      {
+        "team_id": 389,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4174,
+          "QF": 0.0464,
+          "SF": 0.0262,
+          "F": 0.0036,
+          "Champ": 0.0004
+        }
+      },
+      {
+        "team_id": 112,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8992,
+          "QF": 0.1132,
+          "SF": 0.0034,
+          "F": 0.0006,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 4,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8028,
+          "QF": 0.1694,
+          "SF": 0.0098,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 31,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1984,
+          "QF": 0.0012,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 37,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.006,
+          "QF": 0.001,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 46,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0458,
+          "QF": 0.0178,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 51,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1582,
+          "QF": 0.0024,
+          "SF": 0.0002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 136,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3038,
+          "QF": 0.0698,
+          "SF": 0.0316,
+          "F": 0.0012,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 140,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 152,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0596,
+          "QF": 0.0522,
+          "SF": 0.004,
+          "F": 0.0004,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 160,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1008,
+          "QF": 0.0012,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 207,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4532,
+          "QF": 0.0032,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 214,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0834,
+          "QF": 0.0126,
+          "SF": 0.0006,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 224,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0154,
+          "QF": 0.003,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 234,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5468,
+          "QF": 0.007,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 270,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.889,
+          "QF": 0.4042,
+          "SF": 0.123,
+          "F": 0.0016,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 386,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0372,
+          "QF": 0.0034,
+          "SF": 0.0006,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 549,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1972,
+          "QF": 0.0108,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 550,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.111,
+          "QF": 0.0138,
+          "SF": 0.0008,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "AA",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 571,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.935,
+          "SF": 0.7558,
+          "F": 0.4564,
+          "Champ": 0.3442
+        }
+      },
+      {
+        "team_id": 126,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.916,
+          "SF": 0.8188,
+          "F": 0.4366,
+          "Champ": 0.2942
+        }
+      },
+      {
+        "team_id": 219,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9404,
+          "QF": 0.9404,
+          "SF": 0.4976,
+          "F": 0.3414,
+          "Champ": 0.1252
+        }
+      },
+      {
+        "team_id": 261,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.6326,
+          "SF": 0.335,
+          "F": 0.2414,
+          "Champ": 0.09
+        }
+      },
+      {
+        "team_id": 162,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9992,
+          "QF": 0.8596,
+          "SF": 0.6282,
+          "F": 0.2518,
+          "Champ": 0.0678
+        }
+      },
+      {
+        "team_id": 132,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6678,
+          "QF": 0.28,
+          "SF": 0.1356,
+          "F": 0.0884,
+          "Champ": 0.0256
+        }
+      },
+      {
+        "team_id": 93,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.585,
+          "QF": 0.3938,
+          "SF": 0.1062,
+          "F": 0.0404,
+          "Champ": 0.024
+        }
+      },
+      {
+        "team_id": 175,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.8582,
+          "QF": 0.7512,
+          "SF": 0.136,
+          "F": 0.0262,
+          "Champ": 0.0088
+        }
+      },
+      {
+        "team_id": 227,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.415,
+          "QF": 0.2306,
+          "SF": 0.0558,
+          "F": 0.0172,
+          "Champ": 0.0052
+        }
+      },
+      {
+        "team_id": 358,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9836,
+          "QF": 0.375,
+          "SF": 0.0596,
+          "F": 0.0144,
+          "Champ": 0.005
+        }
+      },
+      {
+        "team_id": 218,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9998,
+          "QF": 0.5906,
+          "SF": 0.2076,
+          "F": 0.038,
+          "Champ": 0.0038
+        }
+      },
+      {
+        "team_id": 204,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5734,
+          "QF": 0.0468,
+          "SF": 0.0182,
+          "F": 0.0036,
+          "Champ": 0.0016
+        }
+      },
+      {
+        "team_id": 580,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3322,
+          "QF": 0.0874,
+          "SF": 0.0286,
+          "F": 0.0152,
+          "Champ": 0.0016
+        }
+      },
+      {
+        "team_id": 206,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6486,
+          "QF": 0.0762,
+          "SF": 0.0312,
+          "F": 0.0038,
+          "Champ": 0.0014
+        }
+      },
+      {
+        "team_id": 244,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9986,
+          "QF": 0.4094,
+          "SF": 0.1138,
+          "F": 0.0178,
+          "Champ": 0.0014
+        }
+      },
+      {
+        "team_id": 513,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7248,
+          "QF": 0.1192,
+          "SF": 0.046,
+          "F": 0.0054,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 2,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.6356,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 92,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3514,
+          "QF": 0.0078,
+          "SF": 0.002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 111,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0014,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 128,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0164,
+          "QF": 0.0006,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 149,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4266,
+          "QF": 0.0182,
+          "SF": 0.0044,
+          "F": 0.0008,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 168,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.1418,
+          "QF": 0.0722,
+          "SF": 0.0036,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 176,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0008,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 233,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.3644,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 245,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0596,
+          "QF": 0.0596,
+          "SF": 0.0032,
+          "F": 0.0004,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 248,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.473,
+          "QF": 0.0854,
+          "SF": 0.004,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 255,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2752,
+          "QF": 0.0212,
+          "SF": 0.0044,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 284,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 287,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 317,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.527,
+          "QF": 0.0912,
+          "SF": 0.0044,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 353,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 635,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "A DI",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 300,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.998,
+          "QF": 0.6892,
+          "SF": 0.6232,
+          "F": 0.4536,
+          "Champ": 0.363
+        }
+      },
+      {
+        "team_id": 95,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9566,
+          "QF": 0.9398,
+          "SF": 0.7562,
+          "F": 0.5908,
+          "Champ": 0.2418
+        }
+      },
+      {
+        "team_id": 199,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 1.0,
+          "QF": 0.9798,
+          "SF": 0.7064,
+          "F": 0.3044,
+          "Champ": 0.1922
+        }
+      },
+      {
+        "team_id": 105,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9938,
+          "QF": 0.3108,
+          "SF": 0.2152,
+          "F": 0.1168,
+          "Champ": 0.0704
+        }
+      },
+      {
+        "team_id": 256,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.975,
+          "QF": 0.8264,
+          "SF": 0.273,
+          "F": 0.0772,
+          "Champ": 0.0374
+        }
+      },
+      {
+        "team_id": 170,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9912,
+          "QF": 0.5486,
+          "SF": 0.4228,
+          "F": 0.1466,
+          "Champ": 0.0324
+        }
+      },
+      {
+        "team_id": 701,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9376,
+          "QF": 0.4464,
+          "SF": 0.3356,
+          "F": 0.1064,
+          "Champ": 0.022
+        }
+      },
+      {
+        "team_id": 680,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.9992,
+          "QF": 0.8638,
+          "SF": 0.2232,
+          "F": 0.1128,
+          "Champ": 0.0184
+        }
+      },
+      {
+        "team_id": 254,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.998,
+          "QF": 0.5404,
+          "SF": 0.0958,
+          "F": 0.0274,
+          "Champ": 0.0116
+        }
+      },
+      {
+        "team_id": 654,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.5454,
+          "QF": 0.2572,
+          "SF": 0.0376,
+          "F": 0.0114,
+          "Champ": 0.0044
+        }
+      },
+      {
+        "team_id": 53,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.4546,
+          "QF": 0.2024,
+          "SF": 0.0282,
+          "F": 0.0076,
+          "Champ": 0.0024
+        }
+      },
+      {
+        "team_id": 262,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7874,
+          "QF": 0.4612,
+          "SF": 0.1262,
+          "F": 0.0232,
+          "Champ": 0.0024
+        }
+      },
+      {
+        "team_id": 221,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7618,
+          "QF": 0.4044,
+          "SF": 0.1022,
+          "F": 0.0156,
+          "Champ": 0.0016
+        }
+      },
+      {
+        "team_id": 20,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 99,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0088,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 101,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2868,
+          "QF": 0.015,
+          "SF": 0.0004,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 102,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.025,
+          "QF": 0.005,
+          "SF": 0.0002,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 129,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.626,
+          "QF": 0.1234,
+          "SF": 0.0148,
+          "F": 0.0014,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 138,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.904,
+          "QF": 0.0358,
+          "SF": 0.0072,
+          "F": 0.001,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 145,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.096,
+          "QF": 0.0002,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 148,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2426,
+          "QF": 0.0006,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 181,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2126,
+          "QF": 0.068,
+          "SF": 0.004,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 203,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.374,
+          "QF": 0.0452,
+          "SF": 0.0046,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 222,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0434,
+          "QF": 0.0242,
+          "SF": 0.0066,
+          "F": 0.0016,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 240,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7132,
+          "QF": 0.1212,
+          "SF": 0.0064,
+          "F": 0.001,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 247,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0624,
+          "QF": 0.005,
+          "SF": 0.002,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 251,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.7574,
+          "QF": 0.0196,
+          "SF": 0.001,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 281,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0008,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 298,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0062,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 310,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.2382,
+          "QF": 0.0664,
+          "SF": 0.0072,
+          "F": 0.0006,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 311,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 703,
+        "round_probabilities": {
+          "R32": 1.0,
+          "R16": 0.002,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "A DII",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 257,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.9836,
+          "F": 0.8422,
+          "Champ": 0.5666
+        }
+      },
+      {
+        "team_id": 678,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.5888,
+          "F": 0.4726,
+          "Champ": 0.215
+        }
+      },
+      {
+        "team_id": 139,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.8882,
+          "SF": 0.4062,
+          "F": 0.2914,
+          "Champ": 0.1204
+        }
+      },
+      {
+        "team_id": 627,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9774,
+          "SF": 0.8284,
+          "F": 0.1484,
+          "Champ": 0.0544
+        }
+      },
+      {
+        "team_id": 259,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.4876,
+          "F": 0.1138,
+          "Champ": 0.0226
+        }
+      },
+      {
+        "team_id": 97,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9996,
+          "SF": 0.5124,
+          "F": 0.1212,
+          "Champ": 0.0196
+        }
+      },
+      {
+        "team_id": 106,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9988,
+          "SF": 0.1682,
+          "F": 0.0066,
+          "Champ": 0.0012
+        }
+      },
+      {
+        "team_id": 681,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.1118,
+          "SF": 0.005,
+          "F": 0.001,
+          "Champ": 0.0002
+        }
+      },
+      {
+        "team_id": 124,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9892,
+          "SF": 0.0164,
+          "F": 0.0028,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 130,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0108,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 195,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 220,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0226,
+          "SF": 0.0034,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 258,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0012,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 267,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0004,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 302,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 688,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  },
+  {
+    "bracket": "Private",
+    "n_simulations": 5000,
+    "teams": [
+      {
+        "team_id": 156,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.9986,
+          "F": 0.8798,
+          "Champ": 0.5518
+        }
+      },
+      {
+        "team_id": 328,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9514,
+          "SF": 0.8612,
+          "F": 0.7428,
+          "Champ": 0.3826
+        }
+      },
+      {
+        "team_id": 115,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9702,
+          "SF": 0.6672,
+          "F": 0.0918,
+          "Champ": 0.033
+        }
+      },
+      {
+        "team_id": 337,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.8788,
+          "SF": 0.594,
+          "F": 0.142,
+          "Champ": 0.019
+        }
+      },
+      {
+        "team_id": 354,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.8762,
+          "SF": 0.3216,
+          "F": 0.0282,
+          "Champ": 0.0074
+        }
+      },
+      {
+        "team_id": 345,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.3712,
+          "F": 0.062,
+          "Champ": 0.003
+        }
+      },
+      {
+        "team_id": 188,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.6202,
+          "SF": 0.0808,
+          "F": 0.0352,
+          "Champ": 0.0028
+        }
+      },
+      {
+        "team_id": 685,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0486,
+          "SF": 0.0202,
+          "F": 0.004,
+          "Champ": 0.0004
+        }
+      },
+      {
+        "team_id": 56,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9422,
+          "SF": 0.795,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 94,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9998,
+          "SF": 0.1846,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 96,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9324,
+          "SF": 0.0014,
+          "F": 0.0002,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 135,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.9462,
+          "SF": 0.065,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 182,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.3798,
+          "SF": 0.0378,
+          "F": 0.0114,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 235,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0298,
+          "SF": 0.0042,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 324,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.1238,
+          "SF": 0.007,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 333,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 334,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.1212,
+          "SF": 0.0348,
+          "F": 0.0026,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 344,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 357,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0002,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 363,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0676,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 406,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0578,
+          "SF": 0.0204,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 407,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0538,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 646,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 1.0,
+          "SF": 0.935,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 647,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 692,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      },
+      {
+        "team_id": 693,
+        "round_probabilities": {
+          "R16": 1.0,
+          "QF": 0.0,
+          "SF": 0.0,
+          "F": 0.0,
+          "Champ": 0.0
+        }
+      }
+    ]
+  }
+]

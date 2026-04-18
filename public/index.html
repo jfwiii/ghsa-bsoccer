@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GHSA Boys Soccer Ratings & Simulator</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --border: #2a2d3a;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --accent: #3b82f6;
+    --accent2: #10b981;
+    --warn: #f59e0b;
+    --danger: #ef4444;
+    --header-bg: #161929;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, sans-serif; font-size: 14px; line-height: 1.5; }
+
+  header { background: var(--header-bg); border-bottom: 1px solid var(--border); padding: 12px 20px; display: flex; align-items: center; gap: 16px; position: sticky; top: 0; z-index: 100; }
+  header h1 { font-size: 18px; font-weight: 700; color: var(--text); }
+  header .subtitle { color: var(--muted); font-size: 12px; }
+  header .updated { margin-left: auto; color: var(--muted); font-size: 11px; }
+
+  nav { display: flex; border-bottom: 1px solid var(--border); background: var(--surface); overflow-x: auto; }
+  nav button { padding: 10px 18px; background: none; border: none; border-bottom: 2px solid transparent; color: var(--muted); cursor: pointer; font-size: 13px; white-space: nowrap; transition: color .15s, border-color .15s; }
+  nav button.active { color: var(--accent); border-bottom-color: var(--accent); }
+  nav button:hover:not(.active) { color: var(--text); }
+
+  .tab { display: none; padding: 16px 20px; max-width: 1400px; margin: 0 auto; }
+  .tab.active { display: block; }
+
+  /* Controls row */
+  .controls { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 14px; align-items: center; }
+  .controls input, .controls select { background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 6px 10px; border-radius: 6px; font-size: 13px; outline: none; }
+  .controls input:focus, .controls select:focus { border-color: var(--accent); }
+  .controls label { color: var(--muted); font-size: 12px; }
+
+  /* Tables */
+  .tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 8px; }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--surface); color: var(--muted); font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; padding: 8px 12px; text-align: left; cursor: pointer; user-select: none; white-space: nowrap; border-bottom: 1px solid var(--border); }
+  th:hover { color: var(--text); }
+  th .sort-arrow { margin-left: 4px; opacity: .4; }
+  th.sort-asc .sort-arrow::after { content: "▲"; }
+  th.sort-desc .sort-arrow::after { content: "▼"; }
+  td { padding: 7px 12px; border-bottom: 1px solid var(--border); color: var(--text); white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(59,130,246,.06); }
+
+  .rank { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; }
+  .rating-bar { display: inline-block; width: 60px; height: 6px; background: var(--border); border-radius: 3px; vertical-align: middle; margin-left: 6px; }
+  .rating-bar-fill { height: 100%; border-radius: 3px; background: var(--accent); }
+  .badge { display: inline-block; padding: 1px 6px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+  .badge-class { background: rgba(59,130,246,.15); color: var(--accent); }
+  .badge-private { background: rgba(245,158,11,.15); color: var(--warn); }
+
+  /* Bracket */
+  .bracket-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+  .bracket-tab-btn { padding: 5px 12px; border-radius: 20px; border: 1px solid var(--border); background: var(--surface); color: var(--muted); cursor: pointer; font-size: 12px; transition: all .15s; }
+  .bracket-tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); }
+
+  .bracket-grid { display: flex; gap: 0; overflow-x: auto; }
+  .bracket-round { min-width: 180px; }
+  .bracket-round-label { color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: 8px 12px; border-bottom: 1px solid var(--border); background: var(--surface); }
+  .bracket-matchup { border: 1px solid var(--border); border-radius: 6px; margin: 8px; background: var(--surface); overflow: hidden; }
+  .bracket-team { padding: 7px 10px; display: flex; align-items: center; gap: 8px; border-bottom: 1px solid var(--border); cursor: pointer; }
+  .bracket-team:last-child { border-bottom: none; }
+  .bracket-team:hover { background: rgba(59,130,246,.08); }
+  .bracket-team .seed { width: 18px; text-align: center; color: var(--muted); font-size: 11px; }
+  .bracket-team .name { flex: 1; font-size: 12px; }
+  .bracket-team .prob { font-size: 11px; color: var(--accent2); font-variant-numeric: tabular-nums; }
+  .bracket-team.winner { background: rgba(16,185,129,.08); }
+  .bracket-team.winner .name { font-weight: 600; }
+
+  /* Odds table */
+  .odds-table td .prob-bar { display: inline-block; width: 80px; height: 8px; background: var(--border); border-radius: 4px; vertical-align: middle; margin-left: 8px; }
+  .odds-table td .prob-bar-fill { height: 100%; border-radius: 4px; background: var(--accent2); }
+
+  /* Methodology */
+  .method-section { margin-bottom: 24px; }
+  .method-section h3 { font-size: 15px; margin-bottom: 8px; color: var(--text); }
+  .method-section p { color: var(--muted); margin-bottom: 8px; line-height: 1.7; }
+  .method-section code { background: var(--surface); padding: 1px 5px; border-radius: 3px; font-family: monospace; font-size: 12px; color: var(--accent2); }
+  .coverage-panel { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 16px; display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-bottom: 20px; }
+  .coverage-item { text-align: center; }
+  .coverage-item .num { font-size: 24px; font-weight: 700; color: var(--accent); }
+  .coverage-item .label { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+  /* Regions */
+  .region-section { margin-bottom: 20px; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; }
+  .region-header { background: var(--surface); padding: 10px 14px; cursor: pointer; display: flex; align-items: center; gap: 8px; }
+  .region-header h4 { font-size: 13px; }
+  .region-header .toggle { margin-left: auto; color: var(--muted); font-size: 12px; }
+  .region-body { display: none; }
+  .region-body.open { display: block; }
+
+  /* Team detail panel */
+  .team-panel { position: fixed; right: 0; top: 0; bottom: 0; width: 340px; background: var(--surface); border-left: 1px solid var(--border); z-index: 200; padding: 20px; overflow-y: auto; transform: translateX(100%); transition: transform .2s; }
+  .team-panel.open { transform: translateX(0); }
+  .team-panel .close-btn { float: right; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; }
+  .team-panel h3 { font-size: 16px; margin-bottom: 4px; }
+  .team-panel .meta { color: var(--muted); font-size: 12px; margin-bottom: 16px; }
+  .team-panel .stat-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid var(--border); }
+  .team-panel .stat-label { color: var(--muted); font-size: 12px; }
+  .team-panel .stat-value { font-weight: 600; font-size: 13px; }
+  .team-panel h4 { margin-top: 14px; margin-bottom: 8px; font-size: 13px; color: var(--muted); }
+
+  /* Loading */
+  .loading { text-align: center; padding: 60px; color: var(--muted); }
+  .error-msg { background: rgba(239,68,68,.1); border: 1px solid var(--danger); border-radius: 6px; padding: 12px 16px; color: var(--danger); margin-bottom: 16px; }
+
+  @media (max-width: 600px) {
+    .team-panel { width: 100%; }
+    header h1 { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>GHSA Boys Soccer</h1>
+    <div class="subtitle">Ratings &amp; Bracket Simulator · 2025–2026</div>
+  </div>
+  <div class="updated" id="updated-ts"></div>
+</header>
+
+<nav>
+  <button class="active" onclick="showTab('rankings')">Rankings</button>
+  <button onclick="showTab('regions')">Regions</button>
+  <button onclick="showTab('brackets')">Brackets</button>
+  <button onclick="showTab('odds')">Odds</button>
+  <button onclick="showTab('methodology')">Methodology</button>
+</nav>
+
+<!-- ===================== RANKINGS ===================== -->
+<div id="tab-rankings" class="tab active">
+  <div class="controls">
+    <input type="search" id="search-teams" placeholder="Search teams…" oninput="renderRankings()">
+    <select id="filter-class" onchange="renderRankings()">
+      <option value="">All Classes</option>
+      <option>AAAAAA</option><option>AAAAA</option><option>AAAA</option>
+      <option>AAA</option><option>AA</option><option>A DI</option>
+      <option>A DII</option><option>Private</option>
+    </select>
+    <select id="filter-region" onchange="renderRankings()">
+      <option value="">All Regions/Areas</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table id="rankings-table">
+      <thead>
+        <tr>
+          <th data-col="rating_rank_overall">Rank <span class="sort-arrow"></span></th>
+          <th data-col="name">Team <span class="sort-arrow"></span></th>
+          <th data-col="class">Class <span class="sort-arrow"></span></th>
+          <th data-col="region_or_area">Region <span class="sort-arrow"></span></th>
+          <th data-col="record">Record <span class="sort-arrow"></span></th>
+          <th data-col="rating">Rating <span class="sort-arrow"></span></th>
+          <th data-col="attack">Attack <span class="sort-arrow"></span></th>
+          <th data-col="defense">Defense <span class="sort-arrow"></span></th>
+          <th data-col="maxpreps_state_rank">MaxPreps <span class="sort-arrow"></span></th>
+          <th data-col="psr_rank">PSR <span class="sort-arrow"></span></th>
+        </tr>
+      </thead>
+      <tbody id="rankings-body">
+        <tr><td colspan="10" class="loading">Loading…</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== REGIONS ===================== -->
+<div id="tab-regions" class="tab">
+  <div id="regions-container">
+    <div class="loading">Loading…</div>
+  </div>
+</div>
+
+<!-- ===================== BRACKETS ===================== -->
+<div id="tab-brackets" class="tab">
+  <div class="bracket-tabs" id="bracket-nav"></div>
+  <div id="bracket-view"><div class="loading">Loading…</div></div>
+</div>
+
+<!-- ===================== ODDS ===================== -->
+<div id="tab-odds" class="tab">
+  <div class="controls">
+    <select id="odds-bracket-select" onchange="renderOdds()">
+      <option value="">All Brackets</option>
+    </select>
+  </div>
+  <div class="tbl-wrap">
+    <table class="odds-table">
+      <thead>
+        <tr>
+          <th>Team</th><th>Class</th><th>Bracket</th>
+          <th>R1</th><th>QF</th><th>SF</th><th>Final</th><th>Champion</th>
+        </tr>
+      </thead>
+      <tbody id="odds-body"><tr><td colspan="8" class="loading">Loading…</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ===================== METHODOLOGY ===================== -->
+<div id="tab-methodology" class="tab">
+  <div id="coverage-panel-container"></div>
+
+  <div class="method-section">
+    <h3>Rating Model: Dixon-Coles Bivariate Poisson</h3>
+    <p>Each team is assigned an <strong>attack rate</strong> α and <strong>defense rate</strong> β.
+    For a matchup home team <em>h</em> vs. away team <em>a</em>:</p>
+    <p><code>λ = α_h · β_a · γ · (duration/80)</code> &nbsp;(expected home goals)</p>
+    <p><code>μ = α_a · β_h · (duration/80)</code> &nbsp;(expected away goals)</p>
+    <p>A low-score correction ρ adjusts the probability of 0–0, 0–1, 1–0, and 1–1 scorelines
+    to account for the negative correlation between goals. Scores are drawn from a joint
+    Poisson distribution with this correction.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Margin-of-Victory Transform</h3>
+    <p>The Massey warm-start uses <code>f(d) = sign(d) · log(1 + |d|)</code>
+    (FiveThirtyEight convention). This preserves ordering over all margins while
+    compressing extreme blowouts — consistent with GHSA's own 3-goal cap in region
+    seeding tiebreakers.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Variable Game Duration</h3>
+    <p>GHSA adopts the NFHS mercy rule: a 7+ goal halftime deficit shortens the
+    second half to 20 minutes; a 10+ goal halftime deficit terminates the game.
+    Goal rates λ and μ are per-80-minute rates; each game scales them by
+    <code>duration_used / 80</code>. Duration is <strong>observed</strong> from MaxPreps
+    halftime scores when available; otherwise <strong>imputed</strong> from final margin
+    via a lookup table (design §7.4).</p>
+  </div>
+
+  <div class="method-section">
+    <h3>PK-Score Contamination Recovery</h3>
+    <p>GHSA rules require adding a phantom goal to the PK winner's final score.
+    MaxPreps reports the true pre-shootout regulation score. The model likelihood uses
+    <strong>regulation scores only</strong>, removing phantom-goal contamination.
+    When MaxPreps is unavailable, the GHSA reported score is used as fallback.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Time Decay</h3>
+    <p>Games are weighted <code>w = exp(−ξ · Δt)</code> with ξ = 0.015/day
+    (half-life ≈ 46 days). Earlier games count less than recent form.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Bracket Simulation</h3>
+    <p>200,000 Monte Carlo simulations per bracket. Each simulated game samples
+    a score from the joint Dixon-Coles distribution. Ties go to overtime (20-min
+    scaled rates), then to a PK coin flip weighted by attack ratings.
+    Higher seeds host through the semifinals; the championship is neutral-site.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Enrichment Coverage</h3>
+    <div id="method-coverage"></div>
+    <p>See the <a href="https://www.ghsa.net/sites/default/files/documents/soccer/2025-2026_GHSA_Soccer_Handbook.pdf" target="_blank" style="color:var(--accent)">GHSA Soccer Handbook</a>
+    and <a href="https://doi.org/10.2307/2986290" target="_blank" style="color:var(--accent)">Dixon &amp; Coles (1997)</a> for references.</p>
+  </div>
+</div>
+
+<!-- Team detail side panel -->
+<div id="team-panel" class="team-panel">
+  <button class="close-btn" onclick="closePanel()">✕</button>
+  <div id="team-panel-content"></div>
+</div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+let ratingsData = null;
+let oddsData = null;
+let bracketsData = null;
+let currentBracket = null;
+let sortCol = 'rating_rank_overall';
+let sortAsc = true;
+
+// ============================================================
+// Data loading
+// ============================================================
+async function loadAll() {
+  try {
+    const [rRes, oRes] = await Promise.all([
+      fetch('ratings.json').catch(() => null),
+      fetch('bracket_odds.json').catch(() => null),
+    ]);
+
+    if (rRes && rRes.ok) {
+      ratingsData = await rRes.json();
+      document.getElementById('updated-ts').textContent =
+        'Updated: ' + new Date(ratingsData.fit_timestamp).toLocaleString();
+      populateFilters();
+      renderRankings();
+      renderRegions();
+      renderMethodologyCoverage();
+    } else {
+      showError('tab-rankings', 'ratings.json not found — run the pipeline first.');
+    }
+
+    if (oRes && oRes.ok) {
+      oddsData = await oRes.json();
+      populateBracketSelects();
+      renderBrackets();
+      renderOdds();
+    } else {
+      document.getElementById('bracket-view').innerHTML =
+        '<div class="error-msg">bracket_odds.json not found — run the pipeline first.</div>';
+    }
+  } catch (e) {
+    console.error(e);
+    showError('tab-rankings', 'Error loading data: ' + e.message);
+  }
+}
+
+function showError(tabId, msg) {
+  const el = document.getElementById(tabId);
+  if (el) el.innerHTML = `<div class="error-msg">${msg}</div>`;
+}
+
+// ============================================================
+// Tab navigation
+// ============================================================
+function showTab(name) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const btns = document.querySelectorAll('nav button');
+  const tabMap = { rankings: 0, regions: 1, brackets: 2, odds: 3, methodology: 4 };
+  if (tabMap[name] !== undefined) btns[tabMap[name]].classList.add('active');
+}
+
+// ============================================================
+// Rankings tab
+// ============================================================
+function populateFilters() {
+  if (!ratingsData) return;
+  const regionSel = document.getElementById('filter-region');
+  const regions = [...new Set(ratingsData.teams.map(t => t.region_or_area).filter(Boolean))].sort();
+  regions.forEach(r => {
+    const opt = document.createElement('option');
+    opt.value = r; opt.textContent = r;
+    regionSel.appendChild(opt);
+  });
+
+  // Set up sortable headers
+  document.querySelectorAll('#rankings-table th[data-col]').forEach(th => {
+    th.addEventListener('click', () => {
+      const col = th.dataset.col;
+      if (sortCol === col) sortAsc = !sortAsc;
+      else { sortCol = col; sortAsc = col === 'rating_rank_overall'; }
+      document.querySelectorAll('#rankings-table th').forEach(h => {
+        h.classList.remove('sort-asc', 'sort-desc');
+      });
+      th.classList.add(sortAsc ? 'sort-asc' : 'sort-desc');
+      renderRankings();
+    });
+  });
+}
+
+function renderRankings() {
+  if (!ratingsData) return;
+  const search = document.getElementById('search-teams').value.toLowerCase();
+  const cls = document.getElementById('filter-class').value;
+  const region = document.getElementById('filter-region').value;
+
+  let teams = ratingsData.teams.filter(t => {
+    if (search && !t.name.toLowerCase().includes(search)) return false;
+    if (cls && t.class !== cls) return false;
+    if (region && t.region_or_area !== region) return false;
+    return true;
+  });
+
+  // Sort
+  teams = [...teams].sort((a, b) => {
+    let av = a[sortCol], bv = b[sortCol];
+    if (av === null || av === undefined) av = sortAsc ? Infinity : -Infinity;
+    if (bv === null || bv === undefined) bv = sortAsc ? Infinity : -Infinity;
+    return sortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
+  });
+
+  const maxRating = Math.max(...ratingsData.teams.map(t => t.rating || 0));
+  const tbody = document.getElementById('rankings-body');
+  tbody.innerHTML = teams.map(t => {
+    const barPct = Math.round((t.rating / maxRating) * 100);
+    const isPrivate = t.class === 'Private';
+    return `<tr onclick="openTeamPanel(${t.team_id})">
+      <td class="rank">${t.rating_rank_overall ?? '—'}</td>
+      <td><strong>${esc(t.name)}</strong></td>
+      <td><span class="badge ${isPrivate ? 'badge-private' : 'badge-class'}">${esc(t.class)}</span></td>
+      <td style="color:var(--muted)">${esc(t.region_or_area ?? '—')}</td>
+      <td style="font-variant-numeric:tabular-nums">${esc(t.record ?? '—')}</td>
+      <td>
+        ${(t.rating ?? 0).toFixed(3)}
+        <span class="rating-bar"><span class="rating-bar-fill" style="width:${barPct}%"></span></span>
+      </td>
+      <td>${(t.attack ?? 0).toFixed(3)}</td>
+      <td>${(t.defense ?? 0).toFixed(3)}</td>
+      <td style="color:var(--muted)">${t.maxpreps_state_rank ?? '—'}</td>
+      <td style="color:var(--muted)">${t.psr_rank ?? '—'}</td>
+    </tr>`;
+  }).join('') || '<tr><td colspan="10" style="text-align:center;color:var(--muted);padding:24px">No teams match</td></tr>';
+}
+
+// ============================================================
+// Regions tab
+// ============================================================
+function renderRegions() {
+  if (!ratingsData) return;
+  const container = document.getElementById('regions-container');
+
+  // Group by class → region
+  const byClassRegion = {};
+  ratingsData.teams.forEach(t => {
+    const cls = t.class || 'Unknown';
+    const reg = t.region_or_area || 'Unassigned';
+    const key = `${cls}:::${reg}`;
+    if (!byClassRegion[key]) byClassRegion[key] = { cls, reg, teams: [] };
+    byClassRegion[key].teams.push(t);
+  });
+
+  const classOrder = ['AAAAAA','AAAAA','AAAA','AAA','AA','A DI','A DII','Private'];
+  const entries = Object.values(byClassRegion).sort((a, b) => {
+    const ai = classOrder.indexOf(a.cls), bi = classOrder.indexOf(b.cls);
+    return ai !== bi ? ai - bi : a.reg.localeCompare(b.reg);
+  });
+
+  container.innerHTML = entries.map((entry, i) => {
+    const rows = entry.teams.sort((a, b) => (a.rating_rank_region ?? 99) - (b.rating_rank_region ?? 99));
+    const tableRows = rows.map(t =>
+      `<tr onclick="openTeamPanel(${t.team_id})">
+        <td class="rank">${t.rating_rank_region ?? '—'}</td>
+        <td><strong>${esc(t.name)}</strong></td>
+        <td style="font-variant-numeric:tabular-nums">${esc(t.record ?? '—')}</td>
+        <td>${(t.rating ?? 0).toFixed(3)}</td>
+        <td style="color:var(--muted)">${t.maxpreps_state_rank ?? '—'}</td>
+      </tr>`
+    ).join('');
+    return `
+    <div class="region-section">
+      <div class="region-header" onclick="toggleRegion(${i})">
+        <span class="badge ${entry.cls==='Private'?'badge-private':'badge-class'}">${esc(entry.cls)}</span>
+        <h4>${esc(entry.reg)}</h4>
+        <span class="toggle" id="toggle-${i}">▼</span>
+      </div>
+      <div class="region-body" id="region-body-${i}">
+        <div class="tbl-wrap" style="border:none;border-radius:0">
+          <table><thead>
+            <tr><th>Rank</th><th>Team</th><th>Record</th><th>Rating</th><th>MaxPreps</th></tr>
+          </thead><tbody>${tableRows}</tbody></table>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleRegion(i) {
+  const body = document.getElementById('region-body-' + i);
+  const toggle = document.getElementById('toggle-' + i);
+  const open = body.classList.toggle('open');
+  toggle.textContent = open ? '▲' : '▼';
+}
+
+// ============================================================
+// Brackets tab
+// ============================================================
+function populateBracketSelects() {
+  if (!oddsData) return;
+  const nav = document.getElementById('bracket-nav');
+  const sel = document.getElementById('odds-bracket-select');
+  oddsData.forEach((b, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'bracket-tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = b.bracket;
+    btn.onclick = () => {
+      document.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      currentBracket = b.bracket;
+      renderBrackets();
+    };
+    nav.appendChild(btn);
+
+    const opt = document.createElement('option');
+    opt.value = b.bracket; opt.textContent = b.bracket;
+    sel.appendChild(opt);
+  });
+  if (oddsData.length > 0) currentBracket = oddsData[0].bracket;
+}
+
+function renderBrackets() {
+  if (!oddsData) return;
+  const bracket = oddsData.find(b => b.bracket === currentBracket) || oddsData[0];
+  if (!bracket) return;
+
+  // Build team_id → bracket team info
+  const teamInfo = {};
+  bracket.teams.forEach(t => { teamInfo[t.team_id] = t; });
+
+  // Get seed info from ratingsData if available
+  const ratingTeam = {};
+  if (ratingsData) ratingsData.teams.forEach(t => { ratingTeam[t.team_id] = t; });
+
+  const view = document.getElementById('bracket-view');
+
+  // We don't have raw bracket structure in bracket_odds.json directly (only probs)
+  // Display as probability-sorted championship odds grid instead
+  const roundLabels = ['R1','R2','QF','SF','F','Champ'];
+  const validLabels = roundLabels.filter(lbl =>
+    bracket.teams.some(t => t.round_probabilities[lbl] !== undefined)
+  );
+
+  const rows = bracket.teams.map(t => {
+    const rt = ratingTeam[t.team_id] || {};
+    const probs = t.round_probabilities;
+    const cells = validLabels.map(lbl => {
+      const p = probs[lbl];
+      if (p === undefined) return '<td>—</td>';
+      const pct = (p * 100).toFixed(1);
+      const heat = Math.round(p * 220);
+      return `<td style="color:rgb(${255-heat},${heat+100},${255-heat/2})">${pct}%</td>`;
+    }).join('');
+    return `<tr onclick="openTeamPanel(${t.team_id})">
+      <td><strong>${esc(rt.name || t.team_id)}</strong></td>
+      ${cells}
+    </tr>`;
+  }).join('');
+
+  view.innerHTML = `
+    <p style="color:var(--muted);font-size:12px;margin-bottom:12px">
+      ${bracket.n_simulations.toLocaleString()} simulations · ${esc(bracket.bracket)} bracket
+    </p>
+    <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>Team</th>${validLabels.map(l=>`<th>${l}</th>`).join('')}</tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+}
+
+// ============================================================
+// Odds tab
+// ============================================================
+function renderOdds() {
+  if (!oddsData) return;
+  const sel = document.getElementById('odds-bracket-select').value;
+  const brackets = sel ? oddsData.filter(b => b.bracket === sel) : oddsData;
+
+  const ratingTeam = {};
+  if (ratingsData) ratingsData.teams.forEach(t => { ratingTeam[t.team_id] = t; });
+
+  const allTeams = [];
+  brackets.forEach(bracket => {
+    bracket.teams.forEach(t => {
+      const rt = ratingTeam[t.team_id] || {};
+      const probs = t.round_probabilities;
+      const champ = probs['Champ'] ?? probs['Champion'] ?? 0;
+      allTeams.push({
+        name: rt.name || t.team_id,
+        class: rt.class || '',
+        bracket: bracket.bracket,
+        r1: probs['R1'] ?? probs['R32'] ?? 1,
+        qf: probs['QF'] ?? 0,
+        sf: probs['SF'] ?? 0,
+        final: probs['F'] ?? probs['Final'] ?? 0,
+        champ,
+        team_id: t.team_id,
+      });
+    });
+  });
+
+  allTeams.sort((a, b) => b.champ - a.champ);
+
+  const tbody = document.getElementById('odds-body');
+  tbody.innerHTML = allTeams.map(t => {
+    const bar = pct => `<span class="prob-bar"><span class="prob-bar-fill" style="width:${Math.round(pct*100)}%"></span></span>`;
+    return `<tr onclick="openTeamPanel(${t.team_id})">
+      <td><strong>${esc(t.name)}</strong></td>
+      <td><span class="badge badge-class">${esc(t.class)}</span></td>
+      <td style="color:var(--muted)">${esc(t.bracket)}</td>
+      <td>${pctCell(t.r1)}</td>
+      <td>${pctCell(t.qf)}</td>
+      <td>${pctCell(t.sf)}</td>
+      <td>${pctCell(t.final)}</td>
+      <td>${pctCell(t.champ)}${bar(t.champ)}</td>
+    </tr>`;
+  }).join('');
+}
+
+function pctCell(p) {
+  if (p === null || p === undefined) return '—';
+  if (p >= 1) return '100%';
+  const pct = (p * 100).toFixed(1);
+  const c = p > .3 ? 'var(--accent2)' : p > .1 ? 'var(--warn)' : 'var(--muted)';
+  return `<span style="color:${c}">${pct}%</span>`;
+}
+
+// ============================================================
+// Team side panel
+// ============================================================
+function openTeamPanel(teamId) {
+  if (!ratingsData) return;
+  const t = ratingsData.teams.find(t => t.team_id === teamId);
+  if (!t) return;
+
+  // Bracket odds for this team
+  let oddsHtml = '';
+  if (oddsData) {
+    const bracket = oddsData.find(b => b.bracket === (t.class === 'Private' ? 'Private' : t.class));
+    if (bracket) {
+      const bt = bracket.teams.find(x => x.team_id === teamId);
+      if (bt) {
+        const probs = bt.round_probabilities;
+        oddsHtml = '<h4>Bracket Odds</h4>' + Object.entries(probs).map(([lbl, p]) =>
+          `<div class="stat-row"><span class="stat-label">${esc(lbl)}</span><span class="stat-value">${(p*100).toFixed(1)}%</span></div>`
+        ).join('');
+      }
+    }
+  }
+
+  document.getElementById('team-panel-content').innerHTML = `
+    <h3>${esc(t.name)}</h3>
+    <div class="meta">${esc(t.class)} · ${esc(t.region_or_area ?? '')} · ${esc(t.record ?? '')}</div>
+    <div class="stat-row"><span class="stat-label">Rating (overall rank)</span><span class="stat-value">${(t.rating||0).toFixed(3)} (#${t.rating_rank_overall??'—'})</span></div>
+    <div class="stat-row"><span class="stat-label">Class rank</span><span class="stat-value">#${t.rating_rank_class??'—'}</span></div>
+    <div class="stat-row"><span class="stat-label">Region rank</span><span class="stat-value">#${t.rating_rank_region??'—'}</span></div>
+    <div class="stat-row"><span class="stat-label">Attack (α)</span><span class="stat-value">${(t.attack||0).toFixed(3)}</span></div>
+    <div class="stat-row"><span class="stat-label">Defense (β)</span><span class="stat-value">${(t.defense||0).toFixed(3)}</span></div>
+    <div class="stat-row"><span class="stat-label">MaxPreps GA rank</span><span class="stat-value">${t.maxpreps_state_rank??'—'}</span></div>
+    <div class="stat-row"><span class="stat-label">PSR rank</span><span class="stat-value">${t.psr_rank??'—'}</span></div>
+    ${oddsHtml}
+  `;
+
+  document.getElementById('team-panel').classList.add('open');
+}
+
+function closePanel() {
+  document.getElementById('team-panel').classList.remove('open');
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
+
+// ============================================================
+// Methodology coverage panel
+// ============================================================
+function renderMethodologyCoverage() {
+  if (!ratingsData || !ratingsData.enrichment_coverage) return;
+  const c = ratingsData.enrichment_coverage;
+  const hp = ratingsData.hyperparams || {};
+
+  const items = [
+    { num: c.n_games_total?.toLocaleString(), label: 'Total games' },
+    { num: c.n_games_maxpreps_matched?.toLocaleString(), label: 'MaxPreps enriched' },
+    { num: c.n_games_with_observed_duration?.toLocaleString(), label: 'Observed durations' },
+    { num: c.n_games_with_regulation_correction?.toLocaleString(), label: 'Regulation corrections' },
+    { num: c.n_score_discrepancies_logged?.toLocaleString(), label: 'Score discrepancies' },
+    { num: (hp.rho ?? '—'), label: 'ρ (low-score correction)' },
+    { num: (hp.xi ?? '—'), label: 'ξ (decay/day)' },
+  ];
+
+  const panel = `<div class="coverage-panel">${items.map(i =>
+    `<div class="coverage-item"><div class="num">${i.num}</div><div class="label">${i.label}</div></div>`
+  ).join('')}</div>`;
+
+  document.getElementById('coverage-panel-container').innerHTML = panel;
+  document.getElementById('method-coverage').innerHTML = panel;
+}
+
+// ============================================================
+// Utility
+// ============================================================
+function esc(s) {
+  return String(s ?? '').replace(/[&<>"']/g, c =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+// ============================================================
+// Boot
+// ============================================================
+loadAll();
+</script>
+</body>
+</html>

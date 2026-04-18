@@ -1,0 +1,5 @@
+{
+  "_comment": "Manual slug overrides. Key = GHSA team_id (string), value = MaxPreps city/school slug, or null to skip.",
+  "overrides": {},
+  "unmatched": []
+}

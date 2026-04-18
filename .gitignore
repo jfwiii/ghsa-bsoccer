@@ -1,0 +1,13 @@
+data/raw/
+data/teams.parquet
+data/games.parquet
+data/brackets.json
+data/eval_report.json
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.venv/
+dist/
+*.egg-info/
+.claude/

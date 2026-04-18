@@ -1,0 +1,18 @@
+[build]
+  publish = "public"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/ratings.json"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/bracket_odds.json"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
