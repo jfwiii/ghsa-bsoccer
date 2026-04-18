@@ -69,14 +69,16 @@ def _win_prob(team_h: int, team_a: int, neutral: bool,
 
     flat = _get_flat_pmf(team_h, team_a, neutral, dc_result, 1.0, pmf_cache)
     mat  = flat.reshape(g, g)
-    p_h_reg  = float(np.triu(mat, k=1).sum())
-    p_a_reg  = float(np.tril(mat, k=-1).sum())
+    # joint[i,j] = P(home scores i, away scores j); row=home, col=away.
+    # Home wins: i > j → tril(k=-1).  Away wins: j > i → triu(k=1).
+    p_h_reg  = float(np.tril(mat, k=-1).sum())
+    p_a_reg  = float(np.triu(mat, k=1).sum())
     p_draw   = max(0.0, 1.0 - p_h_reg - p_a_reg)
 
     flat_ot  = _get_flat_pmf(team_h, team_a, neutral, dc_result,
                               OT_DURATION / 80.0, pmf_cache)
     mat_ot   = flat_ot.reshape(g, g)
-    p_h_ot   = float(np.triu(mat_ot, k=1).sum())
+    p_h_ot   = float(np.tril(mat_ot, k=-1).sum())
     p_draw_ot = float(np.diag(mat_ot).sum())
 
     alpha = dc_result["alpha"]
