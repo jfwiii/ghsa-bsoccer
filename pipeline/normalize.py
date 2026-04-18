@@ -154,25 +154,31 @@ class Normalizer:
         discrepancies: list[dict] = []
 
         for g in self.raw_games:
+            is_non_ghsa_game = g.get("is_non_ghsa", False)
+            opp_name_raw = g.get("opponent_name_raw") or ""
+
             # Resolve opponent
             opp_id = self._resolve_team_id(
-                g.get("opponent_name_raw", ""),
+                opp_name_raw,
                 g.get("opponent_team_id_raw")
             )
 
-            # Determine canonical home/away ordering
+            # For non-GHSA opponents that can't be resolved, assign a stable
+            # synthetic negative ID so the game is retained for record tracking.
+            if opp_id is None:
+                if is_non_ghsa_game:
+                    opp_id = -(int(hashlib.md5(opp_name_raw.encode()).hexdigest()[:8], 16) % 999_999 + 1)
+                else:
+                    continue  # unresolvable GHSA opponent — skip
+
+            # The scraper already sets home_team_id/away_team_id; the one that
+            # was None is the opponent's slot — fill it with the resolved id.
             home_id = g.get("home_team_id")
             away_id = g.get("away_team_id")
-
-            # If either is None, use reporting team + resolved opponent
-            reporter = g.get("reporting_team_id")
-            if home_id is None or away_id is None:
-                if g.get("is_home", True):
-                    home_id = reporter
-                    away_id = opp_id
-                else:
-                    home_id = opp_id
-                    away_id = reporter
+            if home_id is None:
+                home_id = opp_id
+            if away_id is None:
+                away_id = opp_id
 
             if home_id is None or away_id is None:
                 continue  # cannot resolve; skip
@@ -189,7 +195,8 @@ class Normalizer:
                     "home_goals": g["home_goals"],
                     "away_goals": g["away_goals"],
                     "neutral_site": g.get("neutral_site", False),
-                    "is_non_ghsa": g.get("is_non_ghsa", False),
+                    "is_non_ghsa": is_non_ghsa_game,
+                    "non_ghsa_opponent_name": opp_name_raw if is_non_ghsa_game else None,
                     "_sources": 1,
                 }
             else:
@@ -265,6 +272,7 @@ class Normalizer:
                 "away_goals_half1": h1_away,
                 "neutral_site": g.get("neutral_site", False),
                 "is_non_ghsa": g.get("is_non_ghsa", False),
+                "non_ghsa_opponent_name": g.get("non_ghsa_opponent_name"),
                 "imputed_duration_min": imp_dur,
                 "observed_duration_min": obs_dur,
                 "duration_used_min": dur_used,

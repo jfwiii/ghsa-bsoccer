@@ -169,7 +169,13 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
 
     region_seed: dict[int, int] = {}
     for cr, members in region_groups.items():
-        members.sort(key=lambda x: (x[1] is None, x[1] or 0, -x[2]))
+        def _region_sort(x: tuple) -> tuple:
+            tid_r, psr, dc_r = x
+            rw, rl, rt = region_records.get(tid_r, (0, 0, 0))
+            tot = rw + rl + rt
+            wpct = rw / tot if tot > 0 else 0.0
+            return (-wpct, -(rw - rl), psr is None, psr or 0, -dc_r)
+        members.sort(key=_region_sort)
         for i, (tid_r, _, _) in enumerate(members):
             region_seed[tid_r] = i + 1
 
@@ -177,6 +183,16 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
     def _fmt_rec(wlt: tuple) -> str:
         w, l, t = wlt
         return f"{w}-{l}" + (f"-{t}" if t else "")
+
+    # Build non-GHSA name lookup (synthetic negative IDs not in id_to_meta)
+    non_ghsa_names: dict[int, str] = {}
+    for _, g in games_df.iterrows():
+        name = g.get("non_ghsa_opponent_name")
+        if name:
+            h, a = int(g["home_team_id"]), int(g["away_team_id"])
+            for tid in (h, a):
+                if tid < 0:
+                    non_ghsa_names[tid] = name
 
     schedules: dict[int, list] = {}
     for _, g in games_df.iterrows():
@@ -187,15 +203,18 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         ag = int(ag_r) if not pd.isna(ag_r) else int(g["away_goals"])
         date_str = str(g["date"])[:10]
         for tid, gf, ga, opp_id in [(h, hg, ag, a), (a, ag, hg, h)]:
+            if tid not in id_to_meta:
+                continue  # skip non-GHSA synthetic team entries
             result = "W" if gf > ga else ("L" if ga > gf else "T")
             opp_rank = overall_rank.get(opp_id, n_teams)
             opp_pct = 1 - (opp_rank - 1) / max(1, n_teams - 1)
             impact = round(opp_pct * 10, 1)
             opp_meta = id_to_meta.get(opp_id, {})
+            opp_name = opp_meta.get("name") or non_ghsa_names.get(opp_id, str(opp_id))
             schedules.setdefault(tid, []).append({
                 "date": date_str,
                 "opponent_id": opp_id,
-                "opponent_name": opp_meta.get("name", str(opp_id)),
+                "opponent_name": opp_name,
                 "opponent_record": _fmt_rec(records.get(opp_id, (0, 0, 0))),
                 "opponent_rating": round(rating.get(opp_id, 0.0), 4),
                 "goals_for": gf,
