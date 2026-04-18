@@ -248,10 +248,16 @@ def _resolve_name(name: str, lookup: dict[str, int]) -> Optional[int]:
     return None
 
 
-def _build_team_lookup(teams_df) -> dict[str, int]:
-    """Build name → team_id lookup from teams DataFrame."""
+def _build_team_lookup(teams_df, class_filter: Optional[str] = None) -> dict[str, int]:
+    """Build name → team_id lookup from teams DataFrame.
+
+    class_filter restricts matches to teams in that classification, preventing
+    same-named teams in different classes from cross-contaminating brackets.
+    """
     lookup = {}
     for _, row in teams_df.iterrows():
+        if class_filter and row.get("class", "") != class_filter:
+            continue
         name = row.get("name", "")
         if name:
             lookup[name] = int(row["team_id"])
@@ -266,11 +272,13 @@ def ingest_all_brackets(teams_df, session: Optional[requests.Session] = None) ->
     if session is None:
         session = _session()
 
-    team_lookup = _build_team_lookup(teams_df)
     brackets = []
     needs_manual = []
 
     for bracket_name, path in BRACKET_PATHS.items():
+        # Scope name resolution to this bracket's class only — prevents teams
+        # with identical short names (Drew, Jackson) from landing in the wrong bracket.
+        team_lookup = _build_team_lookup(teams_df, class_filter=bracket_name)
         url = BASE_URL + path
         try:
             log.info("fetching bracket page: %s", bracket_name)
