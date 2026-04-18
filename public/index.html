@@ -252,11 +252,44 @@
   </div>
 
   <div class="method-section">
+    <h3>Non-GHSA Games</h3>
+    <p>Games against non-GHSA opponents (out-of-state teams, private opponents not in the GHSA
+    database) are <strong>excluded from model fitting</strong> — their results do not affect attack/defense
+    ratings — but <strong>included in displayed records</strong>. Opponents receive stable synthetic IDs
+    so results are counted in W/L/T totals.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Region Seeding</h3>
+    <p>Within each class + region group, teams are seeded by:</p>
+    <ol style="margin:6px 0 0 18px;line-height:1.7">
+      <li>Region W-L record (win percentage, then goal differential)</li>
+      <li>PSR rank (GHSA's power-strength rating)</li>
+      <li>DC rating (Dixon-Coles, as final tiebreaker)</li>
+    </ol>
+  </div>
+
+  <div class="method-section">
     <h3>Bracket Simulation</h3>
-    <p>200,000 Monte Carlo simulations per bracket. Each simulated game samples
-    a score from the joint Dixon-Coles distribution. Ties go to overtime (20-min
-    scaled rates), then to a PK coin flip weighted by attack ratings.
-    Higher seeds host through the semifinals; the championship is neutral-site.</p>
+    <p>200,000 Monte Carlo simulations per bracket, fully vectorized — all outcomes for a given
+    matchup are sampled in a single NumPy call rather than a per-simulation loop.</p>
+    <p><strong>Win probability</strong> is computed analytically for each matchup:</p>
+    <ol style="margin:6px 0 0 18px;line-height:1.7">
+      <li>Regulation: integrate joint Dixon-Coles PMF over all scorelines where one side wins</li>
+      <li>Overtime (20-min period): repeat with goals scaled to <code>20/80</code> of full-game rates</li>
+      <li>Penalty kicks: sigmoid of log attack-rate ratio (α_h / α_a)</li>
+    </ol>
+    <p style="margin-top:8px"><strong>Home advantage:</strong> the higher-rated team hosts rounds 1–4; the
+    championship is on a neutral site. Home advantage applies γ to the home team's expected goal rate.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>Impact Score</h3>
+    <p>Each game on a team's schedule shows an impact score in the range [−10, +10]:</p>
+    <p><code>Impact = (outcome − P(win)) × 10</code></p>
+    <p>where <em>outcome</em> is 1 (win), 0.5 (draw), or 0 (loss), and <em>P(win)</em> is the model's
+    pre-game win probability. A positive score means the team outperformed expectations; negative means they
+    underperformed. A dominant win against a strong opponent scores near +10; a loss to a weak opponent scores near −10.</p>
   </div>
 
   <div class="method-section">
@@ -292,9 +325,10 @@ let oddsSort = 'champ';
 // ============================================================
 async function loadAll() {
   try {
-    const [rRes, oRes] = await Promise.all([
+    const [rRes, oRes, bRes] = await Promise.all([
       fetch('ratings.json').catch(() => null),
       fetch('bracket_odds.json').catch(() => null),
+      fetch('brackets.json').catch(() => null),
     ]);
 
     if (rRes && rRes.ok) {
@@ -313,12 +347,17 @@ async function loadAll() {
     if (oRes && oRes.ok) {
       oddsData = await oRes.json();
       populateBracketSelects();
-      renderBrackets();
-      renderOdds();
     } else {
       document.getElementById('bracket-view').innerHTML =
         '<div class="error-msg">bracket_odds.json not found — run the pipeline first.</div>';
     }
+
+    if (bRes && bRes.ok) {
+      bracketsData = await bRes.json();
+    }
+
+    renderBrackets();
+    renderOdds();
   } catch (e) {
     console.error(e);
     showError('tab-rankings', 'Error loading data: ' + e.message);
@@ -403,13 +442,20 @@ function renderRankings() {
     return sortAsc ? (av > bv ? 1 : -1) : (av < bv ? 1 : -1);
   });
 
+  const isFiltered = !!(cls || region || search);
+  const rankTh = document.querySelector('#rankings-table th[data-col="rating_rank_overall"]');
+  if (rankTh) rankTh.firstChild.textContent = isFiltered ? 'Rank ' : 'OVR Rank ';
+
   const maxRating = Math.max(...ratingsData.teams.map(t => t.rating || 0));
   const tbody = document.getElementById('rankings-body');
-  tbody.innerHTML = teams.map(t => {
+  tbody.innerHTML = teams.map((t, idx) => {
     const barPct = Math.round((t.rating / maxRating) * 100);
     const isPrivate = t.class === 'Private';
+    const rankCell = isFiltered
+      ? `${idx + 1} <span style="color:var(--muted);font-size:11px">(#${t.rating_rank_overall ?? '—'})</span>`
+      : (t.rating_rank_overall ?? '—');
     return `<tr onclick="openTeamPanel(${t.team_id})">
-      <td class="rank">${t.rating_rank_overall ?? '—'}</td>
+      <td class="rank">${rankCell}</td>
       <td><strong>${esc(t.name)}</strong></td>
       <td><span class="badge ${isPrivate ? 'badge-private' : 'badge-class'}">${esc(t.class)}</span></td>
       <td style="color:var(--muted)">${t.region_or_area ? (t.region_seed ? `${esc(t.region_or_area)} · ${ordinal(t.region_seed)}` : esc(t.region_or_area)) : '—'}</td>
@@ -567,23 +613,78 @@ function populateBracketSelects() {
 }
 
 function renderBrackets() {
-  if (!oddsData) return;
-  const bracket = oddsData.find(b => b.bracket === currentBracket) || oddsData[0];
-  if (!bracket) return;
+  const view = document.getElementById('bracket-view');
+  if (!view) return;
 
-  // Build team_id → bracket team info
-  const teamInfo = {};
-  bracket.teams.forEach(t => { teamInfo[t.team_id] = t; });
-
-  // Get seed info from ratingsData if available
   const ratingTeam = {};
   if (ratingsData) ratingsData.teams.forEach(t => { ratingTeam[t.team_id] = t; });
 
-  const view = document.getElementById('bracket-view');
+  // Build odds lookup: bracket name → team_id → round_probabilities
+  const oddsLookup = {};
+  if (oddsData) {
+    oddsData.forEach(b => {
+      oddsLookup[b.bracket] = {};
+      b.teams.forEach(t => { oddsLookup[b.bracket][t.team_id] = t.round_probabilities; });
+    });
+  }
 
-  // We don't have raw bracket structure in bracket_odds.json directly (only probs)
-  // Display as probability-sorted championship odds grid instead
-  const roundLabels = ['R1','R2','QF','SF','F','Champ'];
+  // Prefer bracketsData for actual draw; fall back to probability table
+  if (bracketsData) {
+    const braw = bracketsData.find(b => b.bracket === currentBracket) || bracketsData[0];
+    if (!braw) { view.innerHTML = '<div class="error-msg">No bracket data.</div>'; return; }
+
+    const bracketOdds = oddsLookup[braw.bracket] || {};
+    const r1 = (braw.rounds || []).find(r => r.round === 1);
+    const matchups = r1 ? r1.matchups : [];
+    const nSims = (oddsData || []).find(b => b.bracket === braw.bracket)?.n_simulations;
+
+    const cards = matchups.map(m => {
+      const topId = m.top_team_id, botId = m.bottom_team_id;
+      const topRt = ratingTeam[topId] || {}, botRt = ratingTeam[botId] || {};
+      const topProbs = bracketOdds[topId] || {}, botProbs = bracketOdds[botId] || {};
+      // P(team wins R1) = their R16 probability (since R32=100% for all)
+      const topWin = topProbs['R16'] ?? null;
+      const botWin = botProbs['R16'] ?? null;
+
+      const teamRow = (id, rt, probs, winP) => {
+        const seed = rt.region_or_area && rt.region_seed
+          ? `${esc(rt.region_or_area)} · ${ordinal(rt.region_seed)}`
+          : '—';
+        const pctStr = winP != null ? `<span style="color:var(--accent2);font-weight:600;margin-left:8px">${(winP*100).toFixed(0)}%</span>` : '';
+        const champ = probs['Champ'] ?? null;
+        const champStr = champ != null ? `<span style="color:var(--muted);font-size:11px;margin-left:6px">Champ: ${(champ*100).toFixed(1)}%</span>` : '';
+        return `<div onclick="openTeamPanel(${id})" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;cursor:pointer;border-radius:4px;transition:background 0.15s" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background=''">
+          <div>
+            <strong>${esc(rt.name || id)}</strong>
+            <span style="color:var(--muted);font-size:11px;margin-left:8px">${seed}</span>
+          </div>
+          <div style="text-align:right">${pctStr}${champStr}</div>
+        </div>`;
+      };
+
+      const topRow = topId ? teamRow(topId, topRt, topProbs, topWin) : `<div style="padding:8px 10px;color:var(--muted)">BYE</div>`;
+      const botRow = botId ? teamRow(botId, botRt, botProbs, botWin) : `<div style="padding:8px 10px;color:var(--muted)">BYE</div>`;
+
+      return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px">
+        ${topRow}
+        <div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface2);text-align:center;font-size:10px;color:var(--muted);padding:2px 0">vs</div>
+        ${botRow}
+      </div>`;
+    }).join('');
+
+    const note = nSims ? `${nSims.toLocaleString()} simulations · ` : '';
+    view.innerHTML = `
+      <p style="color:var(--muted);font-size:12px;margin-bottom:12px">${note}${esc(braw.bracket)} bracket · win % = model probability of advancing from Round 1</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px">${cards}</div>`;
+    return;
+  }
+
+  // Fallback: probability table if no bracket structure available
+  if (!oddsData) { view.innerHTML = '<div class="error-msg">bracket_odds.json not found — run the pipeline first.</div>'; return; }
+  const bracket = oddsData.find(b => b.bracket === currentBracket) || oddsData[0];
+  if (!bracket) return;
+
+  const roundLabels = ['R16','QF','SF','F','Champ'];
   const validLabels = roundLabels.filter(lbl =>
     bracket.teams.some(t => t.round_probabilities[lbl] !== undefined)
   );
@@ -714,9 +815,11 @@ function openTeamPanel(teamId) {
       const bt = bracket.teams.find(x => x.team_id === teamId);
       if (bt) {
         const probs = bt.round_probabilities;
-        oddsHtml = '<h4>Bracket Odds</h4>' + Object.entries(probs).map(([lbl, p]) =>
-          `<div class="stat-row"><span class="stat-label">${esc(lbl)}</span><span class="stat-value">${(p*100).toFixed(1)}%</span></div>`
-        ).join('');
+        oddsHtml = '<h4>Bracket Odds</h4>' + Object.entries(probs)
+          .filter(([lbl]) => lbl !== 'R32')
+          .map(([lbl, p]) =>
+            `<div class="stat-row"><span class="stat-label">${esc(lbl)}</span><span class="stat-value">${(p*100).toFixed(1)}%</span></div>`
+          ).join('');
       }
     }
   }

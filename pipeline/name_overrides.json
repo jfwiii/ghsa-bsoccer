@@ -1,4 +1,6 @@
 {
   "_comment": "Manual overrides for team name fuzzy-matching failures. Key = GHSA display name, value = team_id.",
-  "overrides": {}
+  "overrides": {
+    "NW Whitfield": 211
+  }
 }

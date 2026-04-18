@@ -97,11 +97,22 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         for i, (tid, _) in enumerate(lst):
             class_rank[tid] = i + 1
 
-    # Per-region rank
+    massey_ratings = massey_result.get("ratings", {})
+    n_teams = len(sorted_by_rating)
+
+    # Build team → (class, region) lookup — must come before region_rank so the
+    # reconciled region (from team_regions alignment scrape) is used everywhere.
+    team_class_region: dict[int, tuple[str, str]] = {}
+    for tid_r, _ in sorted_by_rating:
+        meta_r = id_to_meta.get(tid_r, {})
+        cls_r = meta_r.get("class", "")
+        rgn_r = (team_regions or {}).get(tid_r) or meta_r.get("region_or_area") or ""
+        team_class_region[tid_r] = (cls_r, rgn_r)
+
+    # Per-region rank (uses reconciled region, not raw meta only)
     region_teams: dict[str, list[tuple[int, float]]] = {}
     for tid, r in sorted_by_rating:
-        meta = id_to_meta.get(tid, {})
-        region = meta.get("region_or_area", "") or ""
+        region = team_class_region.get(tid, ("", ""))[1]
         if region:
             region_teams.setdefault(region, []).append((tid, r))
     region_rank: dict[int, int] = {}
@@ -125,17 +136,6 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 records[tid] = (w, l + 1, t)
             else:
                 records[tid] = (w, l, t + 1)
-
-    massey_ratings = massey_result.get("ratings", {})
-    n_teams = len(sorted_by_rating)
-
-    # Build team → (class, region) lookup
-    team_class_region: dict[int, tuple[str, str]] = {}
-    for tid_r, _ in sorted_by_rating:
-        meta_r = id_to_meta.get(tid_r, {})
-        cls_r = meta_r.get("class", "")
-        rgn_r = (team_regions or {}).get(tid_r) or meta_r.get("region_or_area") or ""
-        team_class_region[tid_r] = (cls_r, rgn_r)
 
     # Compute region records (W-L vs same class+region opponents)
     region_records: dict[int, tuple[int, int, int]] = {}

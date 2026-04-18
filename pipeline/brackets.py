@@ -325,6 +325,10 @@ def save_brackets(brackets: list[dict]) -> None:
     path = DATA_DIR / "brackets.json"
     path.write_text(json.dumps(brackets, indent=2, default=str))
     log.info("saved brackets.json with %d brackets", len(brackets))
+    pub = Path("public")
+    pub.mkdir(parents=True, exist_ok=True)
+    (pub / "brackets.json").write_text(json.dumps(brackets, indent=2, default=str))
+    log.info("saved public/brackets.json")
 
 
 def load_brackets() -> list[dict]:
