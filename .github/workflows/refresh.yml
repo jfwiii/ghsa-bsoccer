@@ -27,6 +27,14 @@ jobs:
       - name: Install dependencies
         run: pip install -e ".[dev]"
 
+      - name: Restore scrape cache
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: ghsa-raw-${{ runner.os }}-${{ github.run_id }}
+          restore-keys: |
+            ghsa-raw-${{ runner.os }}-
+
       - name: Run pipeline
         run: python scripts/refresh.py
         env:
