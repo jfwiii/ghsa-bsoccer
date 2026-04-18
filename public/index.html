@@ -199,7 +199,7 @@
       <thead>
         <tr>
           <th>Team</th><th>Class</th><th>Bracket</th>
-          <th>QF</th><th>SF</th><th>Final</th><th>Champion</th>
+          <th>R16</th><th>QF</th><th>SF</th><th>Final</th><th>Champion</th>
         </tr>
       </thead>
       <tbody id="odds-body"><tr><td colspan="8" class="loading">Loading…</td></tr></tbody>
@@ -569,6 +569,7 @@ function renderOdds() {
         name: rt.name || t.team_id,
         class: rt.class || '',
         bracket: bracket.bracket,
+        r16: probs['R16'] ?? 0,
         qf: probs['QF'] ?? 0,
         sf: probs['SF'] ?? 0,
         final: probs['F'] ?? probs['Final'] ?? 0,
@@ -587,6 +588,7 @@ function renderOdds() {
       <td><strong>${esc(t.name)}</strong></td>
       <td><span class="badge badge-class">${esc(t.class)}</span></td>
       <td style="color:var(--muted)">${esc(t.bracket)}</td>
+      <td>${pctCell(t.r16)}</td>
       <td>${pctCell(t.qf)}</td>
       <td>${pctCell(t.sf)}</td>
       <td>${pctCell(t.final)}</td>
