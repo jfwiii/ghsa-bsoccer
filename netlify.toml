@@ -21,3 +21,8 @@
   for = "/bracket_odds.json"
   [headers.values]
     Cache-Control = "no-cache, must-revalidate"
+
+[[headers]]
+  for = "/brackets.json"
+  [headers.values]
+    Cache-Control = "no-cache, must-revalidate"

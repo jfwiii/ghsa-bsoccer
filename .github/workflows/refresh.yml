@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/ratings.json public/bracket_odds.json || true
+          git add public/ratings.json public/bracket_odds.json public/brackets.json || true
           git diff --cached --quiet || git commit -m "chore: refresh ratings $(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
       - name: Push
