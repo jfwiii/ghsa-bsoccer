@@ -141,7 +141,7 @@
 <div id="tab-rankings" class="tab active">
   <div class="controls">
     <input type="search" id="search-teams" placeholder="Search teams…" oninput="renderRankings()">
-    <select id="filter-class" onchange="renderRankings()">
+    <select id="filter-class" onchange="onRankingsClassChange()">
       <option value="">All Classes</option>
       <option>AAAAAA</option><option>AAAAA</option><option>AAAA</option>
       <option>AAA</option><option>AA</option><option>A DI</option>
@@ -176,6 +176,7 @@
 
 <!-- ===================== REGIONS ===================== -->
 <div id="tab-regions" class="tab">
+  <div class="bracket-tabs" id="region-class-nav"></div>
   <div id="regions-container">
     <div class="loading">Loading…</div>
   </div>
@@ -189,11 +190,7 @@
 
 <!-- ===================== ODDS ===================== -->
 <div id="tab-odds" class="tab">
-  <div class="controls">
-    <select id="odds-bracket-select" onchange="renderOdds()">
-      <option value="">All Brackets</option>
-    </select>
-  </div>
+  <div class="bracket-tabs" id="odds-nav"></div>
   <div class="tbl-wrap">
     <table class="odds-table">
       <thead>
@@ -284,6 +281,8 @@ let ratingsData = null;
 let oddsData = null;
 let bracketsData = null;
 let currentBracket = null;
+let currentOddsBracket = null;
+let currentRegionClass = null;
 let sortCol = 'rating_rank_overall';
 let sortAsc = true;
 
@@ -303,6 +302,7 @@ async function loadAll() {
         'Updated: ' + new Date(ratingsData.fit_timestamp).toLocaleString();
       populateFilters();
       renderRankings();
+      populateRegionClassNav();
       renderRegions();
       renderMethodologyCoverage();
     } else {
@@ -344,15 +344,27 @@ function showTab(name) {
 // ============================================================
 // Rankings tab
 // ============================================================
-function populateFilters() {
-  if (!ratingsData) return;
+function onRankingsClassChange() {
+  const cls = document.getElementById('filter-class').value;
   const regionSel = document.getElementById('filter-region');
-  const regions = [...new Set(ratingsData.teams.map(t => t.region_or_area).filter(Boolean))].sort();
+  regionSel.innerHTML = '<option value="">All Regions</option>';
+  const regions = [...new Set(
+    ratingsData.teams
+      .filter(t => !cls || t.class === cls)
+      .map(t => t.region_or_area)
+      .filter(Boolean)
+  )].sort();
   regions.forEach(r => {
     const opt = document.createElement('option');
     opt.value = r; opt.textContent = r;
     regionSel.appendChild(opt);
   });
+  renderRankings();
+}
+
+function populateFilters() {
+  if (!ratingsData) return;
+  onRankingsClassChange();
 
   // Set up sortable headers
   document.querySelectorAll('#rankings-table th[data-col]').forEach(th => {
@@ -416,48 +428,73 @@ function renderRankings() {
 // ============================================================
 // Regions tab
 // ============================================================
+const CLASS_ORDER = ['AAAAAA','AAAAA','AAAA','AAA','AA','A DI','A DII','Private'];
+
+function populateRegionClassNav() {
+  if (!ratingsData) return;
+  const nav = document.getElementById('region-class-nav');
+  const classes = CLASS_ORDER.filter(c => ratingsData.teams.some(t => t.class === c));
+  currentRegionClass = classes[0] || null;
+
+  classes.forEach((cls, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'bracket-tab-btn' + (i === 0 ? ' active' : '');
+    btn.textContent = cls;
+    btn.onclick = () => {
+      nav.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
+      btn.classList.add('active');
+      currentRegionClass = cls;
+      renderRegions();
+    };
+    nav.appendChild(btn);
+  });
+}
+
 function renderRegions() {
   if (!ratingsData) return;
   const container = document.getElementById('regions-container');
 
-  // Group by class → region
-  const byClassRegion = {};
-  ratingsData.teams.forEach(t => {
-    const cls = t.class || 'Unknown';
-    const reg = t.region_or_area || 'Unassigned';
-    const key = `${cls}:::${reg}`;
-    if (!byClassRegion[key]) byClassRegion[key] = { cls, reg, teams: [] };
-    byClassRegion[key].teams.push(t);
-  });
+  // Group by region, filtered to current class
+  const byRegion = {};
+  ratingsData.teams
+    .filter(t => t.class === currentRegionClass && t.region_or_area)
+    .forEach(t => {
+      const reg = t.region_or_area;
+      if (!byRegion[reg]) byRegion[reg] = [];
+      byRegion[reg].push(t);
+    });
 
-  const classOrder = ['AAAAAA','AAAAA','AAAA','AAA','AA','A DI','A DII','Private'];
-  const entries = Object.values(byClassRegion).sort((a, b) => {
-    const ai = classOrder.indexOf(a.cls), bi = classOrder.indexOf(b.cls);
-    return ai !== bi ? ai - bi : a.reg.localeCompare(b.reg);
-  });
+  const entries = Object.entries(byRegion).sort(([a], [b]) => a.localeCompare(b));
 
-  container.innerHTML = entries.map((entry, i) => {
-    const rows = entry.teams.sort((a, b) => (a.rating_rank_region ?? 99) - (b.rating_rank_region ?? 99));
+  if (!entries.length) {
+    container.innerHTML = '<p style="color:var(--muted);padding:16px">No region data for this class.</p>';
+    return;
+  }
+
+  container.innerHTML = entries.map(([ reg, teams ], i) => {
+    const rows = [...teams].sort((a, b) => (a.psr_rank ?? 999) - (b.psr_rank ?? 999));
+    const hasRegionRecord = rows.some(t => t.region_record);
     const tableRows = rows.map(t =>
       `<tr onclick="openTeamPanel(${t.team_id})">
-        <td class="rank">${t.rating_rank_region ?? '—'}</td>
+        <td class="rank">${t.psr_rank ?? '—'}</td>
         <td><strong>${esc(t.name)}</strong></td>
         <td style="font-variant-numeric:tabular-nums">${esc(t.record ?? '—')}</td>
+        ${hasRegionRecord ? `<td style="font-variant-numeric:tabular-nums;color:var(--accent)">${esc(t.region_record ?? '—')}</td>` : ''}
         <td>${(t.rating ?? 0).toFixed(3)}</td>
         <td style="color:var(--muted)">${t.maxpreps_state_rank ?? '—'}</td>
       </tr>`
     ).join('');
+    const regionRecordHeader = hasRegionRecord ? '<th>Region Rec.</th>' : '';
     return `
     <div class="region-section">
       <div class="region-header" onclick="toggleRegion(${i})">
-        <span class="badge ${entry.cls==='Private'?'badge-private':'badge-class'}">${esc(entry.cls)}</span>
-        <h4>${esc(entry.reg)}</h4>
+        <h4>${esc(reg)}</h4>
         <span class="toggle" id="toggle-${i}">▼</span>
       </div>
       <div class="region-body" id="region-body-${i}">
         <div class="tbl-wrap" style="border:none;border-radius:0">
           <table><thead>
-            <tr><th>Rank</th><th>Team</th><th>Record</th><th>Rating</th><th>MaxPreps</th></tr>
+            <tr><th>PSR</th><th>Team</th><th>Overall Rec.</th>${regionRecordHeader}<th>Rating</th><th>MaxPreps</th></tr>
           </thead><tbody>${tableRows}</tbody></table>
         </div>
       </div>
@@ -477,25 +514,48 @@ function toggleRegion(i) {
 // ============================================================
 function populateBracketSelects() {
   if (!oddsData) return;
-  const nav = document.getElementById('bracket-nav');
-  const sel = document.getElementById('odds-bracket-select');
+  const bracketNav = document.getElementById('bracket-nav');
+  const oddsNav = document.getElementById('odds-nav');
+
+  // "All" button for Odds nav only
+  const allBtn = document.createElement('button');
+  allBtn.className = 'bracket-tab-btn active';
+  allBtn.textContent = 'All';
+  allBtn.onclick = () => {
+    oddsNav.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
+    allBtn.classList.add('active');
+    currentOddsBracket = null;
+    renderOdds();
+  };
+  oddsNav.appendChild(allBtn);
+
   oddsData.forEach((b, i) => {
-    const btn = document.createElement('button');
-    btn.className = 'bracket-tab-btn' + (i === 0 ? ' active' : '');
-    btn.textContent = b.bracket;
-    btn.onclick = () => {
-      document.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
-      btn.classList.add('active');
+    // Brackets tab button
+    const bBtn = document.createElement('button');
+    bBtn.className = 'bracket-tab-btn' + (i === 0 ? ' active' : '');
+    bBtn.textContent = b.bracket;
+    bBtn.onclick = () => {
+      bracketNav.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
+      bBtn.classList.add('active');
       currentBracket = b.bracket;
       renderBrackets();
     };
-    nav.appendChild(btn);
+    bracketNav.appendChild(bBtn);
 
-    const opt = document.createElement('option');
-    opt.value = b.bracket; opt.textContent = b.bracket;
-    sel.appendChild(opt);
+    // Odds tab button
+    const oBtn = document.createElement('button');
+    oBtn.className = 'bracket-tab-btn';
+    oBtn.textContent = b.bracket;
+    oBtn.onclick = () => {
+      oddsNav.querySelectorAll('.bracket-tab-btn').forEach(x => x.classList.remove('active'));
+      oBtn.classList.add('active');
+      currentOddsBracket = b.bracket;
+      renderOdds();
+    };
+    oddsNav.appendChild(oBtn);
   });
   if (oddsData.length > 0) currentBracket = oddsData[0].bracket;
+  currentOddsBracket = null;
 }
 
 function renderBrackets() {
@@ -553,8 +613,7 @@ function renderBrackets() {
 // ============================================================
 function renderOdds() {
   if (!oddsData) return;
-  const sel = document.getElementById('odds-bracket-select').value;
-  const brackets = sel ? oddsData.filter(b => b.bracket === sel) : oddsData;
+  const brackets = currentOddsBracket ? oddsData.filter(b => b.bracket === currentOddsBracket) : oddsData;
 
   const ratingTeam = {};
   if (ratingsData) ratingsData.teams.forEach(t => { ratingTeam[t.team_id] = t; });

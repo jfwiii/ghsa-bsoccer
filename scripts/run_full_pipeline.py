@@ -128,11 +128,43 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
 
     massey_ratings = massey_result.get("ratings", {})
 
+    # Compute region records (W-L vs same class+region opponents)
+    # Build team → (class, region) lookup first
+    team_class_region: dict[int, tuple[str, str]] = {}
+    for tid_r, _ in sorted_by_rating:
+        meta_r = id_to_meta.get(tid_r, {})
+        cls_r = meta_r.get("class", "")
+        rgn_r = (team_regions or {}).get(tid_r) or meta_r.get("region_or_area") or ""
+        team_class_region[tid_r] = (cls_r, rgn_r)
+
+    region_records: dict[int, tuple[int, int, int]] = {}
+    for _, g in games_df.iterrows():
+        h, a = int(g["home_team_id"]), int(g["away_team_id"])
+        hg, ag = g["home_goals_regulation"], g["away_goals_regulation"]
+        if pd.isna(hg) or pd.isna(ag):
+            continue
+        hg, ag = int(hg), int(ag)
+        h_cr = team_class_region.get(h, ("", ""))
+        a_cr = team_class_region.get(a, ("", ""))
+        if h_cr[0] != a_cr[0] or not h_cr[1] or h_cr[1] != a_cr[1]:
+            continue  # different class or region — skip
+        for tid, gf, ga in [(h, hg, ag), (a, ag, hg)]:
+            w, l, t = region_records.get(tid, (0, 0, 0))
+            if gf > ga:
+                region_records[tid] = (w + 1, l, t)
+            elif ga > gf:
+                region_records[tid] = (w, l + 1, t)
+            else:
+                region_records[tid] = (w, l, t + 1)
+
     teams_out = []
     for tid, r in sorted_by_rating:
         meta = id_to_meta.get(tid, {})
         w, l, t = records.get(tid, (0, 0, 0))
         rec = f"{w}-{l}" + (f"-{t}" if t else "")
+
+        rw, rl, rt = region_records.get(tid, (0, 0, 0))
+        region_rec = f"{rw}-{rl}" + (f"-{rt}" if rt else "") if (rw or rl or rt) else None
 
         # Playoff bracket assignment
         cls = meta.get("class", "")
@@ -146,6 +178,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             "region_or_area": (team_regions or {}).get(tid) or meta.get("region_or_area"),
             "playoff_bracket": bracket,
             "record": rec,
+            "region_record": region_rec,
             "attack": round(alpha.get(tid, 1.0), 4),
             "defense": round(beta.get(tid, 1.0), 4),
             "rating": round(r, 4),
