@@ -22,7 +22,7 @@ from model import dixon_coles
 
 log = logging.getLogger(__name__)
 
-N_SIMS = 200_000
+N_SIMS = 50_000
 OT_DURATION = 20.0  # minutes per OT period
 MAX_GOALS = 10
 DATA_DIR = Path("data")
@@ -31,20 +31,31 @@ PUBLIC_DIR = Path("public")
 RNG_SEED = 42
 
 
-def _sample_score(lam: float, mu: float, rho: float,
-                  rng: np.random.Generator) -> tuple[int, int]:
-    """Sample one game score from the joint Dixon-Coles PMF."""
-    joint = dixon_coles._joint_pmf(lam, mu, rho, MAX_GOALS)
-    flat = joint.ravel()
-    g = MAX_GOALS + 1
-    idx = rng.choice(g * g, p=flat)
-    return divmod(idx, g)  # (home_goals, away_goals)
+def _get_flat_pmf(team_h: int, team_a: int, neutral: bool,
+                  dc_result: dict, scale: float,
+                  cache: dict) -> np.ndarray:
+    """Return cached flat joint PMF for (team_h, team_a, neutral, scale)."""
+    key = (team_h, team_a, neutral, scale)
+    if key not in cache:
+        alpha = dc_result["alpha"]
+        beta = dc_result["beta"]
+        gamma = dc_result["gamma"]
+        rho = dc_result["rho"]
+        a_h = alpha.get(team_h, 1.0)
+        b_a = beta.get(team_a, 1.0)
+        a_a = alpha.get(team_a, 1.0)
+        b_h = beta.get(team_h, 1.0)
+        lam = a_h * b_a * (gamma if not neutral else 1.0) * scale
+        mu = a_a * b_h * scale
+        cache[key] = dixon_coles._joint_pmf(lam, mu, rho, MAX_GOALS).ravel()
+    return cache[key]
 
 
 def simulate_game(team_h: int, team_a: int, neutral: bool,
                   dc_result: dict,
                   rng: np.random.Generator,
-                  is_championship: bool = False) -> int:
+                  is_championship: bool = False,
+                  pmf_cache: Optional[dict] = None) -> int:
     """
     Simulate a single game. Returns the winner's team_id.
 
@@ -52,34 +63,28 @@ def simulate_game(team_h: int, team_a: int, neutral: bool,
     1. OT: sample 20-min period (lambda_ot = lambda * 20/80).
     2. PK: weighted coin flip P(h wins) = sigmoid(0.3 * (log_alpha_h - log_alpha_a)).
     """
-    alpha = dc_result["alpha"]
-    beta = dc_result["beta"]
-    gamma = dc_result["gamma"]
-    rho = dc_result["rho"]
+    if pmf_cache is None:
+        pmf_cache = {}
 
-    a_h = alpha.get(team_h, 1.0)
-    b_a = beta.get(team_a, 1.0)
-    a_a = alpha.get(team_a, 1.0)
-    b_h = beta.get(team_h, 1.0)
+    g = MAX_GOALS + 1
+    ot_scale = OT_DURATION / 80.0
 
-    lam_raw = a_h * b_a * (gamma if not neutral else 1.0)
-    mu_raw = a_a * b_h
-    lam = lam_raw  # full 80 min (playoff game)
-    mu = mu_raw
-
-    hg, ag = _sample_score(lam, mu, rho, rng)
+    flat = _get_flat_pmf(team_h, team_a, neutral, dc_result, 1.0, pmf_cache)
+    hg, ag = divmod(int(rng.choice(g * g, p=flat)), g)
 
     if hg != ag:
         return team_h if hg > ag else team_a
 
     # OT
-    lam_ot = lam_raw * (OT_DURATION / 80.0)
-    mu_ot = mu_raw * (OT_DURATION / 80.0)
-    hg_ot, ag_ot = _sample_score(lam_ot, mu_ot, rho, rng)
+    flat_ot = _get_flat_pmf(team_h, team_a, neutral, dc_result, ot_scale, pmf_cache)
+    hg_ot, ag_ot = divmod(int(rng.choice(g * g, p=flat_ot)), g)
     if hg_ot != ag_ot:
         return team_h if hg_ot > ag_ot else team_a
 
     # PK coin flip
+    alpha = dc_result["alpha"]
+    a_h = alpha.get(team_h, 1.0)
+    a_a = alpha.get(team_a, 1.0)
     log_alpha_h = np.log(max(a_h, 1e-10))
     log_alpha_a = np.log(max(a_a, 1e-10))
     p_h = 1.0 / (1.0 + np.exp(-0.3 * (log_alpha_h - log_alpha_a)))
@@ -159,6 +164,8 @@ def simulate_bracket(bracket: dict, dc_result: dict,
     reach_counts: dict[int, dict[int, int]] = {tid: {} for tid in team_ids_list}
     round_labels = _build_round_labels(total_rounds)
 
+    pmf_cache: dict = {}  # shared across all sims — keyed by (h, a, neutral, scale)
+
     for sim_idx in range(n_sims):
         winners: dict[tuple[int, int], int] = {}  # (round, position) → winner team_id
 
@@ -195,10 +202,6 @@ def simulate_bracket(bracket: dict, dc_result: dict,
                     if tid in reach_counts:
                         reach_counts[tid][rn] = reach_counts[tid].get(rn, 0) + 1
 
-                top_seed = matchup.get("top_seed")
-                bot_seed = matchup.get("bottom_seed")
-                # Through semis: first-listed (top) team hosts (per GHSA seeding);
-                # championship is neutral.
                 top_is_home = not neutral_round
                 neutral = neutral_round
 
@@ -206,7 +209,8 @@ def simulate_bracket(bracket: dict, dc_result: dict,
                 away_id = bot_id if top_is_home else top_id
 
                 winner = simulate_game(home_id, away_id, neutral, dc_result, rng,
-                                       is_championship=is_champ_round)
+                                       is_championship=is_champ_round,
+                                       pmf_cache=pmf_cache)
                 winners[(rn, pos)] = winner
 
                 if is_champ_round and winner in reach_counts:
