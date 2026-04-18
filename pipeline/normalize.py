@@ -138,6 +138,7 @@ class Normalizer:
                 "is_ghsa": t["team_id"] > 0,
                 "maxpreps_url_slug": t.get("maxpreps_url_slug"),
                 "maxpreps_ranking": t.get("maxpreps_ranking"),
+                "psr_rank": t.get("psr_rank"),
             }
             rows.append(row)
         return pd.DataFrame(rows)
