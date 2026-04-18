@@ -1,5 +1,5 @@
 {
-  "fit_timestamp": "2026-04-18T20:09:40.649737+00:00",
+  "fit_timestamp": "2026-04-18T20:23:57.582230+00:00",
   "hyperparams": {
     "xi": 0.015,
     "home_advantage_log": -0.0152,
@@ -27,7 +27,7 @@
       "rating": 7.358,
       "rating_rank_overall": 1,
       "rating_rank_class": 1,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 2,
       "schedule": [
@@ -263,7 +263,7 @@
       "rating": 6.6881,
       "rating_rank_overall": 2,
       "rating_rank_class": 1,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 2,
       "schedule": [
@@ -487,7 +487,7 @@
       "rating": 6.1363,
       "rating_rank_overall": 3,
       "rating_rank_class": 1,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 3,
       "schedule": [
@@ -711,7 +711,7 @@
       "rating": 5.0533,
       "rating_rank_overall": 4,
       "rating_rank_class": 1,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 2,
       "schedule": [
@@ -923,7 +923,7 @@
       "rating": 5.0114,
       "rating_rank_overall": 5,
       "rating_rank_class": 2,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 25,
       "schedule": [
@@ -1135,7 +1135,7 @@
       "rating": 4.8232,
       "rating_rank_overall": 6,
       "rating_rank_class": 3,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 1,
       "schedule": [
@@ -1347,7 +1347,7 @@
       "rating": 4.6598,
       "rating_rank_overall": 7,
       "rating_rank_class": 4,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 3,
       "schedule": [
@@ -1583,7 +1583,7 @@
       "rating": 4.6588,
       "rating_rank_overall": 8,
       "rating_rank_class": 2,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 8,
       "schedule": [
@@ -1819,7 +1819,7 @@
       "rating": 4.6245,
       "rating_rank_overall": 9,
       "rating_rank_class": 5,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 7,
       "schedule": [
@@ -1983,7 +1983,7 @@
       "rating": 4.5876,
       "rating_rank_overall": 10,
       "rating_rank_class": 2,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 9,
       "schedule": [
@@ -2183,7 +2183,7 @@
       "rating": 4.4654,
       "rating_rank_overall": 11,
       "rating_rank_class": 6,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 12,
       "schedule": [
@@ -2407,7 +2407,7 @@
       "rating": 4.4264,
       "rating_rank_overall": 12,
       "rating_rank_class": 7,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 15,
       "schedule": [
@@ -2607,7 +2607,7 @@
       "rating": 4.4145,
       "rating_rank_overall": 13,
       "rating_rank_class": 3,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 4,
       "schedule": [
@@ -2831,7 +2831,7 @@
       "rating": 4.3519,
       "rating_rank_overall": 14,
       "rating_rank_class": 3,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 1,
       "schedule": [
@@ -3303,7 +3303,7 @@
       "rating": 4.1892,
       "rating_rank_overall": 16,
       "rating_rank_class": 8,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 4,
       "schedule": [
@@ -3515,7 +3515,7 @@
       "rating": 4.1819,
       "rating_rank_overall": 17,
       "rating_rank_class": 4,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 20,
       "schedule": [
@@ -3715,7 +3715,7 @@
       "rating": 4.1101,
       "rating_rank_overall": 18,
       "rating_rank_class": 5,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 17,
       "schedule": [
@@ -3927,7 +3927,7 @@
       "rating": 4.1022,
       "rating_rank_overall": 19,
       "rating_rank_class": 6,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 16,
       "schedule": [
@@ -4139,7 +4139,7 @@
       "rating": 4.0169,
       "rating_rank_overall": 20,
       "rating_rank_class": 9,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 27,
       "schedule": [
@@ -4339,7 +4339,7 @@
       "rating": 4.007,
       "rating_rank_overall": 21,
       "rating_rank_class": 7,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 21,
       "schedule": [
@@ -4551,7 +4551,7 @@
       "rating": 4.0032,
       "rating_rank_overall": 22,
       "rating_rank_class": 10,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 10,
       "schedule": [
@@ -4763,7 +4763,7 @@
       "rating": 3.9926,
       "rating_rank_overall": 23,
       "rating_rank_class": 11,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 19,
       "schedule": [
@@ -4987,7 +4987,7 @@
       "rating": 3.7911,
       "rating_rank_overall": 24,
       "rating_rank_class": 8,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 18,
       "schedule": [
@@ -5211,7 +5211,7 @@
       "rating": 3.7291,
       "rating_rank_overall": 25,
       "rating_rank_class": 12,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 17,
       "schedule": [
@@ -5423,7 +5423,7 @@
       "rating": 3.6895,
       "rating_rank_overall": 26,
       "rating_rank_class": 13,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 14,
       "schedule": [
@@ -5647,7 +5647,7 @@
       "rating": 3.5707,
       "rating_rank_overall": 27,
       "rating_rank_class": 14,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 5,
       "schedule": [
@@ -5871,7 +5871,7 @@
       "rating": 3.5018,
       "rating_rank_overall": 28,
       "rating_rank_class": 15,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 8,
       "schedule": [
@@ -6071,7 +6071,7 @@
       "rating": 3.4749,
       "rating_rank_overall": 29,
       "rating_rank_class": 16,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 6,
       "schedule": [
@@ -6307,7 +6307,7 @@
       "rating": 3.4329,
       "rating_rank_overall": 30,
       "rating_rank_class": 17,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 13,
       "schedule": [
@@ -6519,7 +6519,7 @@
       "rating": 3.4227,
       "rating_rank_overall": 31,
       "rating_rank_class": 9,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 12,
       "schedule": [
@@ -6755,7 +6755,7 @@
       "rating": 3.3268,
       "rating_rank_overall": 32,
       "rating_rank_class": 10,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 3,
       "schedule": [
@@ -6979,7 +6979,7 @@
       "rating": 3.3047,
       "rating_rank_overall": 33,
       "rating_rank_class": 18,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 11,
       "schedule": [
@@ -7191,7 +7191,7 @@
       "rating": 3.294,
       "rating_rank_overall": 34,
       "rating_rank_class": 19,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 26,
       "schedule": [
@@ -7379,7 +7379,7 @@
       "rating": 3.2754,
       "rating_rank_overall": 35,
       "rating_rank_class": 4,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 6,
       "schedule": [
@@ -7615,7 +7615,7 @@
       "rating": 3.2649,
       "rating_rank_overall": 36,
       "rating_rank_class": 11,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 1,
       "schedule": [
@@ -7815,7 +7815,7 @@
       "rating": 3.2512,
       "rating_rank_overall": 37,
       "rating_rank_class": 5,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 13,
       "schedule": [
@@ -8015,7 +8015,7 @@
       "rating": 3.2447,
       "rating_rank_overall": 38,
       "rating_rank_class": 6,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 9,
       "schedule": [
@@ -8179,7 +8179,7 @@
       "rating": 3.21,
       "rating_rank_overall": 39,
       "rating_rank_class": 2,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 9,
       "schedule": [
@@ -8403,7 +8403,7 @@
       "rating": 3.2012,
       "rating_rank_overall": 40,
       "rating_rank_class": 20,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 16,
       "schedule": [
@@ -8627,7 +8627,7 @@
       "rating": 3.1672,
       "rating_rank_overall": 41,
       "rating_rank_class": 7,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 16,
       "schedule": [
@@ -8839,7 +8839,7 @@
       "rating": 3.1607,
       "rating_rank_overall": 42,
       "rating_rank_class": 21,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 22,
       "schedule": [
@@ -9051,7 +9051,7 @@
       "rating": 3.121,
       "rating_rank_overall": 43,
       "rating_rank_class": 12,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 11,
       "schedule": [
@@ -9251,7 +9251,7 @@
       "rating": 3.0832,
       "rating_rank_overall": 44,
       "rating_rank_class": 13,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 8,
       "schedule": [
@@ -9451,7 +9451,7 @@
       "rating": 3.0444,
       "rating_rank_overall": 45,
       "rating_rank_class": 22,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 36,
       "schedule": [
@@ -9627,7 +9627,7 @@
       "rating": 3.0387,
       "rating_rank_overall": 46,
       "rating_rank_class": 23,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 9,
       "schedule": [
@@ -9851,7 +9851,7 @@
       "rating": 3.0151,
       "rating_rank_overall": 47,
       "rating_rank_class": 14,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 14,
       "schedule": [
@@ -10087,7 +10087,7 @@
       "rating": 3.0098,
       "rating_rank_overall": 48,
       "rating_rank_class": 15,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 10,
       "schedule": [
@@ -10275,7 +10275,7 @@
       "rating": 2.9688,
       "rating_rank_overall": 49,
       "rating_rank_class": 16,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 13,
       "schedule": [
@@ -10511,7 +10511,7 @@
       "rating": 2.9428,
       "rating_rank_overall": 50,
       "rating_rank_class": 24,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 21,
       "schedule": [
@@ -10935,7 +10935,7 @@
       "rating": 2.8866,
       "rating_rank_overall": 52,
       "rating_rank_class": 8,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 11,
       "schedule": [
@@ -11147,7 +11147,7 @@
       "rating": 2.8866,
       "rating_rank_overall": 53,
       "rating_rank_class": 9,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 19,
       "schedule": [
@@ -11347,7 +11347,7 @@
       "rating": 2.8684,
       "rating_rank_overall": 54,
       "rating_rank_class": 10,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 2,
       "schedule": [
@@ -11571,7 +11571,7 @@
       "rating": 2.8253,
       "rating_rank_overall": 55,
       "rating_rank_class": 3,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 1,
       "schedule": [
@@ -11807,7 +11807,7 @@
       "rating": 2.7598,
       "rating_rank_overall": 56,
       "rating_rank_class": 25,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 24,
       "schedule": [
@@ -12019,7 +12019,7 @@
       "rating": 2.746,
       "rating_rank_overall": 57,
       "rating_rank_class": 11,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 43,
       "schedule": [
@@ -12255,7 +12255,7 @@
       "rating": 2.7104,
       "rating_rank_overall": 58,
       "rating_rank_class": 4,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 6,
       "schedule": [
@@ -12455,7 +12455,7 @@
       "rating": 2.7102,
       "rating_rank_overall": 59,
       "rating_rank_class": 26,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 39,
       "schedule": [
@@ -12631,7 +12631,7 @@
       "rating": 2.7067,
       "rating_rank_overall": 60,
       "rating_rank_class": 12,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 26,
       "schedule": [
@@ -12843,7 +12843,7 @@
       "rating": 2.7008,
       "rating_rank_overall": 61,
       "rating_rank_class": 17,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 43,
       "schedule": [
@@ -13055,7 +13055,7 @@
       "rating": 2.6431,
       "rating_rank_overall": 62,
       "rating_rank_class": 18,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 23,
       "schedule": [
@@ -13243,7 +13243,7 @@
       "rating": 2.6038,
       "rating_rank_overall": 63,
       "rating_rank_class": 27,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 28,
       "schedule": [
@@ -13431,7 +13431,7 @@
       "rating": 2.5904,
       "rating_rank_overall": 64,
       "rating_rank_class": 5,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 27,
       "schedule": [
@@ -13619,7 +13619,7 @@
       "rating": 2.5808,
       "rating_rank_overall": 65,
       "rating_rank_class": 28,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 34,
       "schedule": [
@@ -13831,7 +13831,7 @@
       "rating": 2.5645,
       "rating_rank_overall": 66,
       "rating_rank_class": 6,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 10,
       "schedule": [
@@ -14067,7 +14067,7 @@
       "rating": 2.5597,
       "rating_rank_overall": 67,
       "rating_rank_class": 19,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 5,
       "schedule": [
@@ -14255,7 +14255,7 @@
       "rating": 2.5556,
       "rating_rank_overall": 68,
       "rating_rank_class": 7,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 5,
       "schedule": [
@@ -14467,7 +14467,7 @@
       "rating": 2.5187,
       "rating_rank_overall": 69,
       "rating_rank_class": 20,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 47,
       "schedule": [
@@ -14655,7 +14655,7 @@
       "rating": 2.4691,
       "rating_rank_overall": 70,
       "rating_rank_class": 21,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 15,
       "schedule": [
@@ -14843,7 +14843,7 @@
       "rating": 2.468,
       "rating_rank_overall": 71,
       "rating_rank_class": 13,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 5,
       "schedule": [
@@ -15195,7 +15195,7 @@
       "rating": 2.4334,
       "rating_rank_overall": 73,
       "rating_rank_class": 1,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 14,
       "schedule": [
@@ -15419,7 +15419,7 @@
       "rating": 2.4312,
       "rating_rank_overall": 74,
       "rating_rank_class": 29,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 38,
       "schedule": [
@@ -15643,7 +15643,7 @@
       "rating": 2.3594,
       "rating_rank_overall": 75,
       "rating_rank_class": 30,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 37,
       "schedule": [
@@ -15867,7 +15867,7 @@
       "rating": 2.3178,
       "rating_rank_overall": 76,
       "rating_rank_class": 31,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 43,
       "schedule": [
@@ -16067,7 +16067,7 @@
       "rating": 2.279,
       "rating_rank_overall": 77,
       "rating_rank_class": 22,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 19,
       "schedule": [
@@ -16303,7 +16303,7 @@
       "rating": 2.2559,
       "rating_rank_overall": 78,
       "rating_rank_class": 32,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 45,
       "schedule": [
@@ -16527,7 +16527,7 @@
       "rating": 2.2518,
       "rating_rank_overall": 79,
       "rating_rank_class": 33,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 46,
       "schedule": [
@@ -16751,7 +16751,7 @@
       "rating": 2.21,
       "rating_rank_overall": 80,
       "rating_rank_class": 34,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 29,
       "schedule": [
@@ -16939,7 +16939,7 @@
       "rating": 2.1884,
       "rating_rank_overall": 81,
       "rating_rank_class": 23,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 27,
       "schedule": [
@@ -17363,7 +17363,7 @@
       "rating": 2.12,
       "rating_rank_overall": 83,
       "rating_rank_class": 14,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 39,
       "schedule": [
@@ -17587,7 +17587,7 @@
       "rating": 2.0885,
       "rating_rank_overall": 84,
       "rating_rank_class": 15,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 29,
       "schedule": [
@@ -17775,7 +17775,7 @@
       "rating": 2.0567,
       "rating_rank_overall": 85,
       "rating_rank_class": 35,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 44,
       "schedule": [
@@ -18011,7 +18011,7 @@
       "rating": 2.017,
       "rating_rank_overall": 86,
       "rating_rank_class": 24,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 42,
       "schedule": [
@@ -18211,7 +18211,7 @@
       "rating": 2.0034,
       "rating_rank_overall": 87,
       "rating_rank_class": 16,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 7,
       "schedule": [
@@ -18423,7 +18423,7 @@
       "rating": 1.9839,
       "rating_rank_overall": 88,
       "rating_rank_class": 17,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 35,
       "schedule": [
@@ -18635,7 +18635,7 @@
       "rating": 1.9826,
       "rating_rank_overall": 89,
       "rating_rank_class": 8,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 12,
       "schedule": [
@@ -18823,7 +18823,7 @@
       "rating": 1.9606,
       "rating_rank_overall": 90,
       "rating_rank_class": 36,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 33,
       "schedule": [
@@ -19059,7 +19059,7 @@
       "rating": 1.9433,
       "rating_rank_overall": 91,
       "rating_rank_class": 25,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 26,
       "schedule": [
@@ -19283,7 +19283,7 @@
       "rating": 1.9189,
       "rating_rank_overall": 92,
       "rating_rank_class": 18,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 14,
       "schedule": [
@@ -19507,7 +19507,7 @@
       "rating": 1.9077,
       "rating_rank_overall": 93,
       "rating_rank_class": 2,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 2,
       "schedule": [
@@ -19719,7 +19719,7 @@
       "rating": 1.9067,
       "rating_rank_overall": 94,
       "rating_rank_class": 19,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 10,
       "schedule": [
@@ -19931,7 +19931,7 @@
       "rating": 1.9036,
       "rating_rank_overall": 95,
       "rating_rank_class": 9,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 16,
       "schedule": [
@@ -20155,7 +20155,7 @@
       "rating": 1.8842,
       "rating_rank_overall": 96,
       "rating_rank_class": 37,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 40,
       "schedule": [
@@ -20391,7 +20391,7 @@
       "rating": 1.8812,
       "rating_rank_overall": 97,
       "rating_rank_class": 26,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 22,
       "schedule": [
@@ -20579,7 +20579,7 @@
       "rating": 1.8779,
       "rating_rank_overall": 98,
       "rating_rank_class": 38,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 32,
       "schedule": [
@@ -20791,7 +20791,7 @@
       "rating": 1.8738,
       "rating_rank_overall": 99,
       "rating_rank_class": 27,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 34,
       "schedule": [
@@ -21027,7 +21027,7 @@
       "rating": 1.8732,
       "rating_rank_overall": 100,
       "rating_rank_class": 10,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 17,
       "schedule": [
@@ -21463,7 +21463,7 @@
       "rating": 1.8167,
       "rating_rank_overall": 102,
       "rating_rank_class": 11,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 7,
       "schedule": [
@@ -21699,7 +21699,7 @@
       "rating": 1.8074,
       "rating_rank_overall": 103,
       "rating_rank_class": 28,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 55,
       "schedule": [
@@ -21899,7 +21899,7 @@
       "rating": 1.8044,
       "rating_rank_overall": 104,
       "rating_rank_class": 29,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 7,
       "schedule": [
@@ -22135,7 +22135,7 @@
       "rating": 1.7786,
       "rating_rank_overall": 105,
       "rating_rank_class": 30,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 6,
       "schedule": [
@@ -22747,7 +22747,7 @@
       "rating": 1.7423,
       "rating_rank_overall": 108,
       "rating_rank_class": 39,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 49,
       "schedule": [
@@ -22983,7 +22983,7 @@
       "rating": 1.7218,
       "rating_rank_overall": 109,
       "rating_rank_class": 40,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 18,
       "schedule": [
@@ -23159,7 +23159,7 @@
       "rating": 1.7217,
       "rating_rank_overall": 110,
       "rating_rank_class": 41,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 30,
       "schedule": [
@@ -23371,7 +23371,7 @@
       "rating": 1.7085,
       "rating_rank_overall": 111,
       "rating_rank_class": 12,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 3,
       "schedule": [
@@ -23607,7 +23607,7 @@
       "rating": 1.7011,
       "rating_rank_overall": 112,
       "rating_rank_class": 31,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 24,
       "schedule": [
@@ -23795,7 +23795,7 @@
       "rating": 1.6946,
       "rating_rank_overall": 113,
       "rating_rank_class": 32,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 28,
       "schedule": [
@@ -23995,7 +23995,7 @@
       "rating": 1.6877,
       "rating_rank_overall": 114,
       "rating_rank_class": 33,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 25,
       "schedule": [
@@ -24183,7 +24183,7 @@
       "rating": 1.6792,
       "rating_rank_overall": 115,
       "rating_rank_class": 13,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 15,
       "schedule": [
@@ -24395,7 +24395,7 @@
       "rating": 1.6698,
       "rating_rank_overall": 116,
       "rating_rank_class": 14,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 35,
       "schedule": [
@@ -24819,7 +24819,7 @@
       "rating": 1.6492,
       "rating_rank_overall": 118,
       "rating_rank_class": 20,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 17,
       "schedule": [
@@ -25055,7 +25055,7 @@
       "rating": 1.6313,
       "rating_rank_overall": 119,
       "rating_rank_class": 15,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 8,
       "schedule": [
@@ -25267,7 +25267,7 @@
       "rating": 1.6287,
       "rating_rank_overall": 120,
       "rating_rank_class": 21,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 31,
       "schedule": [
@@ -25467,7 +25467,7 @@
       "rating": 1.6275,
       "rating_rank_overall": 121,
       "rating_rank_class": 16,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 18,
       "schedule": [
@@ -25703,7 +25703,7 @@
       "rating": 1.6246,
       "rating_rank_overall": 122,
       "rating_rank_class": 3,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 6,
       "schedule": [
@@ -25927,7 +25927,7 @@
       "rating": 1.6161,
       "rating_rank_overall": 123,
       "rating_rank_class": 22,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 56,
       "schedule": [
@@ -26151,7 +26151,7 @@
       "rating": 1.6058,
       "rating_rank_overall": 124,
       "rating_rank_class": 42,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 50,
       "schedule": [
@@ -26351,7 +26351,7 @@
       "rating": 1.589,
       "rating_rank_overall": 125,
       "rating_rank_class": 43,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 35,
       "schedule": [
@@ -26479,7 +26479,7 @@
       "rating": 1.5875,
       "rating_rank_overall": 126,
       "rating_rank_class": 23,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 18,
       "schedule": [
@@ -26703,7 +26703,7 @@
       "rating": 1.5859,
       "rating_rank_overall": 127,
       "rating_rank_class": 34,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 35,
       "schedule": [
@@ -26903,7 +26903,7 @@
       "rating": 1.5723,
       "rating_rank_overall": 128,
       "rating_rank_class": 4,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 29,
       "schedule": [
@@ -27127,7 +27127,7 @@
       "rating": 1.5707,
       "rating_rank_overall": 129,
       "rating_rank_class": 17,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 11,
       "schedule": [
@@ -27315,7 +27315,7 @@
       "rating": 1.5662,
       "rating_rank_overall": 130,
       "rating_rank_class": 24,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 20,
       "schedule": [
@@ -27515,7 +27515,7 @@
       "rating": 1.5643,
       "rating_rank_overall": 131,
       "rating_rank_class": 44,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 31,
       "schedule": [
@@ -27751,7 +27751,7 @@
       "rating": 1.5583,
       "rating_rank_overall": 132,
       "rating_rank_class": 5,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 12,
       "schedule": [
@@ -27987,7 +27987,7 @@
       "rating": 1.5567,
       "rating_rank_overall": 133,
       "rating_rank_class": 25,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 22,
       "schedule": [
@@ -28447,7 +28447,7 @@
       "rating": 1.5382,
       "rating_rank_overall": 135,
       "rating_rank_class": 26,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 33,
       "schedule": [
@@ -28623,7 +28623,7 @@
       "rating": 1.5232,
       "rating_rank_overall": 136,
       "rating_rank_class": 18,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 13,
       "schedule": [
@@ -28835,7 +28835,7 @@
       "rating": 1.5098,
       "rating_rank_overall": 137,
       "rating_rank_class": 35,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 29,
       "schedule": [
@@ -29071,7 +29071,7 @@
       "rating": 1.4872,
       "rating_rank_overall": 138,
       "rating_rank_class": 6,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 1,
       "schedule": [
@@ -29271,7 +29271,7 @@
       "rating": 1.4841,
       "rating_rank_overall": 139,
       "rating_rank_class": 7,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 3,
       "schedule": [
@@ -29483,7 +29483,7 @@
       "rating": 1.4835,
       "rating_rank_overall": 140,
       "rating_rank_class": 45,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 23,
       "schedule": [
@@ -30167,7 +30167,7 @@
       "rating": 1.4633,
       "rating_rank_overall": 143,
       "rating_rank_class": 27,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 24,
       "schedule": [
@@ -30403,7 +30403,7 @@
       "rating": 1.4476,
       "rating_rank_overall": 144,
       "rating_rank_class": 19,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 4,
       "schedule": [
@@ -30639,7 +30639,7 @@
       "rating": 1.4423,
       "rating_rank_overall": 145,
       "rating_rank_class": 28,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 25,
       "schedule": [
@@ -30851,7 +30851,7 @@
       "rating": 1.4312,
       "rating_rank_overall": 146,
       "rating_rank_class": 8,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 15,
       "schedule": [
@@ -31087,7 +31087,7 @@
       "rating": 1.4282,
       "rating_rank_overall": 147,
       "rating_rank_class": 29,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 30,
       "schedule": [
@@ -31239,7 +31239,7 @@
       "rating": 1.4279,
       "rating_rank_overall": 148,
       "rating_rank_class": 30,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 28,
       "schedule": [
@@ -31415,7 +31415,7 @@
       "rating": 1.4196,
       "rating_rank_overall": 149,
       "rating_rank_class": 31,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 23,
       "schedule": [
@@ -31591,7 +31591,7 @@
       "rating": 1.4192,
       "rating_rank_overall": 150,
       "rating_rank_class": 9,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 10,
       "schedule": [
@@ -32059,7 +32059,7 @@
       "rating": 1.378,
       "rating_rank_overall": 153,
       "rating_rank_class": 36,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 39,
       "schedule": [
@@ -32411,7 +32411,7 @@
       "rating": 1.3606,
       "rating_rank_overall": 155,
       "rating_rank_class": 37,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 31,
       "schedule": [
@@ -32587,7 +32587,7 @@
       "rating": 1.36,
       "rating_rank_overall": 156,
       "rating_rank_class": 20,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 53,
       "schedule": [
@@ -32787,7 +32787,7 @@
       "rating": 1.3475,
       "rating_rank_overall": 157,
       "rating_rank_class": 21,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 14,
       "schedule": [
@@ -32999,7 +32999,7 @@
       "rating": 1.3473,
       "rating_rank_overall": 158,
       "rating_rank_class": 46,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 41,
       "schedule": [
@@ -33223,7 +33223,7 @@
       "rating": 1.3449,
       "rating_rank_overall": 159,
       "rating_rank_class": 10,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 5,
       "schedule": [
@@ -33459,7 +33459,7 @@
       "rating": 1.336,
       "rating_rank_overall": 160,
       "rating_rank_class": 22,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 33,
       "schedule": [
@@ -33895,7 +33895,7 @@
       "rating": 1.3338,
       "rating_rank_overall": 162,
       "rating_rank_class": 11,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 23,
       "schedule": [
@@ -34131,7 +34131,7 @@
       "rating": 1.3232,
       "rating_rank_overall": 163,
       "rating_rank_class": 38,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 32,
       "schedule": [
@@ -34367,7 +34367,7 @@
       "rating": 1.3216,
       "rating_rank_overall": 164,
       "rating_rank_class": 32,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 21,
       "schedule": [
@@ -34591,7 +34591,7 @@
       "rating": 1.3071,
       "rating_rank_overall": 165,
       "rating_rank_class": 47,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 20,
       "schedule": [
@@ -34827,7 +34827,7 @@
       "rating": 1.3036,
       "rating_rank_overall": 166,
       "rating_rank_class": 39,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 57,
       "schedule": [
@@ -35003,7 +35003,7 @@
       "rating": 1.2963,
       "rating_rank_overall": 167,
       "rating_rank_class": 40,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 38,
       "schedule": [
@@ -35215,7 +35215,7 @@
       "rating": 1.2943,
       "rating_rank_overall": 168,
       "rating_rank_class": 33,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 4,
       "schedule": [
@@ -35403,7 +35403,7 @@
       "rating": 1.2767,
       "rating_rank_overall": 169,
       "rating_rank_class": 34,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 32,
       "schedule": [
@@ -36003,7 +36003,7 @@
       "rating": 1.2664,
       "rating_rank_overall": 172,
       "rating_rank_class": 41,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 45,
       "schedule": [
@@ -36179,7 +36179,7 @@
       "rating": 1.2658,
       "rating_rank_overall": 173,
       "rating_rank_class": 12,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 9,
       "schedule": [
@@ -36379,7 +36379,7 @@
       "rating": 1.2564,
       "rating_rank_overall": 174,
       "rating_rank_class": 13,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 7,
       "schedule": [
@@ -36615,7 +36615,7 @@
       "rating": 1.2554,
       "rating_rank_overall": 175,
       "rating_rank_class": 42,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 37,
       "schedule": [
@@ -36839,7 +36839,7 @@
       "rating": 1.227,
       "rating_rank_overall": 176,
       "rating_rank_class": 23,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 22,
       "schedule": [
@@ -37051,7 +37051,7 @@
       "rating": 1.2236,
       "rating_rank_overall": 177,
       "rating_rank_class": 35,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 36,
       "schedule": [
@@ -37475,7 +37475,7 @@
       "rating": 1.2047,
       "rating_rank_overall": 179,
       "rating_rank_class": 24,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 28,
       "schedule": [
@@ -37663,7 +37663,7 @@
       "rating": 1.195,
       "rating_rank_overall": 180,
       "rating_rank_class": 14,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 22,
       "schedule": [
@@ -37875,7 +37875,7 @@
       "rating": 1.1888,
       "rating_rank_overall": 181,
       "rating_rank_class": 36,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 38,
       "schedule": [
@@ -38087,7 +38087,7 @@
       "rating": 1.1847,
       "rating_rank_overall": 182,
       "rating_rank_class": 37,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 12,
       "schedule": [
@@ -38251,7 +38251,7 @@
       "rating": 1.1846,
       "rating_rank_overall": 183,
       "rating_rank_class": 15,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 21,
       "schedule": [
@@ -38603,7 +38603,7 @@
       "rating": 1.1719,
       "rating_rank_overall": 185,
       "rating_rank_class": 43,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 33,
       "schedule": [
@@ -38803,7 +38803,7 @@
       "rating": 1.1608,
       "rating_rank_overall": 186,
       "rating_rank_class": 25,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 30,
       "schedule": [
@@ -38991,7 +38991,7 @@
       "rating": 1.1552,
       "rating_rank_overall": 187,
       "rating_rank_class": 38,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 15,
       "schedule": [
@@ -39179,7 +39179,7 @@
       "rating": 1.1472,
       "rating_rank_overall": 188,
       "rating_rank_class": 26,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 42,
       "schedule": [
@@ -39403,7 +39403,7 @@
       "rating": 1.1444,
       "rating_rank_overall": 189,
       "rating_rank_class": 44,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 40,
       "schedule": [
@@ -39839,7 +39839,7 @@
       "rating": 1.137,
       "rating_rank_overall": 191,
       "rating_rank_class": 45,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 41,
       "schedule": [
@@ -40251,7 +40251,7 @@
       "rating": 1.1333,
       "rating_rank_overall": 193,
       "rating_rank_class": 16,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 24,
       "schedule": [
@@ -40663,7 +40663,7 @@
       "rating": 1.1263,
       "rating_rank_overall": 195,
       "rating_rank_class": 46,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 36,
       "schedule": [
@@ -40851,7 +40851,7 @@
       "rating": 1.1218,
       "rating_rank_overall": 196,
       "rating_rank_class": 47,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 30,
       "schedule": [
@@ -41263,7 +41263,7 @@
       "rating": 1.1139,
       "rating_rank_overall": 198,
       "rating_rank_class": 39,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 40,
       "schedule": [
@@ -41487,7 +41487,7 @@
       "rating": 1.113,
       "rating_rank_overall": 199,
       "rating_rank_class": 48,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 44,
       "schedule": [
@@ -42123,7 +42123,7 @@
       "rating": 1.1045,
       "rating_rank_overall": 202,
       "rating_rank_class": 27,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 31,
       "schedule": [
@@ -42807,7 +42807,7 @@
       "rating": 1.0844,
       "rating_rank_overall": 205,
       "rating_rank_class": 28,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 37,
       "schedule": [
@@ -43243,7 +43243,7 @@
       "rating": 1.0752,
       "rating_rank_overall": 207,
       "rating_rank_class": 48,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 42,
       "schedule": [
@@ -43443,7 +43443,7 @@
       "rating": 1.0728,
       "rating_rank_overall": 208,
       "rating_rank_class": 40,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 44,
       "schedule": [
@@ -43667,7 +43667,7 @@
       "rating": 1.0635,
       "rating_rank_overall": 209,
       "rating_rank_class": 17,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 17,
       "schedule": [
@@ -43891,7 +43891,7 @@
       "rating": 1.054,
       "rating_rank_overall": 210,
       "rating_rank_class": 18,
-      "rating_rank_region": null,
+      "rating_rank_region": 10,
       "maxpreps_state_rank": null,
       "psr_rank": 19,
       "schedule": [
@@ -44315,7 +44315,7 @@
       "rating": 1.0367,
       "rating_rank_overall": 212,
       "rating_rank_class": 41,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 45,
       "schedule": [
@@ -44503,7 +44503,7 @@
       "rating": 1.0366,
       "rating_rank_overall": 213,
       "rating_rank_class": 19,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 8,
       "schedule": [
@@ -44703,7 +44703,7 @@
       "rating": 1.0173,
       "rating_rank_overall": 214,
       "rating_rank_class": 29,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 43,
       "schedule": [
@@ -45091,7 +45091,7 @@
       "rating": 0.988,
       "rating_rank_overall": 216,
       "rating_rank_class": 30,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 32,
       "schedule": [
@@ -45327,7 +45327,7 @@
       "rating": 0.9771,
       "rating_rank_overall": 217,
       "rating_rank_class": 31,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 23,
       "schedule": [
@@ -45551,7 +45551,7 @@
       "rating": 0.9619,
       "rating_rank_overall": 218,
       "rating_rank_class": 32,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 24,
       "schedule": [
@@ -45691,7 +45691,7 @@
       "rating": 0.9604,
       "rating_rank_overall": 219,
       "rating_rank_class": 49,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 48,
       "schedule": [
@@ -45855,7 +45855,7 @@
       "rating": 0.9465,
       "rating_rank_overall": 220,
       "rating_rank_class": 33,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 21,
       "schedule": [
@@ -46079,7 +46079,7 @@
       "rating": 0.941,
       "rating_rank_overall": 221,
       "rating_rank_class": 34,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 44,
       "schedule": [
@@ -46515,7 +46515,7 @@
       "rating": 0.9251,
       "rating_rank_overall": 223,
       "rating_rank_class": 42,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 50,
       "schedule": [
@@ -46727,7 +46727,7 @@
       "rating": 0.9229,
       "rating_rank_overall": 224,
       "rating_rank_class": 20,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 26,
       "schedule": [
@@ -46843,7 +46843,7 @@
       "rating": 0.9168,
       "rating_rank_overall": 225,
       "rating_rank_class": 21,
-      "rating_rank_region": null,
+      "rating_rank_region": 11,
       "maxpreps_state_rank": null,
       "psr_rank": 16,
       "schedule": [
@@ -47043,7 +47043,7 @@
       "rating": 0.9103,
       "rating_rank_overall": 226,
       "rating_rank_class": 35,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 19,
       "schedule": [
@@ -47479,7 +47479,7 @@
       "rating": 0.8994,
       "rating_rank_overall": 228,
       "rating_rank_class": 36,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 38,
       "schedule": [
@@ -47691,7 +47691,7 @@
       "rating": 0.8947,
       "rating_rank_overall": 229,
       "rating_rank_class": 43,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 46,
       "schedule": [
@@ -47903,7 +47903,7 @@
       "rating": 0.8921,
       "rating_rank_overall": 230,
       "rating_rank_class": 49,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 50,
       "schedule": [
@@ -48339,7 +48339,7 @@
       "rating": 0.882,
       "rating_rank_overall": 232,
       "rating_rank_class": 44,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 41,
       "schedule": [
@@ -48575,7 +48575,7 @@
       "rating": 0.8761,
       "rating_rank_overall": 233,
       "rating_rank_class": 37,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 26,
       "schedule": [
@@ -48811,7 +48811,7 @@
       "rating": 0.8753,
       "rating_rank_overall": 234,
       "rating_rank_class": 45,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 37,
       "schedule": [
@@ -49235,7 +49235,7 @@
       "rating": 0.8732,
       "rating_rank_overall": 236,
       "rating_rank_class": 22,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 27,
       "schedule": [
@@ -49411,7 +49411,7 @@
       "rating": 0.8726,
       "rating_rank_overall": 237,
       "rating_rank_class": 23,
-      "rating_rank_region": null,
+      "rating_rank_region": 12,
       "maxpreps_state_rank": null,
       "psr_rank": 35,
       "schedule": [
@@ -49775,7 +49775,7 @@
       "rating": 0.8713,
       "rating_rank_overall": 239,
       "rating_rank_class": 24,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 36,
       "schedule": [
@@ -49999,7 +49999,7 @@
       "rating": 0.8712,
       "rating_rank_overall": 240,
       "rating_rank_class": 25,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 28,
       "schedule": [
@@ -50223,7 +50223,7 @@
       "rating": 0.8688,
       "rating_rank_overall": 241,
       "rating_rank_class": 38,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 29,
       "schedule": [
@@ -50387,7 +50387,7 @@
       "rating": 0.8644,
       "rating_rank_overall": 242,
       "rating_rank_class": 26,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 11,
       "schedule": [
@@ -50623,7 +50623,7 @@
       "rating": 0.8566,
       "rating_rank_overall": 243,
       "rating_rank_class": 39,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 34,
       "schedule": [
@@ -50835,7 +50835,7 @@
       "rating": 0.8543,
       "rating_rank_overall": 244,
       "rating_rank_class": 40,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 20,
       "schedule": [
@@ -51223,7 +51223,7 @@
       "rating": 0.8313,
       "rating_rank_overall": 246,
       "rating_rank_class": 50,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 56,
       "schedule": [
@@ -51659,7 +51659,7 @@
       "rating": 0.8174,
       "rating_rank_overall": 248,
       "rating_rank_class": 41,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 25,
       "schedule": [
@@ -51895,7 +51895,7 @@
       "rating": 0.8096,
       "rating_rank_overall": 249,
       "rating_rank_class": 51,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 52,
       "schedule": [
@@ -52107,7 +52107,7 @@
       "rating": 0.7951,
       "rating_rank_overall": 250,
       "rating_rank_class": 42,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 54,
       "schedule": [
@@ -52447,7 +52447,7 @@
       "rating": 0.7883,
       "rating_rank_overall": 252,
       "rating_rank_class": 52,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 46,
       "schedule": [
@@ -52907,7 +52907,7 @@
       "rating": 0.7779,
       "rating_rank_overall": 254,
       "rating_rank_class": 53,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 49,
       "schedule": [
@@ -53083,7 +53083,7 @@
       "rating": 0.7762,
       "rating_rank_overall": 255,
       "rating_rank_class": 43,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 39,
       "schedule": [
@@ -53319,7 +53319,7 @@
       "rating": 0.7742,
       "rating_rank_overall": 256,
       "rating_rank_class": 46,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 47,
       "schedule": [
@@ -53543,7 +53543,7 @@
       "rating": 0.7674,
       "rating_rank_overall": 257,
       "rating_rank_class": 27,
-      "rating_rank_region": null,
+      "rating_rank_region": 13,
       "maxpreps_state_rank": null,
       "psr_rank": 31,
       "schedule": [
@@ -53755,7 +53755,7 @@
       "rating": 0.7554,
       "rating_rank_overall": 258,
       "rating_rank_class": 47,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 54,
       "schedule": [
@@ -53943,7 +53943,7 @@
       "rating": 0.7542,
       "rating_rank_overall": 259,
       "rating_rank_class": 48,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 42,
       "schedule": [
@@ -54191,7 +54191,7 @@
       "rating": 0.747,
       "rating_rank_overall": 260,
       "rating_rank_class": 54,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 53,
       "schedule": [
@@ -54427,7 +54427,7 @@
       "rating": 0.7233,
       "rating_rank_overall": 261,
       "rating_rank_class": 28,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 43,
       "schedule": [
@@ -55323,7 +55323,7 @@
       "rating": 0.7099,
       "rating_rank_overall": 265,
       "rating_rank_class": 49,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 27,
       "schedule": [
@@ -55451,7 +55451,7 @@
       "rating": 0.7068,
       "rating_rank_overall": 266,
       "rating_rank_class": 29,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 4,
       "schedule": [
@@ -55663,7 +55663,7 @@
       "rating": 0.6987,
       "rating_rank_overall": 267,
       "rating_rank_class": 50,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 49,
       "schedule": [
@@ -56063,7 +56063,7 @@
       "rating": 0.6822,
       "rating_rank_overall": 269,
       "rating_rank_class": 44,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 40,
       "schedule": [
@@ -56215,7 +56215,7 @@
       "rating": 0.6755,
       "rating_rank_overall": 270,
       "rating_rank_class": 51,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 34,
       "schedule": [
@@ -56415,7 +56415,7 @@
       "rating": 0.6701,
       "rating_rank_overall": 271,
       "rating_rank_class": 55,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 54,
       "schedule": [
@@ -56603,7 +56603,7 @@
       "rating": 0.67,
       "rating_rank_overall": 272,
       "rating_rank_class": 45,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 36,
       "schedule": [
@@ -56791,7 +56791,7 @@
       "rating": 0.6672,
       "rating_rank_overall": 273,
       "rating_rank_class": 56,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 51,
       "schedule": [
@@ -56991,7 +56991,7 @@
       "rating": 0.6557,
       "rating_rank_overall": 274,
       "rating_rank_class": 52,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 52,
       "schedule": [
@@ -57731,7 +57731,7 @@
       "rating": 0.6497,
       "rating_rank_overall": 278,
       "rating_rank_class": 46,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 52,
       "schedule": [
@@ -57955,7 +57955,7 @@
       "rating": 0.6435,
       "rating_rank_overall": 279,
       "rating_rank_class": 47,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 55,
       "schedule": [
@@ -58143,7 +58143,7 @@
       "rating": 0.6425,
       "rating_rank_overall": 280,
       "rating_rank_class": 50,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 53,
       "schedule": [
@@ -58743,7 +58743,7 @@
       "rating": 0.622,
       "rating_rank_overall": 283,
       "rating_rank_class": 53,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 48,
       "schedule": [
@@ -59071,7 +59071,7 @@
       "rating": 0.6125,
       "rating_rank_overall": 285,
       "rating_rank_class": 51,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 47,
       "schedule": [
@@ -59483,7 +59483,7 @@
       "rating": 0.5918,
       "rating_rank_overall": 287,
       "rating_rank_class": 30,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 41,
       "schedule": [
@@ -59719,7 +59719,7 @@
       "rating": 0.5909,
       "rating_rank_overall": 288,
       "rating_rank_class": 57,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 48,
       "schedule": [
@@ -60295,7 +60295,7 @@
       "rating": 0.5758,
       "rating_rank_overall": 291,
       "rating_rank_class": 48,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 45,
       "schedule": [
@@ -60471,7 +60471,7 @@
       "rating": 0.5746,
       "rating_rank_overall": 292,
       "rating_rank_class": 31,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 33,
       "schedule": [
@@ -60931,7 +60931,7 @@
       "rating": 0.5643,
       "rating_rank_overall": 294,
       "rating_rank_class": 49,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 50,
       "schedule": [
@@ -61095,7 +61095,7 @@
       "rating": 0.559,
       "rating_rank_overall": 295,
       "rating_rank_class": 50,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 41,
       "schedule": [
@@ -61519,7 +61519,7 @@
       "rating": 0.5479,
       "rating_rank_overall": 297,
       "rating_rank_class": 32,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 39,
       "schedule": [
@@ -61719,7 +61719,7 @@
       "rating": 0.5397,
       "rating_rank_overall": 298,
       "rating_rank_class": 52,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 55,
       "schedule": [
@@ -61931,7 +61931,7 @@
       "rating": 0.5342,
       "rating_rank_overall": 299,
       "rating_rank_class": 51,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 48,
       "schedule": [
@@ -62131,7 +62131,7 @@
       "rating": 0.5321,
       "rating_rank_overall": 300,
       "rating_rank_class": 54,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 51,
       "schedule": [
@@ -62659,7 +62659,7 @@
       "rating": 0.5154,
       "rating_rank_overall": 303,
       "rating_rank_class": 33,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 38,
       "schedule": [
@@ -62775,7 +62775,7 @@
       "rating": 0.5113,
       "rating_rank_overall": 304,
       "rating_rank_class": 55,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 53,
       "schedule": [
@@ -63151,7 +63151,7 @@
       "rating": 0.4988,
       "rating_rank_overall": 306,
       "rating_rank_class": 53,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 54,
       "schedule": [
@@ -63339,7 +63339,7 @@
       "rating": 0.4754,
       "rating_rank_overall": 307,
       "rating_rank_class": 52,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 49,
       "schedule": [
@@ -63539,7 +63539,7 @@
       "rating": 0.4748,
       "rating_rank_overall": 308,
       "rating_rank_class": 56,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 59,
       "schedule": [
@@ -63879,7 +63879,7 @@
       "rating": 0.4697,
       "rating_rank_overall": 310,
       "rating_rank_class": 57,
-      "rating_rank_region": null,
+      "rating_rank_region": 10,
       "maxpreps_state_rank": null,
       "psr_rank": 58,
       "schedule": [
@@ -64043,7 +64043,7 @@
       "rating": 0.4631,
       "rating_rank_overall": 311,
       "rating_rank_class": 58,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 58,
       "schedule": [
@@ -64219,7 +64219,7 @@
       "rating": 0.4439,
       "rating_rank_overall": 312,
       "rating_rank_class": 54,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 52,
       "schedule": [
@@ -64631,7 +64631,7 @@
       "rating": 0.4415,
       "rating_rank_overall": 314,
       "rating_rank_class": 55,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 51,
       "schedule": [
@@ -65183,7 +65183,7 @@
       "rating": 0.4343,
       "rating_rank_overall": 317,
       "rating_rank_class": 59,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 61,
       "schedule": [
@@ -65383,7 +65383,7 @@
       "rating": 0.4326,
       "rating_rank_overall": 318,
       "rating_rank_class": 53,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 47,
       "schedule": [
@@ -65843,7 +65843,7 @@
       "rating": 0.4201,
       "rating_rank_overall": 320,
       "rating_rank_class": 60,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 59,
       "schedule": [
@@ -66055,7 +66055,7 @@
       "rating": 0.4192,
       "rating_rank_overall": 321,
       "rating_rank_class": 58,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 57,
       "schedule": [
@@ -66667,7 +66667,7 @@
       "rating": 0.3979,
       "rating_rank_overall": 324,
       "rating_rank_class": 34,
-      "rating_rank_region": null,
+      "rating_rank_region": 14,
       "maxpreps_state_rank": null,
       "psr_rank": 47,
       "schedule": [
@@ -66855,7 +66855,7 @@
       "rating": 0.3932,
       "rating_rank_overall": 325,
       "rating_rank_class": 54,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 46,
       "schedule": [
@@ -67091,7 +67091,7 @@
       "rating": 0.385,
       "rating_rank_overall": 326,
       "rating_rank_class": 55,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 57,
       "schedule": [
@@ -67515,7 +67515,7 @@
       "rating": 0.3676,
       "rating_rank_overall": 328,
       "rating_rank_class": 56,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 56,
       "schedule": [
@@ -67751,7 +67751,7 @@
       "rating": 0.3602,
       "rating_rank_overall": 329,
       "rating_rank_class": 59,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 55,
       "schedule": [
@@ -68327,7 +68327,7 @@
       "rating": 0.3425,
       "rating_rank_overall": 332,
       "rating_rank_class": 61,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 60,
       "schedule": [
@@ -68431,7 +68431,7 @@
       "rating": 0.3382,
       "rating_rank_overall": 333,
       "rating_rank_class": 35,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 48,
       "schedule": [
@@ -68795,7 +68795,7 @@
       "rating": 0.3294,
       "rating_rank_overall": 335,
       "rating_rank_class": 60,
-      "rating_rank_region": null,
+      "rating_rank_region": 9,
       "maxpreps_state_rank": null,
       "psr_rank": 61,
       "schedule": [
@@ -69031,7 +69031,7 @@
       "rating": 0.319,
       "rating_rank_overall": 336,
       "rating_rank_class": 57,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 59,
       "schedule": [
@@ -69267,7 +69267,7 @@
       "rating": 0.3178,
       "rating_rank_overall": 337,
       "rating_rank_class": 58,
-      "rating_rank_region": null,
+      "rating_rank_region": 10,
       "maxpreps_state_rank": null,
       "psr_rank": 60,
       "schedule": [
@@ -69655,7 +69655,7 @@
       "rating": 0.3045,
       "rating_rank_overall": 339,
       "rating_rank_class": 36,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 13,
       "schedule": [
@@ -69867,7 +69867,7 @@
       "rating": 0.3003,
       "rating_rank_overall": 340,
       "rating_rank_class": 37,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 30,
       "schedule": [
@@ -70019,7 +70019,7 @@
       "rating": 0.2957,
       "rating_rank_overall": 341,
       "rating_rank_class": 38,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 20,
       "schedule": [
@@ -70195,7 +70195,7 @@
       "rating": 0.2895,
       "rating_rank_overall": 342,
       "rating_rank_class": 39,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 45,
       "schedule": [
@@ -70711,7 +70711,7 @@
       "rating": 0.2764,
       "rating_rank_overall": 345,
       "rating_rank_class": 40,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 50,
       "schedule": [
@@ -71135,7 +71135,7 @@
       "rating": 0.275,
       "rating_rank_overall": 347,
       "rating_rank_class": 59,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 51,
       "schedule": [
@@ -71935,7 +71935,7 @@
       "rating": 0.2706,
       "rating_rank_overall": 351,
       "rating_rank_class": 61,
-      "rating_rank_region": null,
+      "rating_rank_region": 10,
       "maxpreps_state_rank": null,
       "psr_rank": 60,
       "schedule": [
@@ -72063,7 +72063,7 @@
       "rating": 0.2622,
       "rating_rank_overall": 352,
       "rating_rank_class": 60,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 58,
       "schedule": [
@@ -72591,7 +72591,7 @@
       "rating": 0.241,
       "rating_rank_overall": 355,
       "rating_rank_class": 41,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 32,
       "schedule": [
@@ -72755,7 +72755,7 @@
       "rating": 0.2398,
       "rating_rank_overall": 356,
       "rating_rank_class": 42,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 40,
       "schedule": [
@@ -74011,7 +74011,7 @@
       "rating": 0.2179,
       "rating_rank_overall": 363,
       "rating_rank_class": 61,
-      "rating_rank_region": null,
+      "rating_rank_region": 8,
       "maxpreps_state_rank": null,
       "psr_rank": 62,
       "schedule": [
@@ -74279,7 +74279,7 @@
       "rating": 0.215,
       "rating_rank_overall": 365,
       "rating_rank_class": 43,
-      "rating_rank_region": null,
+      "rating_rank_region": 1,
       "maxpreps_state_rank": null,
       "psr_rank": 25,
       "schedule": [
@@ -74431,7 +74431,7 @@
       "rating": 0.2144,
       "rating_rank_overall": 366,
       "rating_rank_class": 44,
-      "rating_rank_region": null,
+      "rating_rank_region": 15,
       "maxpreps_state_rank": null,
       "psr_rank": 49,
       "schedule": [
@@ -74595,7 +74595,7 @@
       "rating": 0.2133,
       "rating_rank_overall": 367,
       "rating_rank_class": 45,
-      "rating_rank_region": null,
+      "rating_rank_region": 16,
       "maxpreps_state_rank": null,
       "psr_rank": 53,
       "schedule": [
@@ -74771,7 +74771,7 @@
       "rating": 0.2122,
       "rating_rank_overall": 368,
       "rating_rank_class": 56,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 56,
       "schedule": [
@@ -75275,7 +75275,7 @@
       "rating": 0.2002,
       "rating_rank_overall": 371,
       "rating_rank_class": 46,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 51,
       "schedule": [
@@ -75586,7 +75586,7 @@
       "rating": 0.1913,
       "rating_rank_overall": 374,
       "rating_rank_class": 47,
-      "rating_rank_region": null,
+      "rating_rank_region": 2,
       "maxpreps_state_rank": null,
       "psr_rank": 18,
       "schedule": [
@@ -75726,7 +75726,7 @@
       "rating": 0.189,
       "rating_rank_overall": 375,
       "rating_rank_class": 62,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 61,
       "schedule": [
@@ -75878,7 +75878,7 @@
       "rating": 0.1859,
       "rating_rank_overall": 376,
       "rating_rank_class": 48,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 55,
       "schedule": [
@@ -76522,7 +76522,7 @@
       "rating": 0.1669,
       "rating_rank_overall": 380,
       "rating_rank_class": 49,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 44,
       "schedule": [
@@ -76686,7 +76686,7 @@
       "rating": 0.1613,
       "rating_rank_overall": 381,
       "rating_rank_class": 50,
-      "rating_rank_region": null,
+      "rating_rank_region": 5,
       "maxpreps_state_rank": null,
       "psr_rank": 37,
       "schedule": [
@@ -76850,7 +76850,7 @@
       "rating": 0.1609,
       "rating_rank_overall": 382,
       "rating_rank_class": 51,
-      "rating_rank_region": null,
+      "rating_rank_region": 6,
       "maxpreps_state_rank": null,
       "psr_rank": 42,
       "schedule": [
@@ -77202,7 +77202,7 @@
       "rating": 0.1584,
       "rating_rank_overall": 384,
       "rating_rank_class": 52,
-      "rating_rank_region": null,
+      "rating_rank_region": 17,
       "maxpreps_state_rank": null,
       "psr_rank": 34,
       "schedule": [
@@ -77390,7 +77390,7 @@
       "rating": 0.1454,
       "rating_rank_overall": 385,
       "rating_rank_class": 53,
-      "rating_rank_region": null,
+      "rating_rank_region": 3,
       "maxpreps_state_rank": null,
       "psr_rank": 46,
       "schedule": [
@@ -78222,7 +78222,7 @@
       "rating": 0.0868,
       "rating_rank_overall": 390,
       "rating_rank_class": 54,
-      "rating_rank_region": null,
+      "rating_rank_region": 4,
       "maxpreps_state_rank": null,
       "psr_rank": 54,
       "schedule": [
@@ -78362,7 +78362,7 @@
       "rating": 0.0472,
       "rating_rank_overall": 391,
       "rating_rank_class": 55,
-      "rating_rank_region": null,
+      "rating_rank_region": 7,
       "maxpreps_state_rank": null,
       "psr_rank": 52,
       "schedule": [
