@@ -22,7 +22,7 @@ from model import dixon_coles
 
 log = logging.getLogger(__name__)
 
-N_SIMS = 50_000
+N_SIMS = 200_000
 OT_DURATION = 20.0  # minutes per OT period
 MAX_GOALS = 10
 DATA_DIR = Path("data")

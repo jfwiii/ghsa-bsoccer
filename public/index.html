@@ -195,11 +195,11 @@
     <table class="odds-table">
       <thead>
         <tr>
-          <th>Team</th><th>Class</th><th>Bracket</th>
+          <th>Team</th><th>Class</th><th>Region · Seed</th><th>Bracket</th>
           <th>R16</th><th>QF</th><th>SF</th><th>Final</th><th>Champion</th>
         </tr>
       </thead>
-      <tbody id="odds-body"><tr><td colspan="8" class="loading">Loading…</td></tr></tbody>
+      <tbody id="odds-body"><tr><td colspan="9" class="loading">Loading…</td></tr></tbody>
     </table>
   </div>
 </div>
@@ -590,8 +590,12 @@ function renderBrackets() {
       const heat = Math.round(p * 220);
       return `<td style="color:rgb(${255-heat},${heat+100},${255-heat/2})">${pct}%</td>`;
     }).join('');
+    const seedLabel = rt.region_or_area && rt.region_seed
+      ? `${esc(rt.region_or_area)} · ${ordinal(rt.region_seed)}`
+      : '—';
     return `<tr onclick="openTeamPanel(${t.team_id})">
       <td><strong>${esc(rt.name || t.team_id)}</strong></td>
+      <td style="color:var(--muted);font-size:12px">${seedLabel}</td>
       ${cells}
     </tr>`;
   }).join('');
@@ -602,7 +606,7 @@ function renderBrackets() {
     </p>
     <div class="tbl-wrap">
       <table>
-        <thead><tr><th>Team</th>${validLabels.map(l=>`<th>${l}</th>`).join('')}</tr></thead>
+        <thead><tr><th>Team</th><th>Region · Seed</th>${validLabels.map(l=>`<th>${l}</th>`).join('')}</tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>`;
@@ -627,6 +631,8 @@ function renderOdds() {
       allTeams.push({
         name: rt.name || t.team_id,
         class: rt.class || '',
+        region_or_area: rt.region_or_area || '',
+        region_seed: rt.region_seed || null,
         bracket: bracket.bracket,
         r16: probs['R16'] ?? 0,
         qf: probs['QF'] ?? 0,
@@ -643,9 +649,13 @@ function renderOdds() {
   const tbody = document.getElementById('odds-body');
   tbody.innerHTML = allTeams.map(t => {
     const bar = pct => `<span class="prob-bar"><span class="prob-bar-fill" style="width:${Math.round(pct*100)}%"></span></span>`;
+    const seedLabel = t.region_or_area && t.region_seed
+      ? `${esc(t.region_or_area)} · ${ordinal(t.region_seed)}`
+      : '—';
     return `<tr onclick="openTeamPanel(${t.team_id})">
       <td><strong>${esc(t.name)}</strong></td>
       <td><span class="badge badge-class">${esc(t.class)}</span></td>
+      <td style="color:var(--muted);font-size:12px">${seedLabel}</td>
       <td style="color:var(--muted)">${esc(t.bracket)}</td>
       <td>${pctCell(t.r16)}</td>
       <td>${pctCell(t.qf)}</td>
@@ -687,9 +697,36 @@ function openTeamPanel(teamId) {
     }
   }
 
+  const regionSeed = t.region_or_area && t.region_seed
+    ? `${t.region_or_area} · ${ordinal(t.region_seed)}`
+    : (t.region_or_area ?? '—');
+
+  let scheduleHtml = '';
+  if (t.schedule && t.schedule.length) {
+    const schedRows = t.schedule.map(g => {
+      const rc = g.result === 'W' ? 'var(--accent2)' : g.result === 'L' ? '#e05555' : 'var(--muted)';
+      const ic = g.impact >= 7 ? 'var(--accent2)' : g.impact >= 4 ? 'var(--warn)' : 'var(--muted)';
+      const d = new Date(g.date + 'T00:00:00');
+      const ds = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      return `<tr>
+        <td style="color:var(--muted);white-space:nowrap;font-size:12px">${ds}</td>
+        <td><span onclick="openTeamPanel(${g.opponent_id});event.stopPropagation()" style="cursor:pointer;text-decoration:underline dotted">${esc(g.opponent_name)}</span>
+          <span style="color:var(--muted);font-size:11px"> ${esc(g.opponent_record)}</span></td>
+        <td style="color:${rc};font-weight:600;white-space:nowrap">${g.result} ${g.goals_for}–${g.goals_against}</td>
+        <td style="white-space:nowrap"><span class="prob-bar" style="width:60px;vertical-align:middle"><span class="prob-bar-fill" style="width:${Math.round(g.impact*10)}%;background:${ic}"></span></span>
+          <span style="color:${ic};font-size:11px;margin-left:4px">${g.impact}</span></td>
+      </tr>`;
+    }).join('');
+    scheduleHtml = `<h4 style="margin-top:16px;margin-bottom:6px">Schedule</h4>
+      <div class="tbl-wrap" style="border:none;border-radius:0">
+        <table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th>Impact</th></tr></thead>
+        <tbody>${schedRows}</tbody></table>
+      </div>`;
+  }
+
   document.getElementById('team-panel-content').innerHTML = `
     <h3>${esc(t.name)}</h3>
-    <div class="meta">${esc(t.class)} · ${esc(t.region_or_area ?? '')} · ${esc(t.record ?? '')}</div>
+    <div class="meta">${esc(t.class)} · ${esc(regionSeed)} · ${esc(t.record ?? '')}</div>
     <div class="stat-row"><span class="stat-label">Rating (overall rank)</span><span class="stat-value">${(t.rating||0).toFixed(3)} (#${t.rating_rank_overall??'—'})</span></div>
     <div class="stat-row"><span class="stat-label">Class rank</span><span class="stat-value">#${t.rating_rank_class??'—'}</span></div>
     <div class="stat-row"><span class="stat-label">Region rank</span><span class="stat-value">#${t.rating_rank_region??'—'}</span></div>
@@ -698,6 +735,7 @@ function openTeamPanel(teamId) {
     <div class="stat-row"><span class="stat-label">MaxPreps GA rank</span><span class="stat-value">${t.maxpreps_state_rank??'—'}</span></div>
     <div class="stat-row"><span class="stat-label">PSR rank</span><span class="stat-value">${t.psr_rank??'—'}</span></div>
     ${oddsHtml}
+    ${scheduleHtml}
   `;
 
   document.getElementById('team-panel').classList.add('open');
@@ -741,6 +779,12 @@ function renderMethodologyCoverage() {
 function esc(s) {
   return String(s ?? '').replace(/[&<>"']/g, c =>
     ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+}
+
+function ordinal(n) {
+  const s = ['th','st','nd','rd'];
+  const v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
 }
 
 // ============================================================

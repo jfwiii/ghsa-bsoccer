@@ -127,9 +127,9 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 records[tid] = (w, l, t + 1)
 
     massey_ratings = massey_result.get("ratings", {})
+    n_teams = len(sorted_by_rating)
 
-    # Compute region records (W-L vs same class+region opponents)
-    # Build team → (class, region) lookup first
+    # Build team → (class, region) lookup
     team_class_region: dict[int, tuple[str, str]] = {}
     for tid_r, _ in sorted_by_rating:
         meta_r = id_to_meta.get(tid_r, {})
@@ -137,6 +137,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         rgn_r = (team_regions or {}).get(tid_r) or meta_r.get("region_or_area") or ""
         team_class_region[tid_r] = (cls_r, rgn_r)
 
+    # Compute region records (W-L vs same class+region opponents)
     region_records: dict[int, tuple[int, int, int]] = {}
     for _, g in games_df.iterrows():
         h, a = int(g["home_team_id"]), int(g["away_team_id"])
@@ -147,7 +148,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         h_cr = team_class_region.get(h, ("", ""))
         a_cr = team_class_region.get(a, ("", ""))
         if h_cr[0] != a_cr[0] or not h_cr[1] or h_cr[1] != a_cr[1]:
-            continue  # different class or region — skip
+            continue
         for tid, gf, ga in [(h, hg, ag), (a, ag, hg)]:
             w, l, t = region_records.get(tid, (0, 0, 0))
             if gf > ga:
@@ -156,6 +157,57 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 region_records[tid] = (w, l + 1, t)
             else:
                 region_records[tid] = (w, l, t + 1)
+
+    # Compute region seeds (rank within class+region by PSR rank, then DC rating)
+    region_groups: dict[tuple, list] = {}
+    for tid_r, r_r in sorted_by_rating:
+        cr = team_class_region.get(tid_r, ("", ""))
+        if not cr[1]:
+            continue
+        psr = id_to_meta.get(tid_r, {}).get("psr_rank")
+        region_groups.setdefault(cr, []).append((tid_r, psr, r_r))
+
+    region_seed: dict[int, int] = {}
+    for cr, members in region_groups.items():
+        members.sort(key=lambda x: (x[1] is None, x[1] or 0, -x[2]))
+        for i, (tid_r, _, _) in enumerate(members):
+            region_seed[tid_r] = i + 1
+
+    # Build per-team schedules
+    def _fmt_rec(wlt: tuple) -> str:
+        w, l, t = wlt
+        return f"{w}-{l}" + (f"-{t}" if t else "")
+
+    schedules: dict[int, list] = {}
+    for _, g in games_df.iterrows():
+        h, a = int(g["home_team_id"]), int(g["away_team_id"])
+        hg_r = g["home_goals_regulation"]
+        ag_r = g["away_goals_regulation"]
+        hg = int(hg_r) if not pd.isna(hg_r) else int(g["home_goals"])
+        ag = int(ag_r) if not pd.isna(ag_r) else int(g["away_goals"])
+        date_str = str(g["date"])[:10]
+        for tid, gf, ga, opp_id in [(h, hg, ag, a), (a, ag, hg, h)]:
+            result = "W" if gf > ga else ("L" if ga > gf else "T")
+            opp_rank = overall_rank.get(opp_id, n_teams)
+            opp_pct = 1 - (opp_rank - 1) / max(1, n_teams - 1)
+            if result == "W":
+                impact = round(opp_pct * 10, 1)
+            elif result == "L":
+                impact = round((1 - opp_pct) * 10, 1)
+            else:
+                impact = 5.0
+            opp_meta = id_to_meta.get(opp_id, {})
+            schedules.setdefault(tid, []).append({
+                "date": date_str,
+                "opponent_id": opp_id,
+                "opponent_name": opp_meta.get("name", str(opp_id)),
+                "opponent_record": _fmt_rec(records.get(opp_id, (0, 0, 0))),
+                "opponent_rating": round(rating.get(opp_id, 0.0), 4),
+                "goals_for": gf,
+                "goals_against": ga,
+                "result": result,
+                "impact": impact,
+            })
 
     teams_out = []
     for tid, r in sorted_by_rating:
@@ -179,6 +231,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             "playoff_bracket": bracket,
             "record": rec,
             "region_record": region_rec,
+            "region_seed": region_seed.get(tid),
             "attack": round(alpha.get(tid, 1.0), 4),
             "defense": round(beta.get(tid, 1.0), 4),
             "rating": round(r, 4),
@@ -187,6 +240,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             "rating_rank_region": region_rank.get(tid),
             "maxpreps_state_rank": meta.get("maxpreps_ranking"),
             "psr_rank": meta.get("psr_rank"),
+            "schedule": sorted(schedules.get(tid, []), key=lambda x: x["date"]),
         })
 
     return {
