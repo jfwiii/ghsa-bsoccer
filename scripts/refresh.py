@@ -24,7 +24,7 @@ def is_playoff_season() -> bool:
 
 def main():
     playoffs = is_playoff_season()
-    cmd = [sys.executable, "scripts/run_full_pipeline.py"]
+    cmd = [sys.executable, "scripts/run_full_pipeline.py", "--no-maxpreps"]
     if playoffs:
         cmd.append("--playoffs")
 
