@@ -193,7 +193,7 @@
   <div class="bracket-tabs" id="odds-nav"></div>
   <div class="tbl-wrap">
     <table class="odds-table">
-      <thead>
+      <thead id="odds-head">
         <tr>
           <th>Team</th><th>Class</th><th>Region · Seed</th><th>Bracket</th>
           <th>R16</th><th>QF</th><th>SF</th><th>Final</th><th>Champion</th>
@@ -285,6 +285,7 @@ let currentOddsBracket = null;
 let currentRegionClass = null;
 let sortCol = 'rating_rank_overall';
 let sortAsc = true;
+let oddsSort = 'champ';
 
 // ============================================================
 // Data loading
@@ -411,7 +412,7 @@ function renderRankings() {
       <td class="rank">${t.rating_rank_overall ?? '—'}</td>
       <td><strong>${esc(t.name)}</strong></td>
       <td><span class="badge ${isPrivate ? 'badge-private' : 'badge-class'}">${esc(t.class)}</span></td>
-      <td style="color:var(--muted)">${esc(t.region_or_area ?? '—')}</td>
+      <td style="color:var(--muted)">${t.region_or_area ? (t.region_seed ? `${esc(t.region_or_area)} · ${ordinal(t.region_seed)}` : esc(t.region_or_area)) : '—'}</td>
       <td style="font-variant-numeric:tabular-nums">${esc(t.record ?? '—')}</td>
       <td>
         ${(t.rating ?? 0).toFixed(3)}
@@ -644,7 +645,23 @@ function renderOdds() {
     });
   });
 
-  allTeams.sort((a, b) => b.champ - a.champ);
+  allTeams.sort((a, b) => b[oddsSort] - a[oddsSort]);
+
+  const sortCols = [
+    { key: 'r16', label: 'R16' },
+    { key: 'qf',  label: 'QF' },
+    { key: 'sf',  label: 'SF' },
+    { key: 'final', label: 'Final' },
+    { key: 'champ', label: 'Champion' },
+  ];
+  const thead = document.getElementById('odds-head');
+  thead.innerHTML = `<tr>
+    <th>Team</th><th>Class</th><th>Region · Seed</th><th>Bracket</th>
+    ${sortCols.map(c => `<th style="cursor:pointer;user-select:none" data-odds-col="${c.key}">${c.label}${oddsSort === c.key ? ' ↓' : ''}</th>`).join('')}
+  </tr>`;
+  thead.querySelectorAll('th[data-odds-col]').forEach(th => {
+    th.addEventListener('click', () => { oddsSort = th.dataset.oddsCol; renderOdds(); });
+  });
 
   const tbody = document.getElementById('odds-body');
   tbody.innerHTML = allTeams.map(t => {
@@ -712,6 +729,7 @@ function openTeamPanel(teamId) {
         <td style="color:var(--muted);white-space:nowrap;font-size:12px">${ds}</td>
         <td><span onclick="openTeamPanel(${g.opponent_id});event.stopPropagation()" style="cursor:pointer;text-decoration:underline dotted">${esc(g.opponent_name)}</span>
           <span style="color:var(--muted);font-size:11px"> ${esc(g.opponent_record)}</span></td>
+        <td style="color:var(--muted);font-size:12px">${g.opponent_rating != null ? g.opponent_rating.toFixed(3) : '—'}</td>
         <td style="color:${rc};font-weight:600;white-space:nowrap">${g.result} ${g.goals_for}–${g.goals_against}</td>
         <td style="white-space:nowrap"><span class="prob-bar" style="width:60px;vertical-align:middle"><span class="prob-bar-fill" style="width:${Math.round(g.impact*10)}%;background:${ic}"></span></span>
           <span style="color:${ic};font-size:11px;margin-left:4px">${g.impact}</span></td>
@@ -719,7 +737,7 @@ function openTeamPanel(teamId) {
     }).join('');
     scheduleHtml = `<h4 style="margin-top:16px;margin-bottom:6px">Schedule</h4>
       <div class="tbl-wrap" style="border:none;border-radius:0">
-        <table><thead><tr><th>Date</th><th>Opponent</th><th>Result</th><th>Impact</th></tr></thead>
+        <table><thead><tr><th>Date</th><th>Opponent</th><th>Opp. Rating</th><th>Result</th><th>Impact</th></tr></thead>
         <tbody>${schedRows}</tbody></table>
       </div>`;
   }
