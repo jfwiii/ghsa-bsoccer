@@ -222,15 +222,18 @@ def simulate_bracket(bracket: dict, dc_result: dict,
             if valid_mask.any():
                 top_v  = top_arr[valid_mask]
                 bot_v  = bot_arr[valid_mask]
-                pairs  = np.stack([top_v, bot_v], axis=1)
-                upairs = np.unique(pairs, axis=0)
 
                 top_wins = np.empty(int(valid_mask.sum()), dtype=bool)
 
-                for team_h_raw, team_a_raw in upairs:
-                    team_h = int(team_h_raw)
-                    team_a = int(team_a_raw)
-                    pm     = (top_v == team_h_raw) & (bot_v == team_a_raw)
+                # Encode (top_id, bot_id) as a single int64 to find unique
+                # ORDERED pairs without np.unique reordering the columns.
+                # Team IDs are <1e6 so SCALE=1e9 keeps values within int64.
+                _SCALE = np.int64(1_000_000_000)
+                codes  = top_v.astype(np.int64) * _SCALE + bot_v.astype(np.int64)
+                for code in np.unique(codes):
+                    team_h = int(code // _SCALE)
+                    team_a = int(code % _SCALE)
+                    pm     = codes == code
 
                     if is_champ:
                         p_top = get_wp(team_h, team_a, True)
