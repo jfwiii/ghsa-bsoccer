@@ -4,6 +4,8 @@
 
 | Item | Description |
 |------|-------------|
+| Score discrepancy noise (bad9ce1f) | Root cause: GHSA page lists Glynn vs Effingham 3/27 twice with scores 8–2 and 5–2. Fix: `_parse_schedule_rows` deduplicates by game pair within each section; normalizer suppresses repeat warnings for the same game ID. Stored score (8–2, first-seen) is correct. |
+| Netlify build hook | Secret `NETLIFY_BUILD_HOOK` configured in GitHub → pipeline-triggered deploys now auto-redeploy Netlify. |
 | Rankings contextual rank | When class/region filter is active, far-left rank column shows rank-within-subset; OVR rank shown as small secondary text. Header updates to "Rank" vs "OVR Rank". |
 | Brackets tab actual draw | Fetches `public/brackets.json`; shows R1 matchup cards with team names, region·seed, R1 win probability (= R16 probability from simulation), and championship odds. Falls back to probability table if bracket structure unavailable. |
 | R32 hidden from team pop-out | Bracket odds section no longer shows R32 = 100% row (filter in `openTeamPanel`). |
@@ -34,10 +36,4 @@
 
 ## Known Issues / Bugs
 
-### Netlify build hook not configured
-The CI workflow now calls `curl -X POST "$NETLIFY_BUILD_HOOK"` after pushing, but the secret isn't set yet. Without it, Netlify may not redeploy after pipeline runs.  
-**Fix:** Netlify UI → site → Build & deploy → Continuous deployment → scroll to "Build hooks" → create hook → copy URL → GitHub repo Settings → Secrets → Actions → `NETLIFY_BUILD_HOOK`.
-
-### Within-GHSA score discrepancy (game bad9ce1f)
-Pipeline logs 21 instances of the same discrepancy on game `bad9ce1f9155c847` (8 vs 5). Likely a duplicate raw game being seen from multiple opponent schedule pages with conflicting scores.  
-**Fix:** Investigate which teams are involved and add a score override or deduplicate more aggressively.
+_(No open bugs.)_

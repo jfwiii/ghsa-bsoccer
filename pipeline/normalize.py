@@ -152,6 +152,7 @@ class Normalizer:
         # Deduplicate raw games
         seen: dict[str, dict] = {}
         discrepancies: list[dict] = []
+        discrepancy_warned: set[str] = set()  # suppress repeat log lines for same game
 
         for g in self.raw_games:
             is_non_ghsa_game = g.get("is_non_ghsa", False)
@@ -204,16 +205,19 @@ class Normalizer:
                 existing = seen[gid]
                 if (existing["home_goals"] != g["home_goals"] or
                         existing["away_goals"] != g["away_goals"]):
-                    discrepancies.append({
-                        "game_id": gid,
-                        "source_a": (existing["home_goals"], existing["away_goals"]),
-                        "source_b": (g["home_goals"], g["away_goals"]),
-                        "type": "within_ghsa",
-                    })
-                    log.warning(
-                        "within-GHSA score discrepancy %s: %s vs %s",
-                        gid, existing["home_goals"], g["home_goals"]
-                    )
+                    if gid not in discrepancy_warned:
+                        discrepancy_warned.add(gid)
+                        discrepancies.append({
+                            "game_id": gid,
+                            "source_a": (existing["home_goals"], existing["away_goals"]),
+                            "source_b": (g["home_goals"], g["away_goals"]),
+                            "type": "within_ghsa",
+                        })
+                        log.warning(
+                            "within-GHSA score discrepancy %s: %s–%s vs %s–%s (keeping first)",
+                            gid, existing["home_goals"], existing["away_goals"],
+                            g["home_goals"], g["away_goals"],
+                        )
                 seen[gid]["_sources"] = existing.get("_sources", 1) + 1
 
         # Build final game rows with enrichment

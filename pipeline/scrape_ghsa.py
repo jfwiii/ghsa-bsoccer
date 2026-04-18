@@ -307,6 +307,7 @@ def _extract_region(soup: BeautifulSoup) -> Optional[str]:
 def _parse_schedule_rows(rows, reporting_id: int,
                           local_id_map: dict[str, int]) -> list[dict]:
     games = []
+    seen_pairs: set[tuple] = set()  # (date, lo_id, hi_id) — dedup within one section
     for tr in rows:
         cells = tr.find_all("td")
         if len(cells) < 3:
@@ -370,6 +371,11 @@ def _parse_schedule_rows(rows, reporting_id: int,
             away_goals = opp_goals
 
         gid = _game_id(game_date, reporting_id, opp_id or 0)
+
+        pair = (game_date, min(reporting_id, opp_id or 0), max(reporting_id, opp_id or 0))
+        if pair in seen_pairs:
+            continue
+        seen_pairs.add(pair)
 
         games.append({
             "game_id": gid,
