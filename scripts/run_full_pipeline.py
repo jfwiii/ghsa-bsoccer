@@ -18,6 +18,8 @@ import logging
 import sys
 from pathlib import Path
 
+ENRICHMENT_CACHE_PATH = Path("pipeline/maxpreps_enrichment.json")
+
 # Ensure repo root is on path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 
@@ -332,11 +334,34 @@ def main():
             if not pre_games.empty:
                 enrichments = enrich_games(pre_games, slug_map, mp_client)
 
+            # Persist enrichment for CI reuse (Option A)
+            cache = {
+                "slug_map": {str(k): v for k, v in slug_map.items()},
+                "enrichments": enrichments,
+            }
+            ENRICHMENT_CACHE_PATH.write_text(json.dumps(cache, indent=2, default=str))
+            log.info("saved MaxPreps enrichment cache → %s (%d games)",
+                     ENRICHMENT_CACHE_PATH, len(enrichments))
+
         except MaxPrepsAbort as e:
             log.error("MaxPreps aborted: %s — continuing with GHSA-only data", e)
             no_maxpreps = True
     else:
         log.info("Skipping MaxPreps (--no-maxpreps)")
+
+    # Load cached enrichment when skipping live scrape
+    if no_maxpreps and ENRICHMENT_CACHE_PATH.exists():
+        try:
+            cache = json.loads(ENRICHMENT_CACHE_PATH.read_text())
+            enrichments = cache.get("enrichments", [])
+            slug_map_cached = {int(k): v for k, v in cache.get("slug_map", {}).items()}
+            for t in teams_raw:
+                if t["team_id"] in slug_map_cached:
+                    t["maxpreps_url_slug"] = slug_map_cached[t["team_id"]]
+            log.info("loaded MaxPreps enrichment cache: %d games, %d slugs",
+                     len(enrichments), len(slug_map_cached))
+        except Exception as e:
+            log.warning("failed to load MaxPreps enrichment cache: %s", e)
 
     # -----------------------------------------------------------------------
     # M3: Normalize & merge
