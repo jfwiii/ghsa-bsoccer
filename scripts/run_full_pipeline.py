@@ -194,6 +194,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 if tid < 0:
                     non_ghsa_names[tid] = name
 
+    pmf_cache: dict = {}
     schedules: dict[int, list] = {}
     for _, g in games_df.iterrows():
         h, a = int(g["home_team_id"]), int(g["away_team_id"])
@@ -202,13 +203,20 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         hg = int(hg_r) if not pd.isna(hg_r) else int(g["home_goals"])
         ag = int(ag_r) if not pd.isna(ag_r) else int(g["away_goals"])
         date_str = str(g["date"])[:10]
-        for tid, gf, ga, opp_id in [(h, hg, ag, a), (a, ag, hg, h)]:
+        neutral = bool(g.get("neutral_site", False))
+        # P(home team wins) — used to compute both teams' impact scores
+        p_h_wins = sim_module._win_prob(h, a, neutral, dc_result, pmf_cache)
+        for tid, gf, ga, opp_id, is_home in [
+            (h, hg, ag, a, True), (a, ag, hg, h, False)
+        ]:
             if tid not in id_to_meta:
                 continue  # skip non-GHSA synthetic team entries
             result = "W" if gf > ga else ("L" if ga > gf else "T")
-            opp_rank = overall_rank.get(opp_id, n_teams)
-            opp_pct = 1 - (opp_rank - 1) / max(1, n_teams - 1)
-            impact = round(opp_pct * 10, 1)
+            outcome = 1.0 if gf > ga else (0.5 if gf == ga else 0.0)
+            p_win = p_h_wins if is_home else (1.0 - p_h_wins)
+            # Impact = how much the result exceeded/fell short of expectation, ×10
+            impact = round((outcome - p_win) * 10, 1)
+            home_away = "N" if neutral else ("H" if is_home else "A")
             opp_meta = id_to_meta.get(opp_id, {})
             opp_name = opp_meta.get("name") or non_ghsa_names.get(opp_id, str(opp_id))
             schedules.setdefault(tid, []).append({
@@ -220,6 +228,7 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 "goals_for": gf,
                 "goals_against": ga,
                 "result": result,
+                "home_away": home_away,
                 "impact": impact,
             })
 

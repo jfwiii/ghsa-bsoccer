@@ -99,7 +99,7 @@
   .region-body.open { display: block; }
 
   /* Team detail panel */
-  .team-panel { position: fixed; right: 0; top: 0; bottom: 0; width: 340px; background: var(--surface); border-left: 1px solid var(--border); z-index: 200; padding: 20px; overflow-y: auto; transform: translateX(100%); transition: transform .2s; }
+  .team-panel { position: fixed; right: 0; top: 0; bottom: 0; width: min(660px, 95vw); background: var(--surface); border-left: 1px solid var(--border); z-index: 200; padding: 20px; overflow-y: auto; transform: translateX(100%); transition: transform .2s; }
   .team-panel.open { transform: translateX(0); }
   .team-panel .close-btn { float: right; background: none; border: none; color: var(--muted); cursor: pointer; font-size: 18px; }
   .team-panel h3 { font-size: 16px; margin-bottom: 4px; }
@@ -729,22 +729,26 @@ function openTeamPanel(teamId) {
   if (t.schedule && t.schedule.length) {
     const schedRows = t.schedule.map(g => {
       const rc = g.result === 'W' ? 'var(--accent2)' : g.result === 'L' ? '#e05555' : 'var(--muted)';
-      const ic = g.impact >= 7 ? 'var(--accent2)' : g.impact >= 4 ? 'var(--warn)' : 'var(--muted)';
+      const imp = g.impact ?? 0;
+      const ic = imp >= 2 ? 'var(--accent2)' : imp <= -2 ? '#e05555' : 'var(--muted)';
+      const impStr = (imp > 0 ? '+' : '') + imp.toFixed(1);
+      const ha = g.home_away || '';
+      const haC = ha === 'H' ? 'var(--accent)' : ha === 'N' ? 'var(--warn)' : 'var(--muted)';
       const d = new Date(g.date + 'T00:00:00');
       const ds = d.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
       return `<tr>
         <td style="color:var(--muted);white-space:nowrap;font-size:12px">${ds}</td>
+        <td style="color:${haC};font-size:11px;text-align:center;font-weight:600">${ha}</td>
         <td><span onclick="openTeamPanel(${g.opponent_id});event.stopPropagation()" style="cursor:pointer;text-decoration:underline dotted">${esc(g.opponent_name)}</span>
           <span style="color:var(--muted);font-size:11px"> ${esc(g.opponent_record)}</span></td>
         <td style="color:var(--muted);font-size:12px">${g.opponent_rating != null ? g.opponent_rating.toFixed(3) : '—'}</td>
         <td style="color:${rc};font-weight:600;white-space:nowrap">${g.result} ${g.goals_for}–${g.goals_against}</td>
-        <td style="white-space:nowrap"><span class="prob-bar" style="width:60px;vertical-align:middle"><span class="prob-bar-fill" style="width:${Math.round(g.impact*10)}%;background:${ic}"></span></span>
-          <span style="color:${ic};font-size:11px;margin-left:4px">${g.impact}</span></td>
+        <td style="color:${ic};font-size:12px;font-weight:600;white-space:nowrap">${impStr}</td>
       </tr>`;
     }).join('');
     scheduleHtml = `<h4 style="margin-top:16px;margin-bottom:6px">Schedule</h4>
       <div class="tbl-wrap" style="border:none;border-radius:0">
-        <table><thead><tr><th>Date</th><th>Opponent</th><th>Opp. Rating</th><th>Result</th><th>Impact</th></tr></thead>
+        <table><thead><tr><th>Date</th><th></th><th>Opponent</th><th>Opp. Rating</th><th>Result</th><th>Impact</th></tr></thead>
         <tbody>${schedRows}</tbody></table>
       </div>`;
   }
