@@ -200,11 +200,11 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
         for i, (tid, _) in enumerate(lst):
             region_rank[tid] = i + 1
 
-    # Records from games_df
+    # Records from games_df — use GHSA-reported scores so SO wins count as wins
     records: dict[int, tuple[int, int, int]] = {}  # team_id → (W, L, T)
     for _, g in games_df.iterrows():
         h, a = int(g["home_team_id"]), int(g["away_team_id"])
-        hg, ag = g["home_goals_regulation"], g["away_goals_regulation"]
+        hg, ag = g["home_goals"], g["away_goals"]
         if pd.isna(hg) or pd.isna(ag):
             continue
         hg, ag = int(hg), int(ag)
@@ -218,10 +218,11 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 records[tid] = (w, l, t + 1)
 
     # Compute region records (W-L vs same class+region opponents)
+    # Use GHSA-reported scores: SO wins count as wins, phantom goal preserved for tiebreaker goals
     region_records: dict[int, tuple[int, int, int]] = {}
     for _, g in games_df.iterrows():
         h, a = int(g["home_team_id"]), int(g["away_team_id"])
-        hg, ag = g["home_goals_regulation"], g["away_goals_regulation"]
+        hg, ag = g["home_goals"], g["away_goals"]
         if pd.isna(hg) or pd.isna(ag):
             continue
         hg, ag = int(hg), int(ag)
@@ -239,10 +240,11 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                 region_records[tid] = (w, l, t + 1)
 
     # Compute region seeds — full GHSA 7-step tiebreaker
+    # Use GHSA-reported scores: GHSA rules treat SO wins as one-goal wins (phantom goal = correct delta)
     region_game_list: list = []
     for _, _g in games_df.iterrows():
         _h, _a = int(_g["home_team_id"]), int(_g["away_team_id"])
-        _hg, _ag = _g["home_goals_regulation"], _g["away_goals_regulation"]
+        _hg, _ag = _g["home_goals"], _g["away_goals"]
         if pd.isna(_hg) or pd.isna(_ag):
             continue
         _hg, _ag = int(_hg), int(_ag)
