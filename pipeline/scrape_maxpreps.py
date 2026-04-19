@@ -1,13 +1,17 @@
 """
-MaxPreps scraper — M2.
+MaxPreps scraper — M3.
+
+URL structure as of 2026:
+  Search:   https://www.maxpreps.com/search/?q={name}&sport=soccer&state=ga
+  Schedule: https://www.maxpreps.com/ga/{city}/{school-slug}/soccer/spring/
+  Detail:   https://www.maxpreps.com/games/{date}/{sport-slug}/{team1}-vs-{team2}.htm?c={id}
 
 Responsibilities:
-1. Slug discovery: build team_id → maxpreps_url_slug via fuzzy match.
-2. Per-team schedule fetch: extract OT/shootout indicators and game hashes.
-3. Per-game detail fetch for PK-decided games: extract regulation scores.
+1. Slug discovery: build team_id → maxpreps_url_slug via search API + fuzzy match.
+2. Per-team schedule fetch: parse __NEXT_DATA__ JSON for game records.
+3. Per-game detail fetch for OT/PK games: parse SSR HTML boxscore table.
 4. Non-GHSA opponent enrichment.
-5. Graceful degradation: any sustained failure aborts MaxPreps enrichment
-   cleanly, allowing pipeline to continue with GHSA-only data.
+5. Graceful degradation: sustained failures abort MaxPreps enrichment cleanly.
 """
 
 from __future__ import annotations
@@ -16,6 +20,7 @@ import json
 import logging
 import re
 import time
+import urllib.parse
 from datetime import date, datetime, timedelta
 from pathlib import Path
 from typing import Optional
@@ -27,7 +32,8 @@ from rapidfuzz import fuzz, process
 log = logging.getLogger(__name__)
 
 BASE_URL = "https://www.maxpreps.com"
-GA_SOCCER_RANKINGS_URL = f"{BASE_URL}/ga/soccer/rankings/"
+GA_SCHOOL_SEARCH_URL = f"{BASE_URL}/search/?q={{query}}&sport=soccer&state=ga"
+SCHEDULE_URL_TEMPLATE = f"{BASE_URL}/ga/{{slug}}/soccer/spring/"
 
 CACHE_DIR = Path("data/raw/maxpreps")
 CACHE_TTL_REGULAR = timedelta(hours=24)
@@ -44,7 +50,7 @@ HEADERS = {
     "Accept-Language": "en-US,en;q=0.9",
 }
 
-FUZZY_THRESHOLD = 90
+FUZZY_THRESHOLD = 85
 MAX_CONSECUTIVE_FAILURES = 5
 REQUEST_DELAY = 2.0  # seconds
 
@@ -110,16 +116,19 @@ class MaxPrepsClient:
 
         return None
 
-    def fetch_ga_rankings_page(self, page: int = 1) -> Optional[str]:
-        url = f"{GA_SOCCER_RANKINGS_URL}?page={page}"
-        return self._fetch(url, f"ga_rankings_p{page}")
+    def fetch_team_search(self, name: str) -> Optional[str]:
+        query = urllib.parse.quote(name)
+        url = GA_SCHOOL_SEARCH_URL.format(query=query)
+        cache_key = f"search_{re.sub(r'[^\\w]', '_', name)}"
+        return self._fetch(url, cache_key)
 
     def fetch_team_schedule(self, slug: str) -> Optional[str]:
-        url = f"{BASE_URL}/ga/{slug}/soccer/spring/schedule/"
+        url = SCHEDULE_URL_TEMPLATE.format(slug=slug)
         return self._fetch(url, f"sched_{slug.replace('/', '_')}")
 
-    def fetch_game_detail(self, game_url: str, game_hash: str) -> Optional[str]:
-        return self._fetch(game_url, f"game_{game_hash}")
+    def fetch_game_detail(self, game_url: str, contest_id: str) -> Optional[str]:
+        safe_id = re.sub(r"[^\w\-]", "_", contest_id)
+        return self._fetch(game_url, f"game_{safe_id}")
 
 
 def _load_overrides() -> tuple[dict[str, Optional[str]], list[int]]:
@@ -138,31 +147,41 @@ def _save_overrides(overrides: dict, unmatched: list[int]) -> None:
     OVERRIDES_PATH.write_text(json.dumps(existing, indent=2))
 
 
+def _parse_search_results(html: str) -> list[tuple[str, str]]:
+    """
+    Parse __NEXT_DATA__ from a MaxPreps search page.
+    Returns [(display_name, city/school-slug), ...].
+    """
+    soup = BeautifulSoup(html, "lxml")
+    nd_tag = soup.find("script", id="__NEXT_DATA__")
+    if not nd_tag:
+        return []
+    try:
+        data = json.loads(nd_tag.string)
+    except (json.JSONDecodeError, TypeError):
+        return []
+
+    results = data.get("props", {}).get("pageProps", {}).get("initialSchoolResults", [])
+    entries = []
+    for r in results:
+        canonical = r.get("canonicalUrl", "")
+        m = re.match(r"https?://www\.maxpreps\.com/ga/([\w-]+/[\w-]+)/?", canonical)
+        if not m:
+            continue
+        slug = m.group(1)
+        display = f"{r.get('name', '')} {r.get('mascot', '')}".strip()
+        entries.append((display, slug))
+    return entries
+
+
 def discover_slugs(teams: list[dict], client: MaxPrepsClient) -> dict[int, Optional[str]]:
     """
     Build team_id → maxpreps_url_slug mapping.
-    Uses manual overrides first, then fuzzy match from MaxPreps GA rankings pages.
+    Uses manual overrides first, then search API with fuzzy matching per team.
     """
     str_overrides, _ = _load_overrides()
-    # Convert string keys to int
     overrides: dict[int, Optional[str]] = {int(k): v for k, v in str_overrides.items()}
 
-    # Collect (name, slug) from MaxPreps GA rankings pages
-    mp_entries: list[tuple[str, str]] = []  # (display_name, slug)
-    page = 1
-    while True:
-        html = client.fetch_ga_rankings_page(page)
-        if not html:
-            break
-        entries, has_next = _parse_ga_rankings_page(html)
-        mp_entries.extend(entries)
-        if not has_next or page >= 20:
-            break
-        page += 1
-
-    log.info("MaxPreps GA rankings: collected %d team entries", len(mp_entries))
-
-    mp_names = [e[0] for e in mp_entries]
     result: dict[int, Optional[str]] = {}
     unmatched: list[int] = []
 
@@ -177,19 +196,37 @@ def discover_slugs(teams: list[dict], client: MaxPrepsClient) -> dict[int, Optio
             unmatched.append(tid)
             continue
 
-        match = process.extractOne(name, mp_names, scorer=fuzz.WRatio)
-        if match and match[1] >= FUZZY_THRESHOLD:
-            idx = mp_names.index(match[0])
-            result[tid] = mp_entries[idx][1]
-            log.debug("matched %r → %r (score=%d)", name, mp_entries[idx][1], match[1])
-        else:
-            log.info("no MaxPreps match for team %d %r (best=%s)", tid, name, match)
+        html = client.fetch_team_search(name)
+        if not html:
             unmatched.append(tid)
             result[tid] = None
+            continue
+
+        entries = _parse_search_results(html)
+        if not entries:
+            log.info("no MaxPreps search results for team %d %r", tid, name)
+            unmatched.append(tid)
+            result[tid] = None
+            continue
+
+        if len(entries) == 1:
+            result[tid] = entries[0][1]
+            log.debug("search single match %r → %r", name, entries[0][1])
+        else:
+            mp_names = [e[0] for e in entries]
+            match = process.extractOne(name, mp_names, scorer=fuzz.WRatio)
+            if match and match[1] >= FUZZY_THRESHOLD:
+                idx = mp_names.index(match[0])
+                result[tid] = entries[idx][1]
+                log.debug("search fuzzy match %r → %r (score=%d)", name, entries[idx][1], match[1])
+            else:
+                log.info("no confident match for team %d %r (best=%s)", tid, name, match)
+                unmatched.append(tid)
+                result[tid] = None
 
     _save_overrides(
         {str(k): v for k, v in {**overrides, **result}.items()},
-        unmatched
+        unmatched,
     )
 
     matched_count = sum(1 for v in result.values() if v is not None)
@@ -197,114 +234,92 @@ def discover_slugs(teams: list[dict], client: MaxPrepsClient) -> dict[int, Optio
     return result
 
 
-def _parse_ga_rankings_page(html: str) -> tuple[list[tuple[str, str]], bool]:
-    """
-    Parse MaxPreps GA state rankings page.
-    Returns ([(display_name, city/school-slug), ...], has_next_page).
-    """
-    soup = BeautifulSoup(html, "lxml")
-    entries = []
-
-    for a in soup.find_all("a", href=re.compile(r"/ga/[\w-]+/[\w-]+/soccer/spring/")):
-        href = a["href"]
-        m = re.match(r"/ga/([\w-]+/[\w-]+)/soccer/spring/", href)
-        if not m:
-            continue
-        slug = m.group(1)
-        name = a.get_text(strip=True)
-        if name and slug:
-            entries.append((name, slug))
-
-    has_next = bool(soup.find("a", string=re.compile(r"next", re.I)))
-    return entries, has_next
-
-
 def parse_schedule_page(html: str) -> list[dict]:
     """
     Parse a MaxPreps team schedule page.
-    Returns list of game dicts with fields relevant for enrichment.
+    Extracts games from __NEXT_DATA__ JSON (props.pageProps.wallCards.schedule.data).
+    Returns list of game dicts for enrichment matching.
+
+    teams[0] is always the page's own team; homeAwayType 0=home, 1=away.
     """
     soup = BeautifulSoup(html, "lxml")
-    games = []
+    nd_tag = soup.find("script", id="__NEXT_DATA__")
+    if not nd_tag:
+        log.warning("parse_schedule_page: no __NEXT_DATA__ found")
+        return []
+    try:
+        data = json.loads(nd_tag.string)
+    except (json.JSONDecodeError, TypeError):
+        return []
 
-    for tr in soup.find_all("tr"):
-        cells = tr.find_all("td")
-        if len(cells) < 3:
+    schedule_data = (
+        data.get("props", {})
+        .get("pageProps", {})
+        .get("wallCards", {})
+        .get("schedule", {})
+        .get("data", [])
+    )
+
+    games = []
+    for contest in schedule_data:
+        if not contest.get("hasResult"):
             continue
 
-        game = _parse_schedule_row(tr, cells)
-        if game:
-            games.append(game)
+        contest_id = contest.get("contestId", "")
+        canonical_url = contest.get("canonicalUrl", "")
+        timestamp = contest.get("timestamp", "")
+        home_away = contest.get("homeAwayType", -1)  # 0=home, 1=away
+
+        try:
+            game_date = datetime.fromisoformat(timestamp).date()
+        except (ValueError, TypeError):
+            continue
+
+        teams = contest.get("teams", [])
+        if len(teams) < 2:
+            continue
+
+        my_team = teams[0]
+        opp_team = teams[1]
+
+        my_score = my_team.get("score")
+        opp_score = opp_team.get("score")
+        my_result = my_team.get("result", "")  # "W" or "L"
+        opp_name = opp_team.get("schoolName", "")
+        opp_url = opp_team.get("teamCanonicalUrl", "")
+
+        # Extract opponent slug from their canonical URL
+        opp_slug = None
+        m = re.match(r"https?://www\.maxpreps\.com/ga/([\w-]+/[\w-]+)/", opp_url)
+        if m:
+            opp_slug = m.group(1)
+
+        is_home = (home_away == 0)
+
+        games.append({
+            "date": game_date,
+            "opponent_name": opp_name,
+            "opponent_slug": opp_slug,
+            "result": my_result,
+            "my_score": my_score,
+            "opp_score": opp_score,
+            "is_home": is_home,
+            "went_to_overtime": False,   # not in schedule data; detected via detail page
+            "went_to_shootout": False,   # same
+            "detail_url": canonical_url,
+            "contest_id": contest_id,
+        })
 
     return games
 
 
-def _parse_schedule_row(tr, cells) -> Optional[dict]:
-    row_text = tr.get_text(" ", strip=True)
-
-    # Date — look for M/D/YYYY pattern
-    date_m = re.search(r"(\d{1,2}/\d{1,2}/\d{4})", row_text)
-    if not date_m:
-        return None
-    try:
-        game_date = datetime.strptime(date_m.group(1), "%m/%d/%Y").date()
-    except ValueError:
-        return None
-
-    # Detect OT/shootout
-    went_to_ot = "(OT)" in row_text or "(2OT)" in row_text
-    went_to_so = "SO" in row_text or re.search(r"\bSO\b", row_text) is not None
-
-    # Score — "W X-Y" or "L X-Y" possibly with "(OT)"
-    score_m = re.search(r"([WL])\s+(\d+)-(\d+)(?:\s*\(OT\))?(?:\s*\(SO\))?", row_text)
-    if not score_m:
-        return None
-    result = score_m.group(1)
-    score_a, score_b = int(score_m.group(2)), int(score_m.group(3))
-
-    # Home/Away
-    is_home = "@" not in row_text.split(date_m.group(1))[0]
-
-    # Game detail URL
-    detail_url = None
-    detail_hash = None
-    for a in tr.find_all("a", href=re.compile(r"/games/")):
-        detail_url = a["href"]
-        if not detail_url.startswith("http"):
-            detail_url = f"https://www.maxpreps.com{detail_url}"
-        h_m = re.search(r"c=([a-f0-9\-]+)", detail_url)
-        if h_m:
-            detail_hash = h_m.group(1)
-        break
-
-    # Opponent name
-    opp_name = ""
-    for cell in cells:
-        text = cell.get_text(strip=True)
-        if text and not re.search(r"^\d|^[WL]\s", text) and "/" not in text:
-            opp_name = text
-            break
-
-    return {
-        "date": game_date,
-        "opponent_name": opp_name,
-        "result": result,
-        "score_a": score_a,  # winner's score
-        "score_b": score_b,  # loser's score
-        "is_home": is_home,
-        "went_to_overtime": went_to_ot or went_to_so,
-        "went_to_shootout": went_to_so,
-        "detail_url": detail_url,
-        "detail_hash": detail_hash,
-    }
-
-
 def parse_game_detail(html: str) -> dict:
     """
-    Parse a MaxPreps game detail page to extract:
-    - Halftime scores (h1_home, h1_away)
-    - Regulation scores for PK games
-    - Overtime / shootout confirmation
+    Parse a MaxPreps game detail page (SSR HTML, no __NEXT_DATA__).
+    Finds the boxscore table (class='boxscore') to extract period scores.
+
+    Table row order: row 0 = away team, row 1 = home team.
+    Column classes: 'firsthalf', 'secondhalf', 'overtime*', 'shootout*', 'total score'.
     """
     soup = BeautifulSoup(html, "lxml")
     result = {
@@ -316,68 +331,48 @@ def parse_game_detail(html: str) -> dict:
         "went_to_shootout": False,
     }
 
-    # Look for score table with columns: 1 | 2 | OT1 | OT2 | Final | SO
-    # or simpler: 1 | 2 | Final
-    tables = soup.find_all("table")
-    for table in tables:
-        headers = [th.get_text(strip=True).upper() for th in table.find_all("th")]
-        if not any(h in ("1", "FINAL", "SO") for h in headers):
-            continue
+    table = soup.find("table", class_="boxscore")
+    if not table:
+        return result
 
-        rows = table.find_all("tr")
-        if len(rows) < 3:
-            continue
+    # Detect OT/SO from header cell classes
+    for th in table.find_all("th"):
+        cls = " ".join(th.get("class") or []).lower()
+        if "overtime" in cls:
+            result["went_to_overtime"] = True
+        if "shootout" in cls:
+            result["went_to_shootout"] = True
 
-        # Two data rows: home team, away team
-        home_cells = rows[1].find_all("td")
-        away_cells = rows[2].find_all("td") if len(rows) > 2 else []
+    tbody = table.find("tbody")
+    rows = tbody.find_all("tr") if tbody else table.find_all("tr")[1:]
+    if len(rows) < 2:
+        return result
 
-        def cell_val(cells, idx) -> Optional[int]:
-            if idx < len(cells):
-                t = cells[idx].get_text(strip=True)
+    away_row, home_row = rows[0], rows[1]
+
+    def _cell_score(row, class_substr: str) -> Optional[int]:
+        for cell in row.find_all("td"):
+            classes_str = " ".join(cell.get("class") or [])
+            if class_substr in classes_str:
+                t = cell.get_text(strip=True)
                 if t.isdigit():
                     return int(t)
-            return None
+        return None
 
-        col_map = {h: i for i, h in enumerate(headers)}
+    result["h1_away"] = _cell_score(away_row, "firsthalf")
+    result["h1_home"] = _cell_score(home_row, "firsthalf")
 
-        if "1" in col_map:
-            result["h1_home"] = cell_val(home_cells, col_map["1"])
-            result["h1_away"] = cell_val(away_cells, col_map["1"])
-
-        if "SO" in col_map:
-            result["went_to_shootout"] = True
-            # Regulation score = Final - phantom goal for winner
-            # MaxPreps shows reg score directly in some layouts
-            final_col = col_map.get("FINAL", col_map.get("F"))
-            if final_col is not None:
-                fh = cell_val(home_cells, final_col)
-                fa = cell_val(away_cells, final_col)
-                if fh is not None and fa is not None:
-                    # The SO column shows who won the shootout (1 = winner, 0 = loser)
-                    so_col = col_map["SO"]
-                    so_home = cell_val(home_cells, so_col)
-                    # Regulation: subtract the phantom goal from winner
-                    if so_home == 1:
-                        result["reg_home"] = fh - 1
-                        result["reg_away"] = fa
-                    else:
-                        result["reg_home"] = fh
-                        result["reg_away"] = fa - 1
-
-        if "OT1" in col_map or "OT" in col_map:
-            result["went_to_overtime"] = True
-
-        break
-
-    # Also check for explicit "L X-X" regulation notation
-    # MaxPreps sometimes shows "L 2-2" in result cells for PK losses
-    for td in soup.find_all("td"):
-        t = td.get_text(strip=True)
-        m = re.match(r"[LW]\s+(\d+)-(\d+)", t)
-        if m and result["reg_home"] is None:
-            # This is a regulation-score indicator
-            pass  # handled by table parsing above
+    if result["went_to_shootout"]:
+        final_away = _cell_score(away_row, "total score")
+        final_home = _cell_score(home_row, "total score")
+        if final_away is not None and final_home is not None:
+            # Winner has phantom SO goal in final; subtract it to get regulation score
+            if final_home > final_away:
+                result["reg_home"] = final_home - 1
+                result["reg_away"] = final_away
+            else:
+                result["reg_home"] = final_home
+                result["reg_away"] = final_away - 1
 
     return result
 
@@ -391,12 +386,10 @@ def enrich_games(
     For each game in games_df, fetch MaxPreps enrichment where useful.
     Returns list of enrichment dicts keyed by game_id.
     """
-    import pandas as pd
-
     enrichments: list[dict] = []
 
-    # Group games by team to minimize fetches
-    team_schedules: dict[str, list[dict]] = {}  # slug → parsed schedule rows
+    # Cache schedule fetches to avoid re-fetching the same team
+    team_schedules: dict[str, list[dict]] = {}
 
     def get_schedule(slug: str) -> list[dict]:
         if slug not in team_schedules:
@@ -410,48 +403,43 @@ def enrich_games(
         game_id = row["game_id"]
         enrichment = {"game_id": game_id, "maxpreps_matched": False}
 
-        # Try home team slug first, then away
         for tid in [row["home_team_id"], row["away_team_id"]]:
             slug = slug_map.get(int(tid))
             if not slug:
                 continue
 
             schedule = get_schedule(slug)
-            mp_game = _match_mp_game(row, schedule, int(tid))
+            mp_game = _match_mp_game(row, schedule)
             if not mp_game:
                 continue
 
             enrichment["maxpreps_matched"] = True
-            enrichment["went_to_overtime"] = mp_game.get("went_to_overtime")
-            enrichment["went_to_shootout"] = mp_game.get("went_to_shootout")
+            enrichment["went_to_overtime"] = mp_game.get("went_to_overtime", False)
+            enrichment["went_to_shootout"] = mp_game.get("went_to_shootout", False)
 
-            # Fetch detail page for shootout games or if we need halftime
             detail_url = mp_game.get("detail_url")
-            detail_hash = mp_game.get("detail_hash")
-            needs_detail = (
-                mp_game.get("went_to_shootout") or
-                (detail_url and game_id not in fetched_details)
-            )
+            contest_id = mp_game.get("contest_id", "")
 
-            if needs_detail and detail_url and detail_hash:
-                detail = client.fetch_game_detail(detail_url, detail_hash)
-                if detail:
-                    fetched_details.add(game_id)
-                    parsed = parse_game_detail(detail)
-                    enrichment.update({
-                        "h1_home": parsed["h1_home"],
-                        "h1_away": parsed["h1_away"],
-                        "went_to_overtime": parsed["went_to_overtime"] or enrichment.get("went_to_overtime"),
-                        "went_to_shootout": parsed["went_to_shootout"] or enrichment.get("went_to_shootout"),
-                    })
+            if detail_url and contest_id and contest_id not in fetched_details:
+                detail_html = client.fetch_game_detail(detail_url, contest_id)
+                if detail_html:
+                    fetched_details.add(contest_id)
+                    parsed = parse_game_detail(detail_html)
+                    enrichment["went_to_overtime"] = (
+                        parsed["went_to_overtime"] or enrichment.get("went_to_overtime", False)
+                    )
+                    enrichment["went_to_shootout"] = (
+                        parsed["went_to_shootout"] or enrichment.get("went_to_shootout", False)
+                    )
+                    enrichment["h1_home"] = parsed["h1_home"]
+                    enrichment["h1_away"] = parsed["h1_away"]
                     if parsed["reg_home"] is not None:
-                        # Regulation scores — orient to home/away perspective of games_df
-                        if int(tid) == int(row["home_team_id"]):
-                            enrichment["reg_home"] = parsed["reg_home"]
-                            enrichment["reg_away"] = parsed["reg_away"]
-                        else:
-                            enrichment["reg_home"] = parsed["reg_away"]
-                            enrichment["reg_away"] = parsed["reg_home"]
+                        # Orient regulation scores to games_df home/away perspective
+                        # parse_game_detail gives away=row0, home=row1
+                        # mp_game is from slug (tid) team's perspective
+                        # Use the canonical URL orientation: row0=away, row1=home
+                        enrichment["reg_home"] = parsed["reg_home"]
+                        enrichment["reg_away"] = parsed["reg_away"]
             break
 
         enrichments.append(enrichment)
@@ -459,14 +447,13 @@ def enrich_games(
     return enrichments
 
 
-def _match_mp_game(row, mp_schedule: list[dict], team_id: int) -> Optional[dict]:
+def _match_mp_game(row, mp_schedule: list[dict]) -> Optional[dict]:
     """Match a games_df row to a MaxPreps schedule entry by date."""
     game_date = row["date"]
     if hasattr(game_date, "date"):
         game_date = game_date.date()
 
     for mp in mp_schedule:
-        mp_date = mp.get("date")
-        if mp_date == game_date:
+        if mp.get("date") == game_date:
             return mp
     return None
