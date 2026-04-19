@@ -388,6 +388,7 @@ def main():
     parser = argparse.ArgumentParser(description="GHSA Soccer pipeline")
     parser.add_argument("--mini", action="store_true", help="Mini test run")
     parser.add_argument("--no-maxpreps", action="store_true", help="Skip MaxPreps")
+    parser.add_argument("--fetch-details", action="store_true", help="Fetch per-game detail pages (slow)")
     parser.add_argument("--playoffs", action="store_true", help="Shorter cache TTL")
     parser.add_argument("--skip-sim", action="store_true", help="Skip Monte Carlo")
     parser.add_argument("--n-sims", type=int, default=sim_module.N_SIMS)
@@ -436,7 +437,8 @@ def main():
             _, pre_games = pre_norm.run()
 
             if not pre_games.empty:
-                enrichments = enrich_games(pre_games, slug_map, mp_client)
+                enrichments = enrich_games(pre_games, slug_map, mp_client,
+                                           fetch_details=args.fetch_details)
 
             # Persist enrichment for CI reuse (Option A)
             cache = {
