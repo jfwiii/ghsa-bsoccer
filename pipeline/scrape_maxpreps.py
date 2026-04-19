@@ -120,7 +120,8 @@ class MaxPrepsClient:
     def fetch_team_search(self, name: str) -> Optional[str]:
         query = urllib.parse.quote(name)
         url = GA_SCHOOL_SEARCH_URL.format(query=query)
-        cache_key = f"search_{re.sub(r'[^\\w]', '_', name)}"
+        safe_name = re.sub(r'[^\w]', '_', name)
+        cache_key = f"search_{safe_name}"
         return self._fetch(url, cache_key)
 
     def fetch_team_schedule(self, slug: str) -> Optional[str]:
