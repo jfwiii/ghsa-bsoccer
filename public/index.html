@@ -229,8 +229,6 @@
 
 <!-- ===================== METHODOLOGY ===================== -->
 <div id="tab-methodology" class="tab">
-  <div id="coverage-panel-container"></div>
-
   <div class="method-section">
     <h3>Rating Model: Dixon-Coles Bivariate Poisson</h3>
     <p>Each team is assigned an <strong>attack rate</strong> α and <strong>defense rate</strong> β.
@@ -284,12 +282,17 @@
 
   <div class="method-section">
     <h3>Region Seeding</h3>
-    <p>Within each class + region group, teams are seeded by:</p>
+    <p>Within each class + region group, teams are seeded using the official GHSA tiebreaker sequence:</p>
     <ol style="margin:6px 0 0 18px;line-height:1.7">
-      <li>Region W-L record (win percentage, then goal differential)</li>
-      <li>PSR rank (GHSA's power-strength rating)</li>
-      <li>DC rating (Dixon-Coles, as final tiebreaker)</li>
+      <li>Region W-L record</li>
+      <li>Head-to-head record among tied teams</li>
+      <li>Goals allowed in head-to-head games (tied teams only)</li>
+      <li>Goal differential in head-to-head games, capped at 3 goals per game</li>
+      <li>Goals allowed in all region games</li>
+      <li>Goal differential in all region games, capped at 3 goals per game</li>
+      <li>If still tied, repeat from step 2 on the remaining tied subset</li>
     </ol>
+    <p style="margin-top:6px">PK wins count as a one-goal win for the winner; the loser receives no additional goal penalty. If all tiebreakers are exhausted, PSR rank then DC rating serve as a final fallback.</p>
   </div>
 
   <div class="method-section">
@@ -316,10 +319,9 @@
   </div>
 
   <div class="method-section">
-    <h3>Enrichment Coverage</h3>
-    <div id="method-coverage"></div>
-    <p>See the <a href="https://www.ghsa.net/sites/default/files/documents/soccer/2025-2026_GHSA_Soccer_Handbook.pdf" target="_blank" style="color:var(--accent)">GHSA Soccer Handbook</a>
-    and <a href="https://doi.org/10.2307/2986290" target="_blank" style="color:var(--accent)">Dixon &amp; Coles (1997)</a> for references.</p>
+    <h3>References</h3>
+    <p><a href="https://www.ghsa.net/sites/default/files/documents/soccer/2025-2026_GHSA_Soccer_Handbook.pdf" target="_blank" style="color:var(--accent)">GHSA Soccer Handbook</a> — official rules, mercy rule, and region tiebreaker procedures.</p>
+    <p><a href="https://www.jstor.org/stable/2986290" target="_blank" style="color:var(--accent)">Dixon &amp; Coles (1997)</a> — "Modelling Association Football Scores and Inefficiencies in the Football Betting Market," <em>Applied Statistics</em> 46(2).</p>
   </div>
 </div>
 
@@ -362,7 +364,6 @@ async function loadAll() {
       renderRankings();
       populateRegionClassNav();
       renderRegions();
-      renderMethodologyCoverage();
     } else {
       showError('tab-rankings', 'ratings.json not found — run the pipeline first.');
     }
@@ -881,32 +882,6 @@ function closePanel() {
 }
 
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closePanel(); });
-
-// ============================================================
-// Methodology coverage panel
-// ============================================================
-function renderMethodologyCoverage() {
-  if (!ratingsData || !ratingsData.enrichment_coverage) return;
-  const c = ratingsData.enrichment_coverage;
-  const hp = ratingsData.hyperparams || {};
-
-  const items = [
-    { num: c.n_games_total?.toLocaleString(), label: 'Total games' },
-    { num: c.n_games_maxpreps_matched?.toLocaleString(), label: 'MaxPreps enriched' },
-    { num: c.n_games_with_observed_duration?.toLocaleString(), label: 'Observed durations' },
-    { num: c.n_games_with_regulation_correction?.toLocaleString(), label: 'Regulation corrections' },
-    { num: c.n_score_discrepancies_logged?.toLocaleString(), label: 'Score discrepancies' },
-    { num: (hp.rho ?? '—'), label: 'ρ (low-score correction)' },
-    { num: (hp.xi ?? '—'), label: 'ξ (decay/day)' },
-  ];
-
-  const panel = `<div class="coverage-panel">${items.map(i =>
-    `<div class="coverage-item"><div class="num">${i.num}</div><div class="label">${i.label}</div></div>`
-  ).join('')}</div>`;
-
-  document.getElementById('coverage-panel-container').innerHTML = panel;
-  document.getElementById('method-coverage').innerHTML = panel;
-}
 
 // ============================================================
 // Utility
