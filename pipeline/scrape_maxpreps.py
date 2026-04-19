@@ -33,7 +33,8 @@ log = logging.getLogger(__name__)
 
 BASE_URL = "https://www.maxpreps.com"
 GA_SCHOOL_SEARCH_URL = f"{BASE_URL}/search/?q={{query}}&sport=soccer&state=ga"
-SCHEDULE_URL_TEMPLATE = f"{BASE_URL}/ga/{{slug}}/soccer/spring/"
+# /schedule/ path has full season; base path only has last ~3 games in wallCards
+SCHEDULE_URL_TEMPLATE = f"{BASE_URL}/ga/{{slug}}/soccer/spring/schedule/"
 
 CACHE_DIR = Path("data/raw/maxpreps")
 CACHE_TTL_REGULAR = timedelta(hours=24)
@@ -161,7 +162,7 @@ def _parse_search_results(html: str) -> list[tuple[str, str]]:
     except (json.JSONDecodeError, TypeError):
         return []
 
-    results = data.get("props", {}).get("pageProps", {}).get("initialSchoolResults", [])
+    results = data.get("props", {}).get("pageProps", {}).get("initialSchoolResults") or []
     entries = []
     for r in results:
         canonical = r.get("canonicalUrl", "")
@@ -236,11 +237,26 @@ def discover_slugs(teams: list[dict], client: MaxPrepsClient) -> dict[int, Optio
 
 def parse_schedule_page(html: str) -> list[dict]:
     """
-    Parse a MaxPreps team schedule page.
-    Extracts games from __NEXT_DATA__ JSON (props.pageProps.wallCards.schedule.data).
-    Returns list of game dicts for enrichment matching.
+    Parse a MaxPreps team schedule page (/soccer/spring/schedule/).
+    Extracts games from __NEXT_DATA__ JSON (props.pageProps.contests).
 
-    teams[0] is always the page's own team; homeAwayType 0=home, 1=away.
+    Contest structure uses string integer keys. Key layout (after json.loads):
+      c["1"]  = contestId (UUID str)
+      c["4"]  = hasResult (bool)
+      c["11"] = timestamp (ISO str)
+      c["37"] = page's team data array
+      c["38"] = opponent's team data array
+
+    Team array positional layout:
+      [3]  = score string "W 1-0" or "L 2-2" (regulation score; SO games show tied scores)
+      [5]  = result "W" | "L" | None
+      [6]  = goals scored (int)
+      [11] = homeAwayType 0=home, 1=away
+      [13] = teamCanonicalUrl (used to extract opponent slug)
+      [14] = schoolName
+
+    SO detection: MaxPreps shows regulation scores, so equal scores with a W/L result → shootout.
+    OT (without SO) is not reliably detectable from schedule data.
     """
     soup = BeautifulSoup(html, "lxml")
     nd_tag = soup.find("script", id="__NEXT_DATA__")
@@ -252,61 +268,72 @@ def parse_schedule_page(html: str) -> list[dict]:
     except (json.JSONDecodeError, TypeError):
         return []
 
-    schedule_data = (
+    contests = (
         data.get("props", {})
         .get("pageProps", {})
-        .get("wallCards", {})
-        .get("schedule", {})
-        .get("data", [])
+        .get("contests") or []
     )
 
     games = []
-    for contest in schedule_data:
-        if not contest.get("hasResult"):
+    for c in contests:
+        if not c.get("4"):  # hasResult
             continue
 
-        contest_id = contest.get("contestId", "")
-        canonical_url = contest.get("canonicalUrl", "")
-        timestamp = contest.get("timestamp", "")
-        home_away = contest.get("homeAwayType", -1)  # 0=home, 1=away
+        contest_id = c.get("1", "")
+        timestamp = c.get("11", "")
 
         try:
             game_date = datetime.fromisoformat(timestamp).date()
         except (ValueError, TypeError):
             continue
 
-        teams = contest.get("teams", [])
-        if len(teams) < 2:
+        my_team = c.get("37") or []
+        opp_team = c.get("38") or []
+        if len(my_team) < 15 or len(opp_team) < 15:
             continue
 
-        my_team = teams[0]
-        opp_team = teams[1]
+        my_result = my_team[5] if len(my_team) > 5 else None   # "W" | "L"
+        my_goals = my_team[6] if len(my_team) > 6 else None
+        my_ha = my_team[11] if len(my_team) > 11 else -1        # 0=home, 1=away
+        opp_goals = opp_team[6] if len(opp_team) > 6 else None
+        opp_name = opp_team[14] if len(opp_team) > 14 else ""
+        opp_canonical = opp_team[13] if len(opp_team) > 13 else ""
 
-        my_score = my_team.get("score")
-        opp_score = opp_team.get("score")
-        my_result = my_team.get("result", "")  # "W" or "L"
-        opp_name = opp_team.get("schoolName", "")
-        opp_url = opp_team.get("teamCanonicalUrl", "")
+        is_home = (my_ha == 0)
 
-        # Extract opponent slug from their canonical URL
+        # MaxPreps stores regulation scores. Equal scores with a result = SO game.
+        went_to_shootout = (
+            my_result in ("W", "L")
+            and my_goals is not None
+            and opp_goals is not None
+            and my_goals == opp_goals
+        )
+
         opp_slug = None
-        m = re.match(r"https?://www\.maxpreps\.com/ga/([\w-]+/[\w-]+)/", opp_url)
-        if m:
-            opp_slug = m.group(1)
+        if isinstance(opp_canonical, str):
+            m = re.match(r"https?://www\.maxpreps\.com/ga/([\w-]+/[\w-]+)/", opp_canonical)
+            if m:
+                opp_slug = m.group(1)
 
-        is_home = (home_away == 0)
+        # Game detail URL may be at contest key "35" or "18"
+        detail_url = None
+        for detail_key in ("35", "18"):
+            val = c.get(detail_key)
+            if val and isinstance(val, str) and "/games/" in val:
+                detail_url = val
+                break
 
         games.append({
             "date": game_date,
             "opponent_name": opp_name,
             "opponent_slug": opp_slug,
             "result": my_result,
-            "my_score": my_score,
-            "opp_score": opp_score,
+            "my_score": my_goals,
+            "opp_score": opp_goals,
             "is_home": is_home,
-            "went_to_overtime": False,   # not in schedule data; detected via detail page
-            "went_to_shootout": False,   # same
-            "detail_url": canonical_url,
+            "went_to_overtime": False,
+            "went_to_shootout": went_to_shootout,
+            "detail_url": detail_url,
             "contest_id": contest_id,
         })
 

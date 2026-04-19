@@ -5,112 +5,118 @@ from datetime import date
 from pipeline.scrape_maxpreps import parse_schedule_page, parse_game_detail
 
 
-# Schedule fixture uses __NEXT_DATA__ JSON (M3 format)
-_SCHEDULE_DATA = {
-    "props": {
-        "pageProps": {
-            "wallCards": {
-                "schedule": {
-                    "data": [
-                        {
-                            "contestId": "abc123-001",
-                            "hasResult": True,
-                            "canonicalUrl": "https://www.maxpreps.com/games/02-01-2026/soccer-spring-26/lambert-vs-walton.htm?c=abc",
-                            "timestamp": "2026-02-01T20:00:00",
-                            "homeAwayType": 0,
-                            "teams": [
-                                {
-                                    "schoolName": "Walton",
-                                    "score": 3,
-                                    "result": "W",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/marietta/walton-raiders/soccer/spring/",
-                                },
-                                {
-                                    "schoolName": "Lambert",
-                                    "score": 1,
-                                    "result": "L",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/suwanee/lambert-longhorns/soccer/spring/",
-                                },
-                            ],
-                        },
-                        {
-                            "contestId": "def456-002",
-                            "hasResult": True,
-                            "canonicalUrl": "https://www.maxpreps.com/games/02-08-2026/soccer-spring-26/walton-vs-lassiter.htm?c=def",
-                            "timestamp": "2026-02-08T19:00:00",
-                            "homeAwayType": 1,
-                            "teams": [
-                                {
-                                    "schoolName": "Walton",
-                                    "score": 2,
-                                    "result": "L",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/marietta/walton-raiders/soccer/spring/",
-                                },
-                                {
-                                    "schoolName": "Lassiter",
-                                    "score": 3,
-                                    "result": "W",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/marietta/lassiter-trojans/soccer/spring/",
-                                },
-                            ],
-                        },
-                        {
-                            "contestId": "ghi789-003",
-                            "hasResult": True,
-                            "canonicalUrl": "https://www.maxpreps.com/games/03-15-2026/soccer-spring-26/pebblebrook-vs-walton.htm?c=ghi",
-                            "timestamp": "2026-03-15T18:00:00",
-                            "homeAwayType": 0,
-                            "teams": [
-                                {
-                                    "schoolName": "Walton",
-                                    "score": 1,
-                                    "result": "W",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/marietta/walton-raiders/soccer/spring/",
-                                },
-                                {
-                                    "schoolName": "Pebblebrook",
-                                    "score": 0,
-                                    "result": "L",
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/mableton/pebblebrook-knights/soccer/spring/",
-                                },
-                            ],
-                        },
-                        {
-                            "contestId": "future-004",
-                            "hasResult": False,
-                            "canonicalUrl": "https://www.maxpreps.com/games/04-01-2026/soccer-spring-26/walton-vs-north-cobb.htm?c=xyz",
-                            "timestamp": "2026-04-01T19:00:00",
-                            "homeAwayType": 1,
-                            "teams": [
-                                {
-                                    "schoolName": "Walton",
-                                    "score": None,
-                                    "result": None,
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/marietta/walton-raiders/soccer/spring/",
-                                },
-                                {
-                                    "schoolName": "North Cobb",
-                                    "score": None,
-                                    "result": None,
-                                    "teamCanonicalUrl": "https://www.maxpreps.com/ga/kennesaw/north-cobb-warriors/soccer/spring/",
-                                },
-                            ],
-                        },
-                    ]
-                }
-            }
-        }
+def _team_array(
+    name: str,
+    city: str,
+    goals: int | None,
+    result: str | None,
+    home_away: int,  # 0=home, 1=away
+    slug: str,
+    slot: int = 1,
+) -> list:
+    """Build a minimal positional team array matching MaxPreps /schedule/ format."""
+    canonical = f"https://www.maxpreps.com/ga/{slug}/soccer/spring/"
+    score_str = None
+    if result and goals is not None:
+        score_str = f"{result} {goals}-?"  # opponent goals don't matter for this field
+    # Pad to at least 15 elements; key positions:
+    #  0=teamSeasonId, 1=schoolId, 2=sportSeasonId, 3=score_str, 4=slot,
+    #  5=result, 6=goals, 7-10=booleans, 11=homeAwayType, 12=num, 13=canonicalUrl, 14=name
+    arr = [
+        "00000000-0000-0000-0000-000000000000",  # 0 teamSeasonId
+        "00000000-0000-0000-0000-000000000000",  # 1 schoolId
+        "00000000-0000-0000-0000-000000000000",  # 2 sportSeasonId
+        score_str,   # 3 score string
+        slot,        # 4 slot
+        result,      # 5 result
+        goals,       # 6 goals
+        False,       # 7
+        False,       # 8
+        False,       # 9
+        False,       # 10
+        home_away,   # 11 homeAwayType
+        1,           # 12
+        canonical,   # 13 teamCanonicalUrl
+        name,        # 14 schoolName
+        city,        # 15 city
+    ]
+    return arr
+
+
+def _contest(
+    contest_id: str,
+    timestamp: str,
+    has_result: bool,
+    my_name: str,
+    my_city: str,
+    my_slug: str,
+    my_goals: int | None,
+    my_result: str | None,
+    my_ha: int,
+    opp_name: str,
+    opp_city: str,
+    opp_slug: str,
+    opp_goals: int | None,
+    opp_result: str | None,
+    detail_url: str | None = None,
+) -> dict:
+    """Build a minimal contest dict matching MaxPreps /schedule/ __NEXT_DATA__ format."""
+    my_slot = 1
+    opp_slot = 2
+    my_team = _team_array(my_name, my_city, my_goals, my_result, my_ha, my_slug, my_slot)
+    opp_ha = 1 - my_ha
+    opp_team = _team_array(opp_name, opp_city, opp_goals, opp_result, opp_ha, opp_slug, opp_slot)
+    c: dict = {
+        "1": contest_id,
+        "4": has_result,
+        "11": timestamp,
+        "37": my_team,
+        "38": opp_team,
     }
-}
+    if detail_url:
+        c["35"] = detail_url
+    return c
+
+
+_CONTESTS = [
+    _contest(
+        "abc123-001", "2026-02-01T20:00:00", True,
+        "Walton", "Marietta", "marietta/walton-raiders", 3, "W", 0,
+        "Lambert", "Suwanee", "suwanee/lambert-longhorns", 1, "L",
+        detail_url="https://www.maxpreps.com/games/02-01-2026/soccer-spring-26/lambert-vs-walton.htm?c=abc",
+    ),
+    _contest(
+        "def456-002", "2026-02-08T19:00:00", True,
+        "Walton", "Marietta", "marietta/walton-raiders", 2, "L", 1,
+        "Lassiter", "Marietta", "marietta/lassiter-trojans", 3, "W",
+    ),
+    _contest(
+        "ghi789-003", "2026-03-15T18:00:00", True,
+        "Walton", "Marietta", "marietta/walton-raiders", 1, "W", 0,
+        "Pebblebrook", "Mableton", "mableton/pebblebrook-knights", 0, "L",
+    ),
+    # SO game: equal scores (1-1) with a W result
+    _contest(
+        "so-004", "2026-03-20T18:00:00", True,
+        "Walton", "Marietta", "marietta/walton-raiders", 1, "W", 0,
+        "North Cobb", "Kennesaw", "kennesaw/north-cobb-warriors", 1, "L",
+    ),
+    # Future game: hasResult=False
+    _contest(
+        "future-005", "2026-04-01T19:00:00", False,
+        "Walton", "Marietta", "marietta/walton-raiders", None, None, 1,
+        "Woodstock", "Woodstock", "woodstock/woodstock-wolverines", None, None,
+    ),
+]
 
 FIXTURE_SCHEDULE = (
     f'<html><body><script id="__NEXT_DATA__" type="application/json">'
-    f"{json.dumps(_SCHEDULE_DATA)}"
+    f'{json.dumps({"props": {"pageProps": {"contests": _CONTESTS}}})}'
     f"</script></body></html>"
 )
 
 
-# Game detail fixtures use boxscore table with CSS class structure (M3 format)
+# Game detail fixtures use boxscore table with CSS class structure
 FIXTURE_GAME_DETAIL_PK = """
 <html><body>
 <table class="mx-grid boxscore d-b-s post soccer">
@@ -178,8 +184,8 @@ FIXTURE_GAME_DETAIL_NORMAL = """
 
 def test_parse_schedule_extracts_completed_games():
     games = parse_schedule_page(FIXTURE_SCHEDULE)
-    # 4 entries but 1 has hasResult=False → 3 completed games
-    assert len(games) == 3
+    # 5 entries, 1 has hasResult=False → 4 completed games
+    assert len(games) == 4
 
 
 def test_parse_schedule_date_parsed():
@@ -191,8 +197,8 @@ def test_parse_schedule_home_away_flag():
     games = parse_schedule_page(FIXTURE_SCHEDULE)
     home_game = next(g for g in games if g["date"] == date(2026, 2, 1))
     away_game = next(g for g in games if g["date"] == date(2026, 2, 8))
-    assert home_game["is_home"] is True   # homeAwayType 0 = home
-    assert away_game["is_home"] is False  # homeAwayType 1 = away
+    assert home_game["is_home"] is True   # my_ha=0 → home
+    assert away_game["is_home"] is False  # my_ha=1 → away
 
 
 def test_parse_schedule_opponent_name():
@@ -213,6 +219,15 @@ def test_parse_schedule_detail_url_and_contest_id():
     assert first["detail_url"] is not None
     assert "lambert-vs-walton" in first["detail_url"]
     assert first["contest_id"] == "abc123-001"
+
+
+def test_parse_schedule_shootout_detected():
+    games = parse_schedule_page(FIXTURE_SCHEDULE)
+    so_game = next(g for g in games if g["date"] == date(2026, 3, 20))
+    # Equal scores (1-1) with a W result → shootout
+    assert so_game["went_to_shootout"] is True
+    regular = next(g for g in games if g["date"] == date(2026, 2, 1))
+    assert regular["went_to_shootout"] is False
 
 
 def test_parse_game_detail_pk():
