@@ -454,6 +454,16 @@ def enrich_games(
             enrichment["went_to_overtime"] = mp_game.get("went_to_overtime", False)
             enrichment["went_to_shootout"] = mp_game.get("went_to_shootout", False)
 
+            # SO games: schedule data already has regulation scores (equal goals on both sides).
+            # Derive reg_home/reg_away without needing a detail page.
+            if enrichment["went_to_shootout"]:
+                my_s = mp_game.get("my_score")
+                opp_s = mp_game.get("opp_score")
+                is_home = mp_game.get("is_home", True)
+                if my_s is not None and opp_s is not None:
+                    enrichment["reg_home"] = my_s if is_home else opp_s
+                    enrichment["reg_away"] = opp_s if is_home else my_s
+
             if fetch_details:
                 detail_url = mp_game.get("detail_url")
                 contest_id = mp_game.get("contest_id", "")

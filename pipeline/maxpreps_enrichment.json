@@ -450,7 +450,9 @@
       "game_id": "3f2ea38a5fbc906a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "158a81ce3f3db047",
@@ -502,7 +504,9 @@
       "game_id": "1298d05a2b7490e9",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "8aa7de12c9900521",
@@ -604,7 +608,9 @@
       "game_id": "752b4404869751a7",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "8ac1e22eb3e1034d",
@@ -654,7 +660,9 @@
       "game_id": "0f4ace6012a725c6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "e01f8be7ce912d36",
@@ -780,7 +788,9 @@
       "game_id": "066dea404f4efb93",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "386207d76868a504",
@@ -924,7 +934,9 @@
       "game_id": "f46cc2b0d78fa1c4",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "d072735015ead30d",
@@ -972,7 +984,9 @@
       "game_id": "a4347401b19654c7",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "a9a711010e4df639",
@@ -1242,7 +1256,9 @@
       "game_id": "cfe68a8235658bf7",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "5f2af101dc28b22a",
@@ -1322,7 +1338,9 @@
       "game_id": "d88380737e954a17",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "26d246ee6fa56ad9",
@@ -1400,7 +1418,9 @@
       "game_id": "26f0b3ac1d0f6703",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "6e2d208f5979af00",
@@ -1478,7 +1498,9 @@
       "game_id": "f08a38eb5c654acd",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "ba39c49b42611d1f",
@@ -1490,7 +1512,9 @@
       "game_id": "2aff619b7738c638",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "e2f65bff7a942cfd",
@@ -1502,7 +1526,9 @@
       "game_id": "c319eefeb5f67d89",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "5059e286e67baf53",
@@ -1634,7 +1660,9 @@
       "game_id": "b6cab39bfa0dfd8a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "986a7a3efbcfeea5",
@@ -1750,7 +1778,9 @@
       "game_id": "734096fabee0606e",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "52458cd212c77b85",
@@ -1802,7 +1832,9 @@
       "game_id": "f76df5cf9179f915",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "38e67ef4f2ed6f8a",
@@ -2046,7 +2078,9 @@
       "game_id": "9aebad042f2d15bd",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "2a4cad22ef509dd3",
@@ -2148,7 +2182,9 @@
       "game_id": "57a775cc30766ec7",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "ca51282e0078f9f7",
@@ -2340,7 +2376,9 @@
       "game_id": "da77682341ee1af6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "352bb43b20f2ee82",
@@ -2662,7 +2700,9 @@
       "game_id": "b73173a0e0d6d64b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "e954a0e109770415",
@@ -2714,7 +2754,9 @@
       "game_id": "743156e0354eeb2c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "6372617154a6efdd",
@@ -2802,7 +2844,9 @@
       "game_id": "75e4d39bb6262ba6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "8d3fedaf6628afc8",
@@ -2844,7 +2888,9 @@
       "game_id": "7fe0707d1c05f932",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "83b536802e3b947f",
@@ -2950,7 +2996,9 @@
       "game_id": "bb693453b2e31818",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "0bb316e75cae8fc9",
@@ -3154,7 +3202,9 @@
       "game_id": "af0106c880e10c96",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "f014d2c77840fff8",
@@ -3214,7 +3264,9 @@
       "game_id": "90b6167968b62989",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "3d885a626d68f41d",
@@ -3232,7 +3284,9 @@
       "game_id": "ce9021839730be6e",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "fd59fbe1c5f7a6ec",
@@ -3408,7 +3462,9 @@
       "game_id": "3d133b1bba0554b9",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "c9052af3e0bfd0d9",
@@ -3658,7 +3714,9 @@
       "game_id": "a407c0cc31ac913f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "bc881631f588e3fb",
@@ -3694,7 +3752,9 @@
       "game_id": "d8ce6568bb83048a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "bde25cbb4b488449",
@@ -3900,7 +3960,9 @@
       "game_id": "73ca0affaff74040",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "ecaf916aa568d452",
@@ -3968,7 +4030,9 @@
       "game_id": "8b6e98a50cf70ebb",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "f6a3509a5789c62c",
@@ -3980,7 +4044,9 @@
       "game_id": "ff51652830cf82ff",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "0b0e7f4a928698bf",
@@ -4106,13 +4172,17 @@
       "game_id": "67f52646379d8245",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "9c011a2540c8ebea",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "09c55846ac93eae1",
@@ -4176,7 +4246,9 @@
       "game_id": "35eb83fd78b54df9",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "7c9610d4690b3ec8",
@@ -4194,7 +4266,9 @@
       "game_id": "57d55d8b92c4a08f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "5c8110970dc03404",
@@ -4474,7 +4548,9 @@
       "game_id": "05cac71f45193e91",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "d20f615285eeed86",
@@ -4884,7 +4960,9 @@
       "game_id": "f1fcca7b3e775036",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "c1ce9a4111c4ff3d",
@@ -4948,7 +5026,9 @@
       "game_id": "62f82877c421cc89",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "3272d49d2509a95f",
@@ -5150,7 +5230,9 @@
       "game_id": "6b42270841a51762",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "b9da5bf9a1bfae1a",
@@ -5242,19 +5324,25 @@
       "game_id": "7e11799d7cb104dd",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "c9b26b5d645f1bbc",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "c1d334fe460cbac5",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "38636f85f94128c3",
@@ -5326,7 +5414,9 @@
       "game_id": "308d402dfad8d501",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "2a5ebf2f546a6740",
@@ -5454,7 +5544,9 @@
       "game_id": "6f7e75845ef00f19",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "2d07231fc13e2254",
@@ -5656,7 +5748,9 @@
       "game_id": "98402370e6a170d3",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "48f5c90c547ec736",
@@ -5722,7 +5816,9 @@
       "game_id": "907902f0026433e4",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "6955b3099a9e0649",
@@ -5830,7 +5926,9 @@
       "game_id": "6265a99295a4bb10",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "6fe227bb3c191c1d",
@@ -5848,7 +5946,9 @@
       "game_id": "66510cd734dc2854",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "d95ada93b2490f6e",
@@ -6092,7 +6192,9 @@
       "game_id": "e1efb50e27c2098e",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "8409d3b24b9d5c1f",
@@ -6194,7 +6296,9 @@
       "game_id": "de8c8194c7569302",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "5b2060ef0cfffc03",
@@ -6572,7 +6676,9 @@
       "game_id": "29e4d87c47d1e89b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "cbbc2b308b9df7c9",
@@ -6719,13 +6825,13 @@
       "went_to_shootout": false
     },
     {
-      "game_id": "96f902456cf1d9eb",
+      "game_id": "a30bf5da815907fe",
       "maxpreps_matched": true,
       "went_to_overtime": false,
       "went_to_shootout": false
     },
     {
-      "game_id": "a30bf5da815907fe",
+      "game_id": "96f902456cf1d9eb",
       "maxpreps_matched": true,
       "went_to_overtime": false,
       "went_to_shootout": false
@@ -6774,7 +6880,9 @@
       "game_id": "8fcf5a8062e06bb2",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "a8056bc43c06a050",
@@ -6828,7 +6936,9 @@
       "game_id": "98c55b5bf99bc59b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "9e0a72427d68ed95",
@@ -6956,7 +7066,9 @@
       "game_id": "ae0206af2a33fee9",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "5cabe824c1c6d648",
@@ -7041,14 +7153,14 @@
       "maxpreps_matched": false
     },
     {
-      "game_id": "d9885a80afb5991f",
-      "maxpreps_matched": false
-    },
-    {
       "game_id": "e0edddf1c3e0f09c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
       "went_to_shootout": false
+    },
+    {
+      "game_id": "d9885a80afb5991f",
+      "maxpreps_matched": false
     },
     {
       "game_id": "60be5f560a18aa4d",
@@ -7254,7 +7366,9 @@
       "game_id": "12c04082bcc46cbb",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "ccc647d3e526f6d2",
@@ -7326,7 +7440,9 @@
       "game_id": "6a640280bdd4b780",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "46a59cc4fcf380f1",
@@ -7448,7 +7564,9 @@
       "game_id": "78f2383243126c2a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "a6540a0fccd128ab",
@@ -7472,7 +7590,9 @@
       "game_id": "e37e7e04fa145ffc",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "7b53b803ccd994ed",
@@ -7494,7 +7614,9 @@
       "game_id": "a61d47b0d55bb764",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "369e913bb74f1042",
@@ -7518,7 +7640,9 @@
       "game_id": "a89975401c15141c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "2d4a828f20f820ee",
@@ -7608,7 +7732,9 @@
       "game_id": "047659ccf8118ed3",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "810ee9d044c6f131",
@@ -7670,7 +7796,9 @@
       "game_id": "12cd25ed87bee823",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "31ec08da23da0805",
@@ -7724,7 +7852,9 @@
       "game_id": "02d844debf8728ac",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "72b104c94810116e",
@@ -7738,7 +7868,9 @@
       "game_id": "0ec4933c80d8e1e0",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "af58ebe283ab8192",
@@ -7782,7 +7914,9 @@
       "game_id": "4c199335f4741f8f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "bbf7426f952c7a0e",
@@ -8026,7 +8160,9 @@
       "game_id": "d2dc128b141638fa",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "6d1ff19b23052ed2",
@@ -8054,7 +8190,9 @@
       "game_id": "b1bdd123ba5ac2eb",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "2d6bd97de5fea7da",
@@ -8070,7 +8208,9 @@
       "game_id": "43a0a5678c8db266",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "d0d1d3794b484949",
@@ -8102,7 +8242,9 @@
       "game_id": "99652503d6f54916",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "59d36fb43d32eeed",
@@ -8118,7 +8260,9 @@
       "game_id": "db197797241f948f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "7dfde91c88e46739",
@@ -8154,13 +8298,17 @@
       "game_id": "f72ca5006acfeeaf",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "fa08af4cc4f32ba5",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "d56fbd5845ec95df",
@@ -8194,13 +8342,17 @@
       "game_id": "b114bdc048109c5d",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "5033b08daae41db5",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "3d830a3edddb02bb",
@@ -8300,7 +8452,9 @@
       "game_id": "08e9d9d830476afa",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "f35e44cac015d000",
@@ -8318,7 +8472,9 @@
       "game_id": "3e3ca6e6a34f0e5b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "52f989a4434434eb",
@@ -8374,7 +8530,9 @@
       "game_id": "af3ad61d38a5ba1b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "1594f944ac862f17",
@@ -8396,7 +8554,9 @@
       "game_id": "f10564df80678bb3",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "6afd5f4004f1e7b5",
@@ -8614,7 +8774,9 @@
       "game_id": "2b7ce12d04890815",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "402adad4b66cc1a5",
@@ -8686,7 +8848,9 @@
       "game_id": "8f71b7a74d3d6619",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "8253e77e4270e061",
@@ -8812,7 +8976,9 @@
       "game_id": "885891ec1d82d8b7",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "06a4f496ed64be42",
@@ -8832,7 +8998,9 @@
       "game_id": "d4562955bd8e0f3b",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "a251d819a84c6ba3",
@@ -8990,7 +9158,9 @@
       "game_id": "d5bb6c53adfde9e6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "5eb03bbddc005cab",
@@ -9006,7 +9176,9 @@
       "game_id": "9d90d8ab1204c360",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "da68172c24cbecdc",
@@ -9126,7 +9298,9 @@
       "game_id": "c7f70236dd4a274d",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "ea6cd3211b2ac52d",
@@ -9192,7 +9366,9 @@
       "game_id": "ebbc2d14d562e9f8",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "1dd5bfde62d050a5",
@@ -9248,13 +9424,17 @@
       "game_id": "a006ab05fd5311ea",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "ca1bf9c63e644439",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "6d0560530e5015fb",
@@ -9906,7 +10086,9 @@
       "game_id": "b7cd319707c65668",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "429688e9c92b07ab",
@@ -9930,7 +10112,9 @@
       "game_id": "1d66c1205ed8c801",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "3e6302433fd0cc26",
@@ -9986,7 +10170,9 @@
       "game_id": "481dd33c0a93d35c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "75b47de7da297008",
@@ -10204,7 +10390,9 @@
       "game_id": "6bdd8c4f669be7a6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "a265b450545b5c60",
@@ -10636,7 +10824,9 @@
       "game_id": "8641bf7ab154116e",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "2a2a79eb52c93ff4",
@@ -10656,7 +10846,9 @@
       "game_id": "c072e8df6d6ba77f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "81b364c3cd8c7670",
@@ -10822,7 +11014,9 @@
       "game_id": "d4364687ae1d907e",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "008fc62d2749f533",
@@ -11014,7 +11208,9 @@
       "game_id": "81836ff86b296581",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "6af0c909c2f9a82f",
@@ -11264,7 +11460,9 @@
       "game_id": "14786830a2c1fc1d",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "98a4c415b3de0966",
@@ -11410,7 +11608,9 @@
       "game_id": "fc9b38c73bc48753",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "a0e8c879efd6791e",
@@ -11538,7 +11738,9 @@
       "game_id": "cf4c073433936122",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "b7def318d62fba24",
@@ -11651,13 +11853,13 @@
       "went_to_shootout": false
     },
     {
-      "game_id": "5dbb9d78f9fdaf80",
+      "game_id": "bbfeec7344767f97",
       "maxpreps_matched": true,
       "went_to_overtime": false,
       "went_to_shootout": false
     },
     {
-      "game_id": "bbfeec7344767f97",
+      "game_id": "5dbb9d78f9fdaf80",
       "maxpreps_matched": true,
       "went_to_overtime": false,
       "went_to_shootout": false
@@ -11706,7 +11908,9 @@
       "game_id": "6e31900c65f5cada",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "f25200888b7e0efc",
@@ -11722,7 +11926,9 @@
       "game_id": "b2c30ebca1849ce0",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "8701561077eb4c60",
@@ -11758,13 +11964,17 @@
       "game_id": "3ac76ae085166a58",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "17d6bca12577aee5",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "d920146ca17adf92",
@@ -11846,7 +12056,9 @@
       "game_id": "93ec508edf0e6ea1",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "2b66ceb894081a5d",
@@ -11884,7 +12096,9 @@
       "game_id": "cef404a83b6611cc",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "42a2e2c985d227a2",
@@ -11932,7 +12146,9 @@
       "game_id": "3eb07b5465fe7475",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "432f49fa05ccf6a2",
@@ -12210,7 +12426,9 @@
       "game_id": "c17a3292e7be43bd",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "c84dd05c5251328d",
@@ -12920,7 +13138,9 @@
       "game_id": "d5186e8067bdfd05",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "894a314543a6f3a9",
@@ -13096,7 +13316,9 @@
       "game_id": "5a9c3fee4b54eda5",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "afdfcc3f329533e7",
@@ -13132,7 +13354,9 @@
       "game_id": "eeb1c3f8fc18aaa3",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "af6060556817e1f9",
@@ -13462,7 +13686,9 @@
       "game_id": "8e083d3f54e9b585",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "d38e69338d95bf46",
@@ -13490,7 +13716,9 @@
       "game_id": "aa4313c09d4c011a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "0cb6f8fc4a347410",
@@ -13598,7 +13826,9 @@
       "game_id": "dca57d5ad092b11d",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "2a9c1ec125158033",
@@ -13766,7 +13996,9 @@
       "game_id": "9360f6c9bfbaa76f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "2783f195ce625213",
@@ -13874,13 +14106,17 @@
       "game_id": "e0bc39762cc1abbc",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "8aa806564c8bdc8f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "12850ee6f5c1f11f",
@@ -13948,7 +14184,9 @@
       "game_id": "a5533d4ebb3499ca",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "2dfc9d9203d73485",
@@ -13960,7 +14198,9 @@
       "game_id": "495f7c80e71f1d3f",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "96e3e03c0a2d683d",
@@ -14004,13 +14244,17 @@
       "game_id": "e1ed1094696cf991",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "7518c9b0745fe840",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "c4516b9102c31dda",
@@ -14076,7 +14320,9 @@
       "game_id": "f0461f914077f2c9",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "7030b1b760e13d93",
@@ -14198,7 +14444,9 @@
       "game_id": "637fc7b6aafe61f2",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "17cb6892b19cacf3",
@@ -14330,7 +14578,9 @@
       "game_id": "e85c5d76de8e5249",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "b685616dbeb33b3d",
@@ -14348,7 +14598,9 @@
       "game_id": "e4fb959415a1cfe0",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 3,
+      "reg_away": 3
     },
     {
       "game_id": "ed9905832d6959ff",
@@ -14368,7 +14620,9 @@
       "game_id": "5e279bbb01e990de",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "6ae5ee056564453c",
@@ -14402,7 +14656,9 @@
       "game_id": "5ec954631e863fbb",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "77765461dfa0d11a",
@@ -14544,7 +14800,9 @@
       "game_id": "f8a7e0873c7f438c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "7bc2678091f80332",
@@ -14574,7 +14832,9 @@
       "game_id": "3d1c421f01d99a9c",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "ea458735a04e424b",
@@ -15192,7 +15452,9 @@
       "game_id": "8fc2a34659d625e3",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "0bb3a738ab4dcdf8",
@@ -15270,7 +15532,9 @@
       "game_id": "c48a66e40f6a7c7a",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "4cfaa8264a262ac4",
@@ -15400,7 +15664,9 @@
       "game_id": "36f956b383d74a03",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 2,
+      "reg_away": 2
     },
     {
       "game_id": "a327a64c7efa8087",
@@ -15494,7 +15760,9 @@
       "game_id": "90a4c44f57c114fd",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "16d688811b339940",
@@ -15594,7 +15862,9 @@
       "game_id": "45f6a09597972c68",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "9fa1efcd665b7511",
@@ -15790,7 +16060,9 @@
       "game_id": "42de09eb9c0d900d",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 0,
+      "reg_away": 0
     },
     {
       "game_id": "a25fb928d4cc4696",
@@ -15808,7 +16080,9 @@
       "game_id": "fe8051505f6ca3c6",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 1,
+      "reg_away": 1
     },
     {
       "game_id": "cb52cf51ec7777de",
@@ -15828,7 +16102,9 @@
       "game_id": "cd76bfc181173293",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "f1a29d849dc6eaea",
@@ -15926,7 +16202,9 @@
       "game_id": "b50e398aea7571c2",
       "maxpreps_matched": true,
       "went_to_overtime": false,
-      "went_to_shootout": true
+      "went_to_shootout": true,
+      "reg_home": 5,
+      "reg_away": 5
     },
     {
       "game_id": "b3e78f1a14c7de61",
