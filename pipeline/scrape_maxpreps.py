@@ -381,10 +381,16 @@ def enrich_games(
     games_df,  # pandas DataFrame
     slug_map: dict[int, Optional[str]],
     client: MaxPrepsClient,
+    fetch_details: bool = False,
 ) -> list[dict]:
     """
     For each game in games_df, fetch MaxPreps enrichment where useful.
     Returns list of enrichment dicts keyed by game_id.
+
+    fetch_details=False (default): schedule-only enrichment — fast, identifies
+    non-GHSA opponents and provides OT/SO flags from schedule data.
+    fetch_details=True: also fetches per-game detail pages for halftime scores
+    and regulation-score correction on SO games. Much slower (~2s per game).
     """
     enrichments: list[dict] = []
 
@@ -417,29 +423,25 @@ def enrich_games(
             enrichment["went_to_overtime"] = mp_game.get("went_to_overtime", False)
             enrichment["went_to_shootout"] = mp_game.get("went_to_shootout", False)
 
-            detail_url = mp_game.get("detail_url")
-            contest_id = mp_game.get("contest_id", "")
-
-            if detail_url and contest_id and contest_id not in fetched_details:
-                detail_html = client.fetch_game_detail(detail_url, contest_id)
-                if detail_html:
-                    fetched_details.add(contest_id)
-                    parsed = parse_game_detail(detail_html)
-                    enrichment["went_to_overtime"] = (
-                        parsed["went_to_overtime"] or enrichment.get("went_to_overtime", False)
-                    )
-                    enrichment["went_to_shootout"] = (
-                        parsed["went_to_shootout"] or enrichment.get("went_to_shootout", False)
-                    )
-                    enrichment["h1_home"] = parsed["h1_home"]
-                    enrichment["h1_away"] = parsed["h1_away"]
-                    if parsed["reg_home"] is not None:
-                        # Orient regulation scores to games_df home/away perspective
-                        # parse_game_detail gives away=row0, home=row1
-                        # mp_game is from slug (tid) team's perspective
-                        # Use the canonical URL orientation: row0=away, row1=home
-                        enrichment["reg_home"] = parsed["reg_home"]
-                        enrichment["reg_away"] = parsed["reg_away"]
+            if fetch_details:
+                detail_url = mp_game.get("detail_url")
+                contest_id = mp_game.get("contest_id", "")
+                if detail_url and contest_id and contest_id not in fetched_details:
+                    detail_html = client.fetch_game_detail(detail_url, contest_id)
+                    if detail_html:
+                        fetched_details.add(contest_id)
+                        parsed = parse_game_detail(detail_html)
+                        enrichment["went_to_overtime"] = (
+                            parsed["went_to_overtime"] or enrichment.get("went_to_overtime", False)
+                        )
+                        enrichment["went_to_shootout"] = (
+                            parsed["went_to_shootout"] or enrichment.get("went_to_shootout", False)
+                        )
+                        enrichment["h1_home"] = parsed["h1_home"]
+                        enrichment["h1_away"] = parsed["h1_away"]
+                        if parsed["reg_home"] is not None:
+                            enrichment["reg_home"] = parsed["reg_home"]
+                            enrichment["reg_away"] = parsed["reg_away"]
             break
 
         enrichments.append(enrichment)

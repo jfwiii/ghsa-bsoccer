@@ -23,16 +23,13 @@
 | Team panel UX | Widened to `min(660px, 95vw)` on desktop; added H/A/N column to schedule table |
 | Netlify deploy reliability | Added build hook trigger step to CI workflow. |
 | Cache-Control headers | `index.html` and JSON data files set to `no-cache, must-revalidate` in `netlify.toml` |
+| MaxPreps M3 rewrite (415942e) | MaxPreps migrated to Next.js. Rewrote scraper: slug discovery via `/search/` API → `__NEXT_DATA__.initialSchoolResults`; schedule parsing from `__NEXT_DATA__.wallCards.schedule.data`; game detail from SSR HTML `table.boxscore`. Game detail fetching now opt-in (`fetch_details=False` default) to avoid per-game latency. Option A cache committed to `pipeline/maxpreps_enrichment.json`. |
 
 ---
 
 ## Pending — Priority Order
 
-### 1. MaxPreps URL update (blocker)
-**Detail:** MaxPreps changed their URL structure — the old `/ga/{slug}/soccer/spring/schedule/` and GA rankings paths now return 404. The main site loads (200), so the site is up but the scraper's URL patterns need to be discovered and updated. Once fixed, Option A (committed cache) is implemented: the pipeline saves enrichment output to `pipeline/maxpreps_enrichment.json` on local runs, CI loads it without re-scraping.  
-**Files:** `pipeline/scrape_maxpreps.py` — `GA_SOCCER_RANKINGS_URL`, `fetch_team_schedule()`, `_parse_ga_rankings_page()`; `scripts/run_full_pipeline.py` — Option A save/load already in place.
-
-### 2. Region tiebreaker rules (bug)
+### 1. Region tiebreaker rules (bug)
 **Detail:** Current seeding uses win%, then win-loss diff, then PSR rank, then DC rating. GHSA's actual tiebreaker order ([source](https://www.ghsa.net/constitution-section-2025-2026-soccer)) is:
 1. Region W-L record
 2. Head-to-head record between tied teams
@@ -46,7 +43,7 @@ Steps 2–7 require comparing subsets of tied teams iteratively, which is a non-
 **Note:** PK wins count as a one-goal win for the winner; loser receives no additional goal.  
 **Files:** `scripts/run_full_pipeline.py` — `_region_sort()` and surrounding region seeding logic.
 
-### 3. Brackets tab: visual bracket tree
+### 2. Brackets tab: visual bracket tree
 **Detail:** The brackets tab currently shows R1 matchup cards (pairs), but not the connected bracket structure showing which winners would meet in R2, QF, SF, and F. Need to render a proper bracket tree: left column = R1 matchups, right columns = winner slots advancing toward the championship. Win probabilities per round already exist in `bracket_odds.json`.  
 **Files:** `public/index.html` — `renderBrackets()`; `public/brackets.json` already has full round structure.
 
