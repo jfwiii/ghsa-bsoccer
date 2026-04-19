@@ -544,12 +544,7 @@ function renderRegions() {
 
   container.innerHTML = entries.map(([ reg, teams ], i) => {
     const rows = [...teams].sort((a, b) => {
-      const parseRec = r => { const p = (r || '0-0').split('-').map(Number); return [p[0]||0, p[1]||0]; };
-      const [aw, al] = parseRec(a.region_record);
-      const [bw, bl] = parseRec(b.region_record);
-      if (bw !== aw) return bw - aw;
-      if (al !== bl) return al - bl;
-      return (a.psr_rank ?? 999) - (b.psr_rank ?? 999);
+      return (a.region_seed ?? 999) - (b.region_seed ?? 999);
     });
     const hasRegionRecord = rows.some(t => t.region_record);
     const tableRows = rows.map(t =>
