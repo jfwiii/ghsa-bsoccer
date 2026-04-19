@@ -72,6 +72,84 @@ def _resolve_region_alignments(region_map: dict, teams_raw: list[dict]) -> dict[
     return result
 
 
+def _ghsa_region_sort(
+    tids: list,
+    region_records: dict,
+    region_game_list: list,
+    id_to_meta: dict,
+    dc_ratings: dict,
+    _visited: frozenset = frozenset(),
+) -> list:
+    """Sort tied region teams by GHSA tiebreaker steps 2–7."""
+    if len(tids) <= 1:
+        return list(tids)
+    key = frozenset(tids)
+    if key in _visited:
+        return sorted(tids, key=lambda t: (
+            id_to_meta.get(t, {}).get("psr_rank") is None,
+            id_to_meta.get(t, {}).get("psr_rank") or 0,
+            -(dc_ratings.get(t) or 0),
+        ))
+    _visited = _visited | {key}
+    tid_set = set(tids)
+
+    h2h_games = [(h, a, hg, ag) for h, a, hg, ag in region_game_list
+                 if h in tid_set and a in tid_set]
+
+    h2h_w:      dict = {t: 0 for t in tids}
+    h2h_l:      dict = {t: 0 for t in tids}
+    h2h_ga:     dict = {t: 0 for t in tids}
+    h2h_gd_cap: dict = {t: 0 for t in tids}
+    for h, a, hg, ag in h2h_games:
+        if hg > ag:
+            h2h_w[h] += 1; h2h_l[a] += 1
+        elif ag > hg:
+            h2h_w[a] += 1; h2h_l[h] += 1
+        cap = 3
+        h2h_ga[h] += ag;  h2h_ga[a] += hg
+        h2h_gd_cap[h] += max(-cap, min(cap, hg - ag))
+        h2h_gd_cap[a] += max(-cap, min(cap, ag - hg))
+
+    rgn_ga:     dict = {t: 0 for t in tids}
+    rgn_gd_cap: dict = {t: 0 for t in tids}
+    for h, a, hg, ag in region_game_list:
+        cap = 3
+        if h in tid_set:
+            rgn_ga[h] += ag
+            rgn_gd_cap[h] += max(-cap, min(cap, hg - ag))
+        if a in tid_set:
+            rgn_ga[a] += hg
+            rgn_gd_cap[a] += max(-cap, min(cap, ag - hg))
+
+    def _step_key(t: int) -> tuple:
+        tot = h2h_w[t] + h2h_l[t]
+        wpct = h2h_w[t] / tot if tot else 0.0
+        return (
+            -wpct,
+            -(h2h_w[t] - h2h_l[t]),
+            h2h_ga[t],
+            -h2h_gd_cap[t],
+            rgn_ga[t],
+            -rgn_gd_cap[t],
+        )
+
+    sorted_tids = sorted(tids, key=_step_key)
+
+    result: list = []
+    i = 0
+    while i < len(sorted_tids):
+        j = i + 1
+        while j < len(sorted_tids) and _step_key(sorted_tids[j]) == _step_key(sorted_tids[i]):
+            j += 1
+        group = sorted_tids[i:j]
+        if len(group) > 1:
+            group = _ghsa_region_sort(group, region_records, region_game_list,
+                                      id_to_meta, dc_ratings, _visited)
+        result.extend(group)
+        i = j
+    return result
+
+
 def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
                        dc_result: dict, massey_result: dict,
                        enrichment_coverage: dict,
@@ -160,25 +238,51 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
             else:
                 region_records[tid] = (w, l, t + 1)
 
-    # Compute region seeds (rank within class+region by PSR rank, then DC rating)
-    region_groups: dict[tuple, list] = {}
-    for tid_r, r_r in sorted_by_rating:
+    # Compute region seeds — full GHSA 7-step tiebreaker
+    region_game_list: list = []
+    for _, _g in games_df.iterrows():
+        _h, _a = int(_g["home_team_id"]), int(_g["away_team_id"])
+        _hg, _ag = _g["home_goals_regulation"], _g["away_goals_regulation"]
+        if pd.isna(_hg) or pd.isna(_ag):
+            continue
+        _hg, _ag = int(_hg), int(_ag)
+        _h_cr = team_class_region.get(_h, ("", ""))
+        _a_cr = team_class_region.get(_a, ("", ""))
+        if _h_cr[0] != _a_cr[0] or not _h_cr[1] or _h_cr[1] != _a_cr[1]:
+            continue
+        region_game_list.append((_h, _a, _hg, _ag))
+
+    dc_ratings = dc_result.get("rating", {})
+
+    region_groups: dict = {}
+    for tid_r, _r_r in sorted_by_rating:
         cr = team_class_region.get(tid_r, ("", ""))
         if not cr[1]:
             continue
-        psr = id_to_meta.get(tid_r, {}).get("psr_rank")
-        region_groups.setdefault(cr, []).append((tid_r, psr, r_r))
+        region_groups.setdefault(cr, []).append(tid_r)
 
     region_seed: dict[int, int] = {}
-    for cr, members in region_groups.items():
-        def _region_sort(x: tuple) -> tuple:
-            tid_r, psr, dc_r = x
-            rw, rl, rt = region_records.get(tid_r, (0, 0, 0))
+    for cr, group_tids in region_groups.items():
+        def _wl_key(t: int) -> tuple:
+            rw, rl, rt = region_records.get(t, (0, 0, 0))
             tot = rw + rl + rt
-            wpct = rw / tot if tot > 0 else 0.0
-            return (-wpct, -(rw - rl), psr is None, psr or 0, -dc_r)
-        members.sort(key=_region_sort)
-        for i, (tid_r, _, _) in enumerate(members):
+            return (-(rw / tot) if tot else 0.0, -(rw - rl))
+
+        sorted_wl = sorted(group_tids, key=_wl_key)
+        final: list = []
+        i = 0
+        while i < len(sorted_wl):
+            j = i + 1
+            while j < len(sorted_wl) and _wl_key(sorted_wl[j]) == _wl_key(sorted_wl[i]):
+                j += 1
+            tied = sorted_wl[i:j]
+            if len(tied) > 1:
+                tied = _ghsa_region_sort(tied, region_records, region_game_list,
+                                         id_to_meta, dc_ratings)
+            final.extend(tied)
+            i = j
+
+        for i, tid_r in enumerate(final):
             region_seed[tid_r] = i + 1
 
     # Build per-team schedules

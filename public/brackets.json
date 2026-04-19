@@ -4,166 +4,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 18,
             "bottom_team_id": 392,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 18,
             "top_name_raw": "Tift Co",
-            "bot_name_raw": "Mill Creek"
+            "bot_name_raw": "Mill Creek",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 384,
             "bottom_team_id": 577,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 384,
             "top_name_raw": "Peachtree Rdg",
-            "bot_name_raw": "Archer"
+            "bot_name_raw": "Archer",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 66,
             "bottom_team_id": 54,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 66,
             "top_name_raw": "Etowah",
-            "bot_name_raw": "Harrison"
+            "bot_name_raw": "Harrison",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 390,
             "bottom_team_id": 116,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 390,
             "top_name_raw": "Alpharetta",
-            "bot_name_raw": "Carrollton"
+            "bot_name_raw": "Carrollton",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 133,
             "bottom_team_id": 16,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 133,
             "top_name_raw": "Dacula",
-            "bot_name_raw": "Colquitt Co"
+            "bot_name_raw": "Colquitt Co",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 9,
             "bottom_team_id": 10,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 9,
             "top_name_raw": "Heritage,Con",
-            "bot_name_raw": "Meadowcreek"
+            "bot_name_raw": "Meadowcreek",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 63,
             "bottom_team_id": 68,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 63,
             "top_name_raw": "Pebblebrook",
-            "bot_name_raw": "Marietta"
+            "bot_name_raw": "Marietta",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 60,
             "bottom_team_id": 574,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 60,
             "top_name_raw": "Douglas Co",
-            "bot_name_raw": "Lambert"
+            "bot_name_raw": "Lambert",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 360,
             "bottom_team_id": 241,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 360,
             "top_name_raw": "Chapel Hill",
-            "bot_name_raw": "S Forsyth"
+            "bot_name_raw": "S Forsyth",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 77,
             "bottom_team_id": 59,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 77,
             "top_name_raw": "Wheeler",
-            "bot_name_raw": "Campbell"
+            "bot_name_raw": "Campbell",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 90,
             "bottom_team_id": 83,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 90,
             "top_name_raw": "S Gwinnett",
-            "bot_name_raw": "Parkview"
+            "bot_name_raw": "Parkview",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 308,
             "bottom_team_id": 225,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 308,
             "top_name_raw": "Collins Hill",
-            "bot_name_raw": "Richmond Hill"
+            "bot_name_raw": "Richmond Hill",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 309,
             "bottom_team_id": 48,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 309,
             "top_name_raw": "N Forsyth",
-            "bot_name_raw": "E Coweta"
+            "bot_name_raw": "E Coweta",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 62,
             "bottom_team_id": 76,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 62,
             "top_name_raw": "Osborne",
-            "bot_name_raw": "Walton"
+            "bot_name_raw": "Walton",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 84,
             "bottom_team_id": 370,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 84,
             "top_name_raw": "Berkmar",
-            "bot_name_raw": "Grayson"
+            "bot_name_raw": "Grayson",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 17,
             "bottom_team_id": 109,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 17,
             "top_name_raw": "Lowndes",
-            "bot_name_raw": "Buford"
+            "bot_name_raw": "Buford",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -174,166 +425,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 314,
             "bottom_team_id": 169,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 314,
             "top_name_raw": "Greenbrier",
-            "bot_name_raw": "Jackson Co"
+            "bot_name_raw": "Jackson Co",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 73,
             "bottom_team_id": 137,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 73,
             "top_name_raw": "Milton",
-            "bot_name_raw": "Decatur"
+            "bot_name_raw": "Decatur",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 58,
             "bottom_team_id": 319,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 58,
             "top_name_raw": "Alexander",
-            "bot_name_raw": "Northgate"
+            "bot_name_raw": "Northgate",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 67,
             "bottom_team_id": 184,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 67,
             "top_name_raw": "Lassiter",
-            "bot_name_raw": "Lee Co"
+            "bot_name_raw": "Lee Co",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 8,
             "bottom_team_id": 21,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 8,
             "top_name_raw": "Habersham Cent",
-            "bot_name_raw": "Evans"
+            "bot_name_raw": "Evans",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 280,
             "bottom_team_id": 568,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 280,
             "top_name_raw": "Woodward Acad",
-            "bot_name_raw": "Johns Creek"
+            "bot_name_raw": "Johns Creek",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 50,
             "bottom_team_id": 231,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 50,
             "top_name_raw": "Newnan",
-            "bot_name_raw": "Rome"
+            "bot_name_raw": "Rome",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 15,
             "bottom_team_id": 229,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 15,
             "top_name_raw": "Coffee",
-            "bot_name_raw": "Riverwood"
+            "bot_name_raw": "Riverwood",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 167,
             "bottom_team_id": 570,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 167,
             "top_name_raw": "Houston Co",
-            "bot_name_raw": "River Ridge"
+            "bot_name_raw": "River Ridge",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 61,
             "bottom_team_id": 49,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 61,
             "top_name_raw": "Lithia Springs",
-            "bot_name_raw": "McIntosh"
+            "bot_name_raw": "McIntosh",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 79,
             "bottom_team_id": 65,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 79,
             "top_name_raw": "Dunwoody",
-            "bot_name_raw": "Chattahoochee"
+            "bot_name_raw": "Chattahoochee",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 279,
             "bottom_team_id": 29,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 279,
             "top_name_raw": "Winder-Barrow",
-            "bot_name_raw": "Glynn Acad"
+            "bot_name_raw": "Glynn Acad",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 74,
             "bottom_team_id": 605,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 74,
             "top_name_raw": "Pope",
-            "bot_name_raw": "Veterans"
+            "bot_name_raw": "Veterans",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 43,
             "bottom_team_id": 371,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 43,
             "top_name_raw": "Lovejoy",
-            "bot_name_raw": "Kennesaw Mtn"
+            "bot_name_raw": "Kennesaw Mtn",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 150,
             "bottom_team_id": 296,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 150,
             "top_name_raw": "Gainesville",
-            "bot_name_raw": "\"Lakeside"
+            "bot_name_raw": "\"Lakeside",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 313,
             "bottom_team_id": 86,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 313,
             "top_name_raw": "S Effingham",
-            "bot_name_raw": "Clarke Cent"
+            "bot_name_raw": "Clarke Cent",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -344,166 +846,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 27,
             "bottom_team_id": 702,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 27,
             "top_name_raw": "Benedictine",
-            "bot_name_raw": "E Forsyth"
+            "bot_name_raw": "E Forsyth",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 243,
             "bottom_team_id": 329,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 243,
             "top_name_raw": "SE Whitfield",
-            "bot_name_raw": "Pace Acad"
+            "bot_name_raw": "Pace Acad",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 193,
             "bottom_team_id": 383,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 193,
             "top_name_raw": "Marist",
-            "bot_name_raw": "\"Northside"
+            "bot_name_raw": "\"Northside",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 640,
             "bottom_team_id": 405,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 640,
             "top_name_raw": "Cambridge",
-            "bot_name_raw": "Ola"
+            "bot_name_raw": "Ola",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 379,
             "bottom_team_id": 268,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 379,
             "top_name_raw": "Flowery Br",
-            "bot_name_raw": "Wayne Co"
+            "bot_name_raw": "Wayne Co",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 286,
             "bottom_team_id": 134,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 286,
             "top_name_raw": "Jackson,Atl",
-            "bot_name_raw": "Dalton"
+            "bot_name_raw": "Dalton",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 355,
             "bottom_team_id": 232,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 355,
             "top_name_raw": "Starrs Mill",
-            "bot_name_raw": "St. Pius X"
+            "bot_name_raw": "St. Pius X",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 246,
             "bottom_team_id": 369,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 246,
             "top_name_raw": "Stockbridge",
-            "bot_name_raw": "Blessed Tr"
+            "bot_name_raw": "Blessed Tr",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 165,
             "bottom_team_id": 321,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 165,
             "top_name_raw": "McDonough",
-            "bot_name_raw": "Centennial"
+            "bot_name_raw": "Centennial",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 382,
             "bottom_team_id": 380,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 382,
             "top_name_raw": "Northview",
-            "bot_name_raw": "Mundys Mill"
+            "bot_name_raw": "Mundys Mill",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 285,
             "bottom_team_id": 548,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 285,
             "top_name_raw": "Midtown",
-            "bot_name_raw": "Allatoona"
+            "bot_name_raw": "Allatoona",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 315,
             "bottom_team_id": 217,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 315,
             "top_name_raw": "Eastside",
-            "bot_name_raw": "Perry"
+            "bot_name_raw": "Perry",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 272,
             "bottom_team_id": 375,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 272,
             "top_name_raw": "Westminster",
-            "bot_name_raw": "Union Grove"
+            "bot_name_raw": "Union Grove",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 161,
             "bottom_team_id": 292,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 161,
             "top_name_raw": "Harris Co",
-            "bot_name_raw": "Clarkston"
+            "bot_name_raw": "Clarkston",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 117,
             "bottom_team_id": 571,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 117,
             "top_name_raw": "Cartersville",
-            "bot_name_raw": "Drew"
+            "bot_name_raw": "Drew",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 264,
             "bottom_team_id": 581,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 264,
             "top_name_raw": "Ware Co",
-            "bot_name_raw": "Walnut Grove"
+            "bot_name_raw": "Walnut Grove",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -514,166 +1267,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 140,
             "bottom_team_id": 611,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 140,
             "top_name_raw": "Dougherty",
-            "bot_name_raw": "Islands"
+            "bot_name_raw": "Islands",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 378,
             "bottom_team_id": 389,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 378,
             "top_name_raw": "Chestatee",
-            "bot_name_raw": "Whitewater"
+            "bot_name_raw": "Whitewater",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 46,
             "bottom_team_id": 194,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 46,
             "top_name_raw": "Riverdale",
-            "bot_name_raw": "Mary Persons"
+            "bot_name_raw": "Mary Persons",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 549,
             "bottom_team_id": 4,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 549,
             "top_name_raw": "Heritage,Cat",
-            "bot_name_raw": "Stone Mountain"
+            "bot_name_raw": "Stone Mountain",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 51,
             "bottom_team_id": 211,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 51,
             "top_name_raw": "Troup Co",
-            "bot_name_raw": "NW Whitfield"
+            "bot_name_raw": "NW Whitfield",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 37,
             "bottom_team_id": 171,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 37,
             "top_name_raw": "Johnson,Sav",
-            "bot_name_raw": "Jefferson"
+            "bot_name_raw": "Jefferson",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 234,
             "bottom_team_id": 207,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 234,
             "top_name_raw": "Sandy Creek",
-            "bot_name_raw": "N Clayton"
+            "bot_name_raw": "N Clayton",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 152,
             "bottom_team_id": 14,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 152,
             "top_name_raw": "Gilmer",
-            "bot_name_raw": "Bainbridge"
+            "bot_name_raw": "Bainbridge",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 550,
             "bottom_team_id": 270,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 550,
             "top_name_raw": "Howard",
-            "bot_name_raw": "W Laurens"
+            "bot_name_raw": "W Laurens",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 214,
             "bottom_team_id": 189,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 214,
             "top_name_raw": "Peach Co",
-            "bot_name_raw": "Lumpkin Co"
+            "bot_name_raw": "Lumpkin Co",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 136,
             "bottom_team_id": 113,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 136,
             "top_name_raw": "Dawson Co",
-            "bot_name_raw": "Calhoun"
+            "bot_name_raw": "Calhoun",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 386,
             "bottom_team_id": 12,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 386,
             "top_name_raw": "Luella",
-            "bot_name_raw": "LaGrange"
+            "bot_name_raw": "LaGrange",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 224,
             "bottom_team_id": 212,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 224,
             "top_name_raw": "Richmond Acad",
-            "bot_name_raw": "Oconee Co"
+            "bot_name_raw": "Oconee Co",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 160,
             "bottom_team_id": 112,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 160,
             "top_name_raw": "Harlem",
-            "bot_name_raw": "Cairo"
+            "bot_name_raw": "Cairo",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 144,
             "bottom_team_id": 31,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 144,
             "top_name_raw": "E Hall",
-            "bot_name_raw": "Jenkins"
+            "bot_name_raw": "Jenkins",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 269,
             "bottom_team_id": 173,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 269,
             "top_name_raw": "W Hall",
-            "bot_name_raw": "\"Johnson"
+            "bot_name_raw": "\"Johnson",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -684,166 +1688,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 287,
             "bottom_team_id": 126,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 287,
             "top_name_raw": "Therrell",
-            "bot_name_raw": "Columbus"
+            "bot_name_raw": "Columbus",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 206,
             "bottom_team_id": 92,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 206,
             "top_name_raw": "Murray Co",
-            "bot_name_raw": "Sumter County"
+            "bot_name_raw": "Sumter County",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 248,
             "bottom_team_id": 317,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 248,
             "top_name_raw": "Tattnall Co",
-            "bot_name_raw": "Callaway"
+            "bot_name_raw": "Callaway",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 168,
             "bottom_team_id": 175,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 168,
             "top_name_raw": "Jackson",
-            "bot_name_raw": "Jordan"
+            "bot_name_raw": "Jordan",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 353,
             "bottom_team_id": 669,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 353,
             "top_name_raw": "Johnson,Aug",
-            "bot_name_raw": "Drew Charter"
+            "bot_name_raw": "Drew Charter",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 204,
             "bottom_team_id": 149,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 204,
             "top_name_raw": "Morgan Co",
-            "bot_name_raw": "Franklin Co"
+            "bot_name_raw": "Franklin Co",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 227,
             "bottom_team_id": 93,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 227,
             "top_name_raw": "Ringgold",
-            "bot_name_raw": "Appling Co"
+            "bot_name_raw": "Appling Co",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 128,
             "bottom_team_id": 358,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 128,
             "top_name_raw": "Cook",
-            "bot_name_raw": "Savannah Arts"
+            "bot_name_raw": "Savannah Arts",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 284,
             "bottom_team_id": 261,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 284,
             "top_name_raw": "S Atlanta",
-            "bot_name_raw": "Union Co"
+            "bot_name_raw": "Union Co",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 580,
             "bottom_team_id": 132,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 580,
             "top_name_raw": "N Murray",
-            "bot_name_raw": "Crisp Co"
+            "bot_name_raw": "Crisp Co",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 2,
             "bottom_team_id": 233,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 2,
             "top_name_raw": "Redan",
-            "bot_name_raw": "Salem"
+            "bot_name_raw": "Salem",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 245,
             "bottom_team_id": 219,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 245,
             "top_name_raw": "Stephens Co",
-            "bot_name_raw": "Pike Co"
+            "bot_name_raw": "Pike Co",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 635,
             "bottom_team_id": 218,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 635,
             "top_name_raw": "KIPP",
-            "bot_name_raw": "Pierce Co"
+            "bot_name_raw": "Pierce Co",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 244,
             "bottom_team_id": 111,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 244,
             "top_name_raw": "Spencer",
-            "bot_name_raw": "Butler"
+            "bot_name_raw": "Butler",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 176,
             "bottom_team_id": 162,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 176,
             "top_name_raw": "Josey",
-            "bot_name_raw": "Hart Co"
+            "bot_name_raw": "Hart Co",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 513,
             "bottom_team_id": 255,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 513,
             "top_name_raw": "E Jackson",
-            "bot_name_raw": "Thomson"
+            "bot_name_raw": "Thomson",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -854,166 +2109,417 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 311,
             "bottom_team_id": 199,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 32,
+            "bottom_seed": 1,
             "host_team_id": 311,
             "top_name_raw": "Jefferson Co",
-            "bot_name_raw": "Model"
+            "bot_name_raw": "Model",
+            "game": 1,
+            "feeds_into": 17
           },
           {
             "position": 2,
             "top_team_id": 251,
             "bottom_team_id": 148,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": 251,
             "top_name_raw": "Temple",
-            "bot_name_raw": "Fitzgerald"
+            "bot_name_raw": "Fitzgerald",
+            "game": 2,
+            "feeds_into": 17
           },
           {
             "position": 3,
             "top_team_id": 129,
             "bottom_team_id": 203,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": 129,
             "top_name_raw": "Coosa",
-            "bot_name_raw": "Jasper County"
+            "bot_name_raw": "Jasper County",
+            "game": 3,
+            "feeds_into": 18
           },
           {
             "position": 4,
             "top_team_id": 102,
             "bottom_team_id": 256,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": 102,
             "top_name_raw": "Bleckley Co",
-            "bot_name_raw": "Toombs Co"
+            "bot_name_raw": "Toombs Co",
+            "game": 4,
+            "feeds_into": 18
           },
           {
             "position": 5,
             "top_team_id": 20,
             "bottom_team_id": 254,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": 20,
             "top_name_raw": "Central,Mcn",
-            "bot_name_raw": "Thomasville"
+            "bot_name_raw": "Thomasville",
+            "game": 5,
+            "feeds_into": 19
           },
           {
             "position": 6,
             "top_team_id": 53,
             "bottom_team_id": 654,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": 53,
             "top_name_raw": "Gordon Cent",
-            "bot_name_raw": "Woodville-Tomp"
+            "bot_name_raw": "Woodville-Tomp",
+            "game": 6,
+            "feeds_into": 19
           },
           {
             "position": 7,
             "top_team_id": 105,
             "bottom_team_id": 298,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": 105,
             "top_name_raw": "Bremen",
-            "bot_name_raw": "Towers"
+            "bot_name_raw": "Towers",
+            "game": 7,
+            "feeds_into": 20
           },
           {
             "position": 8,
             "top_team_id": 703,
             "bottom_team_id": 300,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": 703,
             "top_name_raw": "Dalton Academy",
-            "bot_name_raw": "Fannin Co"
+            "bot_name_raw": "Fannin Co",
+            "game": 8,
+            "feeds_into": 20
           },
           {
             "position": 9,
             "top_team_id": 310,
             "bottom_team_id": 221,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 31,
+            "bottom_seed": 2,
             "host_team_id": 310,
             "top_name_raw": "Dade Co",
-            "bot_name_raw": "Putnam Co"
+            "bot_name_raw": "Putnam Co",
+            "game": 9,
+            "feeds_into": 21
           },
           {
             "position": 10,
             "top_team_id": 262,
             "bottom_team_id": 181,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": 262,
             "top_name_raw": "Vidalia",
-            "bot_name_raw": "Lamar Co"
+            "bot_name_raw": "Lamar Co",
+            "game": 10,
+            "feeds_into": 21
           },
           {
             "position": 11,
             "top_team_id": 247,
             "bottom_team_id": 701,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": 247,
             "top_name_raw": "Swainsboro",
-            "bot_name_raw": "Barrow"
+            "bot_name_raw": "Barrow",
+            "game": 11,
+            "feeds_into": 22
           },
           {
             "position": 12,
             "top_team_id": 99,
             "bottom_team_id": 170,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": 99,
             "top_name_raw": "Banks Co",
-            "bot_name_raw": "Jeff Davis"
+            "bot_name_raw": "Jeff Davis",
+            "game": 12,
+            "feeds_into": 22
           },
           {
             "position": 13,
             "top_team_id": 222,
             "bottom_team_id": 95,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 30,
+            "bottom_seed": 3,
             "host_team_id": 222,
             "top_name_raw": "Rabun Co",
-            "bot_name_raw": "Armuchee"
+            "bot_name_raw": "Armuchee",
+            "game": 13,
+            "feeds_into": 23
           },
           {
             "position": 14,
             "top_team_id": 145,
             "bottom_team_id": 138,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": 145,
             "top_name_raw": "E Laurens",
-            "bot_name_raw": "Dodge Co"
+            "bot_name_raw": "Dodge Co",
+            "game": 14,
+            "feeds_into": 23
           },
           {
             "position": 15,
             "top_team_id": 101,
             "bottom_team_id": 240,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": 101,
             "top_name_raw": "Berrien",
-            "bot_name_raw": "Social Circle"
+            "bot_name_raw": "Social Circle",
+            "game": 15,
+            "feeds_into": 24
           },
           {
             "position": 16,
             "top_team_id": 281,
             "bottom_team_id": 680,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": 281,
             "top_name_raw": "Worth County",
-            "bot_name_raw": "ACE Char"
+            "bot_name_raw": "ACE Char",
+            "game": 16,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 17,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 18,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 19,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 20,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 21,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 22,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 23,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          },
+          {
+            "game": 24,
+            "position": 8,
+            "top_from_game": 15,
+            "bottom_from_game": 16,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 28
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 17,
+            "bottom_from_game": 18,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 19,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 29
+          },
+          {
+            "game": 27,
+            "position": 3,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          },
+          {
+            "game": 28,
+            "position": 4,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 30
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 29,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          },
+          {
+            "game": 30,
+            "position": 2,
+            "top_from_game": 27,
+            "bottom_from_game": 28,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 31
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 31,
+            "position": 1,
+            "top_from_game": 29,
+            "bottom_from_game": 30,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -1024,86 +2530,211 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 16",
         "matchups": [
           {
             "position": 1,
             "top_team_id": 267,
             "bottom_team_id": 97,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 16,
+            "bottom_seed": 1,
             "host_team_id": 267,
             "top_name_raw": "Wash-Wilkes",
-            "bot_name_raw": "Atkinson Co"
+            "bot_name_raw": "Atkinson Co",
+            "game": 1,
+            "feeds_into": 9
           },
           {
             "position": 2,
             "top_team_id": 195,
             "bottom_team_id": 259,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 9,
+            "bottom_seed": 8,
             "host_team_id": 195,
             "top_name_raw": "McIntosh Co Acad",
-            "bot_name_raw": "Trion"
+            "bot_name_raw": "Trion",
+            "game": 2,
+            "feeds_into": 9
           },
           {
             "position": 3,
             "top_team_id": 688,
             "bottom_team_id": 678,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 12,
+            "bottom_seed": 5,
             "host_team_id": 688,
             "top_name_raw": "Furlow Char",
-            "bot_name_raw": "Lk Oconee Acad"
+            "bot_name_raw": "Lk Oconee Acad",
+            "game": 3,
+            "feeds_into": 10
           },
           {
             "position": 4,
             "top_team_id": 681,
             "bottom_team_id": 139,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 13,
+            "bottom_seed": 4,
             "host_team_id": 681,
             "top_name_raw": "Atlanta Class",
-            "bot_name_raw": "Dooly Co"
+            "bot_name_raw": "Dooly Co",
+            "game": 4,
+            "feeds_into": 10
           },
           {
             "position": 5,
             "top_team_id": 130,
             "bottom_team_id": 124,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 15,
+            "bottom_seed": 2,
             "host_team_id": 130,
             "top_name_raw": "Crawford Co",
-            "bot_name_raw": "Claxton"
+            "bot_name_raw": "Claxton",
+            "game": 5,
+            "feeds_into": 11
           },
           {
             "position": 6,
             "top_team_id": 302,
             "bottom_team_id": 257,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 10,
+            "bottom_seed": 7,
             "host_team_id": 302,
             "top_name_raw": "Irwin Co",
-            "bot_name_raw": "Towns Co"
+            "bot_name_raw": "Towns Co",
+            "game": 6,
+            "feeds_into": 11
           },
           {
             "position": 7,
             "top_team_id": 627,
             "bottom_team_id": 220,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 14,
+            "bottom_seed": 3,
             "host_team_id": 627,
             "top_name_raw": "Elite Sch Acad",
-            "bot_name_raw": "Portal"
+            "bot_name_raw": "Portal",
+            "game": 7,
+            "feeds_into": 12
           },
           {
             "position": 8,
             "top_team_id": 258,
             "bottom_team_id": 106,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 11,
+            "bottom_seed": 6,
             "host_team_id": 258,
             "top_name_raw": "Treutlen",
-            "bot_name_raw": "Brooks Co"
+            "bot_name_raw": "Brooks Co",
+            "game": 8,
+            "feeds_into": 12
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 9,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 13
+          },
+          {
+            "game": 10,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 13
+          },
+          {
+            "game": 11,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 14
+          },
+          {
+            "game": 12,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 14
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 13,
+            "position": 1,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 15
+          },
+          {
+            "game": 14,
+            "position": 2,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 15
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 15,
+            "position": 1,
+            "top_from_game": 13,
+            "bottom_from_game": 14,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }
@@ -1114,136 +2745,368 @@
     "rounds": [
       {
         "round": 1,
+        "round_name": "Round of 32",
         "matchups": [
           {
             "position": 1,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 17,
+            "bottom_seed": 16,
             "host_team_id": null,
             "top_name_raw": "Providence Chr",
-            "bot_name_raw": "Wesleyan"
+            "bot_name_raw": "Wesleyan",
+            "game": 1,
+            "feeds_into": 14
           },
           {
             "position": 2,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 24,
+            "bottom_seed": 9,
             "host_team_id": null,
             "top_name_raw": "Savannah Chr",
-            "bot_name_raw": "Calvary Day"
+            "bot_name_raw": "Calvary Day",
+            "game": 2,
+            "feeds_into": 14
           },
           {
             "position": 3,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 25,
+            "bottom_seed": 8,
             "host_team_id": null,
             "top_name_raw": "Mt Bethel Chr",
-            "bot_name_raw": "GACS"
+            "bot_name_raw": "GACS",
+            "game": 3,
+            "feeds_into": 15
           },
           {
             "position": 4,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 28,
+            "bottom_seed": 5,
             "host_team_id": null,
             "top_name_raw": "Prince Ave Chr",
-            "bot_name_raw": "Athens Acad"
+            "bot_name_raw": "Athens Acad",
+            "game": 4,
+            "feeds_into": 15
           },
           {
             "position": 5,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 21,
+            "bottom_seed": 12,
             "host_team_id": null,
             "top_name_raw": "Landmark Chr",
-            "bot_name_raw": "Lovett"
+            "bot_name_raw": "Lovett",
+            "game": 5,
+            "feeds_into": 16
           },
           {
             "position": 6,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 29,
+            "bottom_seed": 4,
             "host_team_id": null,
             "top_name_raw": "Weber School",
-            "bot_name_raw": "Atlanta Int"
+            "bot_name_raw": "Atlanta Int",
+            "game": 6,
+            "feeds_into": 16
           },
           {
             "position": 7,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 20,
+            "bottom_seed": 13,
             "host_team_id": null,
             "top_name_raw": "Christian Her",
-            "bot_name_raw": "Holy Innocents"
+            "bot_name_raw": "Holy Innocents",
+            "game": 7,
+            "feeds_into": 17
           },
           {
             "position": 8,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 18,
+            "bottom_seed": 15,
             "host_team_id": null,
             "top_name_raw": "Mt Paran Chr",
-            "bot_name_raw": "Walker"
+            "bot_name_raw": "Walker",
+            "game": 8,
+            "feeds_into": 17
           },
           {
             "position": 9,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 23,
+            "bottom_seed": 10,
             "host_team_id": null,
             "top_name_raw": "Fellowship Chr",
-            "bot_name_raw": "N Cobb Chr"
+            "bot_name_raw": "N Cobb Chr",
+            "game": 9,
+            "feeds_into": 18
           },
           {
             "position": 10,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 26,
+            "bottom_seed": 7,
             "host_team_id": null,
             "top_name_raw": "St. Francis",
-            "bot_name_raw": "Aquinas"
+            "bot_name_raw": "Aquinas",
+            "game": 10,
+            "feeds_into": 18
           },
           {
             "position": 11,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 19,
+            "bottom_seed": 14,
             "host_team_id": null,
             "top_name_raw": "Galloway",
-            "bot_name_raw": "Mt Vernon"
+            "bot_name_raw": "Mt Vernon",
+            "game": 11,
+            "feeds_into": 19
           },
           {
             "position": 12,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 27,
+            "bottom_seed": 6,
             "host_team_id": null,
             "top_name_raw": "Mt Pisgah Chr",
-            "bot_name_raw": "Darlington"
+            "bot_name_raw": "Darlington",
+            "game": 12,
+            "feeds_into": 19
           },
           {
             "position": 13,
             "top_team_id": null,
             "bottom_team_id": null,
-            "top_seed": null,
-            "bottom_seed": null,
+            "top_seed": 22,
+            "bottom_seed": 11,
             "host_team_id": null,
             "top_name_raw": "Trinity Chr",
-            "bot_name_raw": "Paideia"
+            "bot_name_raw": "Paideia",
+            "game": 13,
+            "feeds_into": 20
+          }
+        ]
+      },
+      {
+        "round": 2,
+        "round_name": "Round of 16",
+        "matchups": [
+          {
+            "game": 14,
+            "position": 1,
+            "top_from_game": 1,
+            "bottom_from_game": 2,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 21
+          },
+          {
+            "game": 15,
+            "position": 2,
+            "top_from_game": 3,
+            "bottom_from_game": 4,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 21
+          },
+          {
+            "game": 16,
+            "position": 3,
+            "top_from_game": 5,
+            "bottom_from_game": 6,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 22
+          },
+          {
+            "game": 17,
+            "position": 4,
+            "top_from_game": 7,
+            "bottom_from_game": 8,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 22
+          },
+          {
+            "game": 18,
+            "position": 5,
+            "top_from_game": 9,
+            "bottom_from_game": 10,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 23
+          },
+          {
+            "game": 19,
+            "position": 6,
+            "top_from_game": 11,
+            "bottom_from_game": 12,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 23
+          },
+          {
+            "game": 20,
+            "position": 7,
+            "top_from_game": 13,
+            "bottom_from_game": 13,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 24
+          }
+        ]
+      },
+      {
+        "round": 3,
+        "round_name": "Quarterfinals",
+        "matchups": [
+          {
+            "game": 21,
+            "position": 1,
+            "top_from_game": 14,
+            "bottom_from_game": 15,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 22,
+            "position": 2,
+            "top_from_game": 16,
+            "bottom_from_game": 17,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 25
+          },
+          {
+            "game": 23,
+            "position": 3,
+            "top_from_game": 18,
+            "bottom_from_game": 19,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          },
+          {
+            "game": 24,
+            "position": 4,
+            "top_from_game": 20,
+            "bottom_from_game": 20,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 26
+          }
+        ]
+      },
+      {
+        "round": 4,
+        "round_name": "Semifinals",
+        "matchups": [
+          {
+            "game": 25,
+            "position": 1,
+            "top_from_game": 21,
+            "bottom_from_game": 22,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          },
+          {
+            "game": 26,
+            "position": 2,
+            "top_from_game": 23,
+            "bottom_from_game": 24,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null,
+            "feeds_into": 27
+          }
+        ]
+      },
+      {
+        "round": 5,
+        "round_name": "Final",
+        "matchups": [
+          {
+            "game": 27,
+            "position": 1,
+            "top_from_game": 25,
+            "bottom_from_game": 26,
+            "top_team_id": null,
+            "bottom_team_id": null,
+            "top_seed": null,
+            "bottom_seed": null,
+            "top_name_raw": null,
+            "bot_name_raw": null
           }
         ]
       }

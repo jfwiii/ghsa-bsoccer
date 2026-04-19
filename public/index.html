@@ -117,6 +117,29 @@
     .team-panel { width: 100%; }
     header h1 { font-size: 15px; }
   }
+
+/* ── Bracket display ── */
+.bk-meta{color:var(--muted);font-size:12px;margin-bottom:12px}
+.bk-desktop{display:flex;gap:0;overflow-x:auto;align-items:stretch;min-height:500px}
+.bk-col{display:flex;flex-direction:column;min-width:190px;max-width:220px;flex-shrink:0}
+.bk-col-header{font-size:10px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;padding:5px 8px;text-align:center;border-bottom:1px solid var(--border);margin-bottom:2px}
+.bk-col-games{display:flex;flex-direction:column;justify-content:space-around;flex:1;padding:4px 0}
+.bk-col:not(:last-child){border-right:2px solid var(--border)}
+.bk-game{border:1px solid var(--border);border-radius:5px;overflow:hidden;background:var(--surface);margin:2px 6px;flex-shrink:0}
+.bk-gnum{font-size:9px;color:var(--muted);padding:1px 6px;background:var(--surface2);border-bottom:1px solid var(--border)}
+.bk-team{display:flex;align-items:center;padding:4px 6px;font-size:12px;gap:3px}
+.bk-top{border-bottom:1px solid var(--border)}
+.bk-seed{min-width:16px;font-size:10px;font-weight:700;color:var(--muted);text-align:right;flex-shrink:0}
+.bk-name{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bk-pct{font-size:11px;font-weight:600;color:var(--accent2);flex-shrink:0;margin-left:3px}
+.bk-placeholder{color:var(--muted);font-style:italic;font-size:11px}
+.bk-mobile{display:flex;flex-direction:column;gap:8px}
+.bk-round-details{border:1px solid var(--border);border-radius:6px;overflow:hidden}
+.bk-round-summary{display:flex;align-items:center;justify-content:space-between;padding:10px 14px;background:var(--surface2);cursor:pointer;font-weight:600;list-style:none;user-select:none}
+.bk-round-summary::-webkit-details-marker{display:none}
+.bk-round-count{font-size:11px;color:var(--muted);font-weight:normal}
+.bk-round-games{padding:8px;display:flex;flex-direction:column;gap:6px}
+.bk-mobile .bk-game{margin:0}
 </style>
 </head>
 <body>
@@ -619,106 +642,86 @@ function renderBrackets() {
   const ratingTeam = {};
   if (ratingsData) ratingsData.teams.forEach(t => { ratingTeam[t.team_id] = t; });
 
-  // Build odds lookup: bracket name → team_id → round_probabilities
   const oddsLookup = {};
-  if (oddsData) {
-    oddsData.forEach(b => {
-      oddsLookup[b.bracket] = {};
-      b.teams.forEach(t => { oddsLookup[b.bracket][t.team_id] = t.round_probabilities; });
-    });
+  if (oddsData) oddsData.forEach(b => {
+    oddsLookup[b.bracket] = {};
+    b.teams.forEach(t => { oddsLookup[b.bracket][t.team_id] = t.round_probabilities; });
+  });
+
+  if (!bracketsData) { view.innerHTML = '<div class="error-msg">No bracket data.</div>'; return; }
+  const braw = bracketsData.find(b => b.bracket === currentBracket) || bracketsData[0];
+  if (!braw) { view.innerHTML = '<div class="error-msg">No bracket data.</div>'; return; }
+
+  const bracketOdds = oddsLookup[braw.bracket] || {};
+  const rounds = braw.rounds || [];
+  if (!rounds.length) { view.innerHTML = '<div class="error-msg">Bracket not yet available.</div>'; return; }
+
+  const nSims = (oddsData || []).find(b => b.bracket === braw.bracket)?.n_simulations;
+
+  // Map round index → probability key for "probability of advancing past this round"
+  const probKeys = ['R32','R16','QF','SF','F','Champ'];
+  function advanceKey(roundIdx) {
+    // Round 0 (R32): advancing = reaching R16, key = 'R16'
+    // Last round (Final): advancing = Champ
+    return probKeys[roundIdx + 1] || 'Champ';
   }
 
-  // Prefer bracketsData for actual draw; fall back to probability table
-  if (bracketsData) {
-    const braw = bracketsData.find(b => b.bracket === currentBracket) || bracketsData[0];
-    if (!braw) { view.innerHTML = '<div class="error-msg">No bracket data.</div>'; return; }
-
-    const bracketOdds = oddsLookup[braw.bracket] || {};
-    const r1 = (braw.rounds || []).find(r => r.round === 1);
-    const matchups = r1 ? r1.matchups : [];
-    const nSims = (oddsData || []).find(b => b.bracket === braw.bracket)?.n_simulations;
-
-    const cards = matchups.map(m => {
-      const topId = m.top_team_id, botId = m.bottom_team_id;
-      const topRt = ratingTeam[topId] || {}, botRt = ratingTeam[botId] || {};
-      const topProbs = bracketOdds[topId] || {}, botProbs = bracketOdds[botId] || {};
-      // P(team wins R1) = their R16 probability (since R32=100% for all)
-      const topWin = topProbs['R16'] ?? null;
-      const botWin = botProbs['R16'] ?? null;
-
-      const teamRow = (id, rt, probs, winP) => {
-        const seed = rt.region_or_area && rt.region_seed
-          ? `${esc(rt.region_or_area)} · ${ordinal(rt.region_seed)}`
-          : '—';
-        const pctStr = winP != null ? `<span style="color:var(--accent2);font-weight:600;margin-left:8px">${(winP*100).toFixed(0)}%</span>` : '';
-        const champ = probs['Champ'] ?? null;
-        const champStr = champ != null ? `<span style="color:var(--muted);font-size:11px;margin-left:6px">Champ: ${(champ*100).toFixed(1)}%</span>` : '';
-        return `<div onclick="openTeamPanel(${id})" style="display:flex;align-items:center;justify-content:space-between;padding:8px 10px;cursor:pointer;border-radius:4px;transition:background 0.15s" onmouseover="this.style.background='var(--surface2)'" onmouseout="this.style.background=''">
-          <div>
-            <strong>${esc(rt.name || id)}</strong>
-            <span style="color:var(--muted);font-size:11px;margin-left:8px">${seed}</span>
-          </div>
-          <div style="text-align:right">${pctStr}${champStr}</div>
-        </div>`;
-      };
-
-      const topRow = topId ? teamRow(topId, topRt, topProbs, topWin) : `<div style="padding:8px 10px;color:var(--muted)">BYE</div>`;
-      const botRow = botId ? teamRow(botId, botRt, botProbs, botWin) : `<div style="padding:8px 10px;color:var(--muted)">BYE</div>`;
-
-      return `<div style="background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:10px">
-        ${topRow}
-        <div style="border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface2);text-align:center;font-size:10px;color:var(--muted);padding:2px 0">vs</div>
-        ${botRow}
-      </div>`;
-    }).join('');
-
-    const note = nSims ? `${nSims.toLocaleString()} simulations · ` : '';
-    view.innerHTML = `
-      <p style="color:var(--muted);font-size:12px;margin-bottom:12px">${note}${esc(braw.bracket)} bracket · win % = model probability of advancing from Round 1</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px">${cards}</div>`;
-    return;
+  function tName(id, raw) {
+    if (!id) return raw ? esc(raw) : '—';
+    const rt = ratingTeam[id];
+    return esc(rt ? rt.name : (raw || String(id)));
   }
 
-  // Fallback: probability table if no bracket structure available
-  if (!oddsData) { view.innerHTML = '<div class="error-msg">bracket_odds.json not found — run the pipeline first.</div>'; return; }
-  const bracket = oddsData.find(b => b.bracket === currentBracket) || oddsData[0];
-  if (!bracket) return;
+  function gameCard(m, roundIdx) {
+    const topId = m.top_team_id, botId = m.bottom_team_id;
+    const topProbs = bracketOdds[topId] || {}, botProbs = bracketOdds[botId] || {};
+    const aKey = advanceKey(roundIdx);
+    const topPct = topId ? (topProbs[aKey] ?? null) : null;
+    const botPct = botId ? (botProbs[aKey] ?? null) : null;
 
-  const roundLabels = ['R16','QF','SF','F','Champ'];
-  const validLabels = roundLabels.filter(lbl =>
-    bracket.teams.some(t => t.round_probabilities[lbl] !== undefined)
-  );
+    function teamRow(id, seed, nameRaw, fromGame, pct) {
+      let label;
+      if (id || nameRaw) {
+        const seedHtml = seed != null ? `<span class="bk-seed">${seed}</span>` : '';
+        const click = id ? ` onclick="openTeamPanel(${id})" style="cursor:pointer"` : '';
+        label = `${seedHtml}<span class="bk-name"${click}>${tName(id, nameRaw)}</span>`;
+      } else if (fromGame != null) {
+        label = `<span class="bk-placeholder">Game ${fromGame} winner</span>`;
+      } else {
+        label = `<span class="bk-placeholder">TBD</span>`;
+      }
+      const pctHtml = pct != null ? `<span class="bk-pct">${(pct*100).toFixed(0)}%</span>` : '';
+      return `<div class="bk-team">${label}${pctHtml}</div>`;
+    }
 
-  const rows = bracket.teams.map(t => {
-    const rt = ratingTeam[t.team_id] || {};
-    const probs = t.round_probabilities;
-    const cells = validLabels.map(lbl => {
-      const p = probs[lbl];
-      if (p === undefined) return '<td>—</td>';
-      const pct = (p * 100).toFixed(1);
-      const heat = Math.round(p * 220);
-      return `<td style="color:rgb(${255-heat},${heat+100},${255-heat/2})">${pct}%</td>`;
-    }).join('');
-    const seedLabel = rt.region_or_area && rt.region_seed
-      ? `${esc(rt.region_or_area)} · ${ordinal(rt.region_seed)}`
-      : '—';
-    return `<tr onclick="openTeamPanel(${t.team_id})">
-      <td><strong>${esc(rt.name || t.team_id)}</strong></td>
-      <td style="color:var(--muted);font-size:12px">${seedLabel}</td>
-      ${cells}
-    </tr>`;
-  }).join('');
-
-  view.innerHTML = `
-    <p style="color:var(--muted);font-size:12px;margin-bottom:12px">
-      ${bracket.n_simulations.toLocaleString()} simulations · ${esc(bracket.bracket)} bracket
-    </p>
-    <div class="tbl-wrap">
-      <table>
-        <thead><tr><th>Team</th><th>Region · Seed</th>${validLabels.map(l=>`<th>${l}</th>`).join('')}</tr></thead>
-        <tbody>${rows}</tbody>
-      </table>
+    return `<div class="bk-game" data-game="${m.game}">
+      <div class="bk-gnum">Game ${m.game}</div>
+      <div class="bk-top">${teamRow(topId, m.top_seed, m.top_name_raw, m.top_from_game, topPct)}</div>
+      ${teamRow(botId, m.bottom_seed, m.bot_name_raw, m.bottom_from_game, botPct)}
     </div>`;
+  }
+
+  const isMobile = window.innerWidth < 700;
+  let html = `<div class="bk-meta">${nSims ? nSims.toLocaleString() + ' simulations · ' : ''}${esc(braw.bracket)} · win% = probability of advancing</div>`;
+
+  if (isMobile) {
+    html += '<div class="bk-mobile">';
+    rounds.forEach((rd, ri) => {
+      html += `<details class="bk-round-details"${ri===0?' open':''}>
+        <summary class="bk-round-summary">${esc(rd.round_name||'Round '+rd.round)}<span class="bk-round-count">${rd.matchups.length} game${rd.matchups.length!==1?'s':''}</span></summary>
+        <div class="bk-round-games">${rd.matchups.map(m=>gameCard(m,ri)).join('')}</div>
+      </details>`;
+    });
+    html += '</div>';
+  } else {
+    html += '<div class="bk-desktop">';
+    rounds.forEach((rd, ri) => {
+      html += `<div class="bk-col"><div class="bk-col-header">${esc(rd.round_name||'Round '+rd.round)}</div><div class="bk-col-games">${rd.matchups.map(m=>gameCard(m,ri)).join('')}</div></div>`;
+    });
+    html += '</div>';
+  }
+
+  view.innerHTML = html;
 }
 
 // ============================================================

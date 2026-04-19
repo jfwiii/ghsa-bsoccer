@@ -174,14 +174,32 @@ def _parse_bracket_text(text: str, bracket_name: str,
         num = k if isinstance(k, int) else name_to_num[k]
         normalized[num] = v
 
-    return {
-        "bracket": bracket_name,
-        "rounds": [
-            {"round": rn, "matchups": normalized[rn]}
-            for rn in sorted(normalized)
-            if normalized[rn]  # omit empty rounds (not yet seeded)
-        ],
-    }
+    r1_matchups = normalized.get(1, [])
+    n_r1 = len(r1_matchups)
+    seeds = _seed_table(n_r1)
+    for m in r1_matchups:
+        top_s, bot_s = seeds.get(m["position"], (None, None))
+        m["top_seed"] = top_s
+        m["bottom_seed"] = bot_s
+
+    all_rounds = _build_bracket_tree(r1_matchups, n_r1)
+
+    # Merge in actual results from later rounds in GHSA export
+    for rn in sorted(normalized):
+        if rn == 1 or not normalized[rn]:
+            continue
+        for rd in all_rounds:
+            if rd["round"] == rn:
+                for i, src in enumerate(normalized[rn]):
+                    if i < len(rd["matchups"]):
+                        stub = rd["matchups"][i]
+                        stub["top_team_id"] = src.get("top_team_id")
+                        stub["bottom_team_id"] = src.get("bottom_team_id")
+                        stub["top_name_raw"] = src.get("top_name_raw")
+                        stub["bot_name_raw"] = src.get("bot_name_raw")
+                break
+
+    return {"bracket": bracket_name, "rounds": all_rounds}
 
 
 def _parse_int(s) -> Optional[int]:
@@ -213,6 +231,88 @@ _ABBREV_EXPANSIONS: list[tuple[str, str]] = [
     (r'\bWash\b',    "Washington"),  # "Wash-Wilkes" → "Washington-Wilkes"
     (r'^GACS$',      "Greater Atlanta Christian"),  # Private bracket abbreviation
 ]
+
+# Standard bracket seeding pairings: position → (top/away seed, bottom/home seed).
+# Top team (first in CSV) is away (lower seed); bottom is home (higher seed).
+_R1_SEEDS_32: dict[int, tuple] = {
+    1: (32, 1),  2: (17, 16), 3: (24, 9),  4: (25, 8),
+    5: (28, 5),  6: (21, 12), 7: (29, 4),  8: (20, 13),
+    9: (31, 2),  10: (18, 15), 11: (23, 10), 12: (26, 7),
+    13: (30, 3), 14: (19, 14), 15: (27, 6), 16: (22, 11),
+}
+_R1_SEEDS_16: dict[int, tuple] = {
+    1: (16, 1), 2: (9, 8),  3: (12, 5), 4: (13, 4),
+    5: (15, 2), 6: (10, 7), 7: (14, 3), 8: (11, 6),
+}
+# Private (29 teams): seeds 1–3 have byes; 13 actual R1 games map to
+# full-bracket positions 2,3,4,5,6,7,8,10,11,12,14,15,16.
+_R1_SEEDS_PRIVATE: dict[int, tuple] = {
+    1: (17, 16), 2: (24, 9),  3: (25, 8),  4: (28, 5),
+    5: (21, 12), 6: (29, 4),  7: (20, 13), 8: (18, 15),
+    9: (23, 10), 10: (26, 7), 11: (19, 14), 12: (27, 6),
+    13: (22, 11),
+}
+
+_ROUND_NAMES = ["Round of 32", "Round of 16", "Quarterfinals", "Semifinals", "Final"]
+
+
+def _seed_table(n_r1: int) -> dict:
+    if n_r1 == 16:
+        return _R1_SEEDS_32
+    if n_r1 == 8:
+        return _R1_SEEDS_16
+    if n_r1 == 13:
+        return _R1_SEEDS_PRIVATE
+    return {}
+
+
+def _build_bracket_tree(r1_matchups: list, n_r1: int) -> list:
+    """Generate full bracket tree from R1 matchups: returns list of round dicts."""
+    r1_label_idx = {16: 0, 13: 0, 8: 1}.get(n_r1, 0)
+
+    # Assign game numbers and feeds_into for R1
+    for m in r1_matchups:
+        m["game"] = m["position"]
+    # R2 game offset: first R2 game = n_r1 + 1
+    r2_base = n_r1 + 1
+    for m in r1_matchups:
+        m["feeds_into"] = r2_base + (m["position"] - 1) // 2
+
+    rounds = [{"round": 1, "round_name": _ROUND_NAMES[r1_label_idx], "matchups": list(r1_matchups)}]
+
+    prev = r1_matchups
+    game_counter = n_r1 + 1
+    round_num = 2
+    name_idx = r1_label_idx + 1
+
+    while len(prev) > 1:
+        next_matchups = []
+        for i in range(0, len(prev), 2):
+            top_g, bot_g = prev[i], prev[i + 1] if i + 1 < len(prev) else prev[i]
+            stub = {
+                "game": game_counter,
+                "position": len(next_matchups) + 1,
+                "top_from_game": top_g["game"],
+                "bottom_from_game": bot_g["game"],
+                "top_team_id": None, "bottom_team_id": None,
+                "top_seed": None, "bottom_seed": None,
+                "top_name_raw": None, "bot_name_raw": None,
+            }
+            next_matchups.append(stub)
+            game_counter += 1
+
+        if len(next_matchups) > 1:
+            next_base = game_counter
+            for k, m in enumerate(next_matchups):
+                m["feeds_into"] = next_base + k // 2
+
+        label = _ROUND_NAMES[name_idx] if name_idx < len(_ROUND_NAMES) else f"Round {round_num}"
+        rounds.append({"round": round_num, "round_name": label, "matchups": next_matchups})
+        prev = next_matchups
+        round_num += 1
+        name_idx += 1
+
+    return rounds
 
 
 def _expand_bracket_name(name: str) -> str:
