@@ -59,22 +59,25 @@ def _contest(
     opp_goals: int | None,
     opp_result: str | None,
     detail_url: str | None = None,
-) -> dict:
-    """Build a minimal contest dict matching MaxPreps /schedule/ __NEXT_DATA__ format."""
+) -> list:
+    """Build a minimal contest list matching MaxPreps /schedule/ __NEXT_DATA__ format.
+
+    Contests are JSON arrays; integer indices matter:
+      [1]=contestId, [4]=hasResult, [11]=timestamp,
+      [35]=detailUrl, [37]=my_team, [38]=opp_team.
+    """
     my_slot = 1
     opp_slot = 2
     my_team = _team_array(my_name, my_city, my_goals, my_result, my_ha, my_slug, my_slot)
     opp_ha = 1 - my_ha
     opp_team = _team_array(opp_name, opp_city, opp_goals, opp_result, opp_ha, opp_slug, opp_slot)
-    c: dict = {
-        "1": contest_id,
-        "4": has_result,
-        "11": timestamp,
-        "37": my_team,
-        "38": opp_team,
-    }
-    if detail_url:
-        c["35"] = detail_url
+    c: list = [None] * 39
+    c[1] = contest_id
+    c[4] = has_result
+    c[11] = timestamp
+    c[35] = detail_url
+    c[37] = my_team
+    c[38] = opp_team
     return c
 
 

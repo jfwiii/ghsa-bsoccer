@@ -240,12 +240,13 @@ def parse_schedule_page(html: str) -> list[dict]:
     Parse a MaxPreps team schedule page (/soccer/spring/schedule/).
     Extracts games from __NEXT_DATA__ JSON (props.pageProps.contests).
 
-    Contest structure uses string integer keys. Key layout (after json.loads):
-      c["1"]  = contestId (UUID str)
-      c["4"]  = hasResult (bool)
-      c["11"] = timestamp (ISO str)
-      c["37"] = page's team data array
-      c["38"] = opponent's team data array
+    Contest structure: each entry is a JSON array (Python list). Integer indices:
+      c[1]  = contestId (UUID str)
+      c[4]  = hasResult (bool)
+      c[11] = timestamp (ISO str)
+      c[35] = detail URL (str, optional)
+      c[37] = page's team data array
+      c[38] = opponent's team data array
 
     Team array positional layout:
       [3]  = score string "W 1-0" or "L 2-2" (regulation score; SO games show tied scores)
@@ -276,21 +277,21 @@ def parse_schedule_page(html: str) -> list[dict]:
 
     games = []
     for c in contests:
-        if not isinstance(c, dict):
+        if not isinstance(c, list) or len(c) < 39:
             continue
-        if not c.get("4"):  # hasResult
+        if not c[4]:  # hasResult
             continue
 
-        contest_id = c.get("1", "")
-        timestamp = c.get("11", "")
+        contest_id = c[1] or ""
+        timestamp = c[11] or ""
 
         try:
             game_date = datetime.fromisoformat(timestamp).date()
         except (ValueError, TypeError):
             continue
 
-        my_team = c.get("37") or []
-        opp_team = c.get("38") or []
+        my_team = c[37] if isinstance(c[37], list) else []
+        opp_team = c[38] if isinstance(c[38], list) else []
         if len(my_team) < 15 or len(opp_team) < 15:
             continue
 
@@ -317,10 +318,10 @@ def parse_schedule_page(html: str) -> list[dict]:
             if m:
                 opp_slug = m.group(1)
 
-        # Game detail URL may be at contest key "35" or "18"
+        # Game detail URL at contest index 35
         detail_url = None
-        for detail_key in ("35", "18"):
-            val = c.get(detail_key)
+        for detail_idx in (35, 18):
+            val = c[detail_idx] if len(c) > detail_idx else None
             if val and isinstance(val, str) and "/games/" in val:
                 detail_url = val
                 break
