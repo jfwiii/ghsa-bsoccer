@@ -276,6 +276,8 @@ def parse_schedule_page(html: str) -> list[dict]:
 
     games = []
     for c in contests:
+        if not isinstance(c, dict):
+            continue
         if not c.get("4"):  # hasResult
             continue
 
