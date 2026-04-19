@@ -229,7 +229,18 @@ _ABBREV_EXPANSIONS: list[tuple[str, str]] = [
     (r',Sav\b',      ", Savannah"),# "Johnson,Sav" → "Johnson, Savannah"
     (r',Gain\b',     ", Gainesville"),
     (r'\bWash\b',    "Washington"),  # "Wash-Wilkes" → "Washington-Wilkes"
-    (r'^GACS$',      "Greater Atlanta Christian"),  # Private bracket abbreviation
+    (r'^GACS$',       "Greater Atlanta Christian"),  # Private bracket abbreviation
+    # Private school abbreviations used in GHSA bracket CSV
+    (r'\bChr\b',      "Christian"),  # "Providence Chr" → "Providence Christian"
+    (r'\bAcad\b',     "Academy"),    # "Whitefield Acad" → "Whitefield Academy"
+    (r'\bAve\b',      "Avenue"),     # "Prince Ave Chr" → "Prince Avenue Christian"
+    (r'^Mt\b',        "Mt."),        # "Mt Bethel" → "Mt. Bethel"
+    (r'^N Cobb\b',    "North Cobb"), # "N Cobb Chr" → "North Cobb Christian"
+    (r'^Sav Cntry Day$', "Savannah Country Day"),
+    (r'^Sav Chr\b',   "Savannah Christian"),
+    (r'^Atlanta Int\b', "Atlanta International"),
+    (r'^Christian Her\b', "Christian Heritage"),
+    (r'^Mt Vernon\b', "Mount Vernon"),
 ]
 
 # Standard bracket seeding pairings: position → (top/away seed, bottom/home seed).
@@ -356,11 +367,20 @@ def _build_team_lookup(teams_df, class_filter: Optional[str] = None) -> dict[str
     """
     lookup = {}
     for _, row in teams_df.iterrows():
-        if class_filter and row.get("class", "") != class_filter:
-            continue
+        if class_filter:
+            if class_filter == "Private":
+                if "(Private)" not in row.get("name", ""):
+                    continue
+            elif row.get("class", "") != class_filter:
+                continue
         name = row.get("name", "")
         if name:
-            lookup[name] = int(row["team_id"])
+            tid = int(row["team_id"])
+            lookup[name] = tid
+            # Also index without parenthetical suffix, e.g. "Foo (Private)" → "Foo"
+            stripped = re.sub(r'\s*\([^)]+\)\s*$', '', name).strip()
+            if stripped and stripped != name:
+                lookup.setdefault(stripped, tid)
     return lookup
 
 

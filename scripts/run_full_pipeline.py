@@ -306,10 +306,10 @@ def build_ratings_json(teams_df: pd.DataFrame, games_df: pd.DataFrame,
     schedules: dict[int, list] = {}
     for _, g in games_df.iterrows():
         h, a = int(g["home_team_id"]), int(g["away_team_id"])
-        hg_r = g["home_goals_regulation"]
-        ag_r = g["away_goals_regulation"]
-        hg = int(hg_r) if not pd.isna(hg_r) else int(g["home_goals"])
-        ag = int(ag_r) if not pd.isna(ag_r) else int(g["away_goals"])
+        # Use GHSA-reported scores for display/result/impact — SO wins count as wins,
+        # scores match what GHSA publishes. Regulation scores are only for model fitting.
+        hg = int(g["home_goals"])
+        ag = int(g["away_goals"])
         date_str = str(g["date"])[:10]
         neutral = bool(g.get("neutral_site", False))
         # P(home team wins) — used to compute both teams' impact scores

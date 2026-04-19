@@ -211,20 +211,16 @@ def discover_slugs(teams: list[dict], client: MaxPrepsClient) -> dict[int, Optio
             result[tid] = None
             continue
 
-        if len(entries) == 1:
-            result[tid] = entries[0][1]
-            log.debug("search single match %r → %r", name, entries[0][1])
+        mp_names = [e[0] for e in entries]
+        match = process.extractOne(name, mp_names, scorer=fuzz.WRatio)
+        if match and match[1] >= FUZZY_THRESHOLD:
+            idx = mp_names.index(match[0])
+            result[tid] = entries[idx][1]
+            log.debug("search match %r → %r (score=%d, n=%d)", name, entries[idx][1], match[1], len(entries))
         else:
-            mp_names = [e[0] for e in entries]
-            match = process.extractOne(name, mp_names, scorer=fuzz.WRatio)
-            if match and match[1] >= FUZZY_THRESHOLD:
-                idx = mp_names.index(match[0])
-                result[tid] = entries[idx][1]
-                log.debug("search fuzzy match %r → %r (score=%d)", name, entries[idx][1], match[1])
-            else:
-                log.info("no confident match for team %d %r (best=%s)", tid, name, match)
-                unmatched.append(tid)
-                result[tid] = None
+            log.info("no confident match for team %d %r (best=%s, n=%d)", tid, name, match, len(entries))
+            unmatched.append(tid)
+            result[tid] = None
 
     _save_overrides(
         {str(k): v for k, v in {**overrides, **result}.items()},
