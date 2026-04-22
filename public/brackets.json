@@ -2149,13 +2149,13 @@
           },
           {
             "position": 4,
-            "top_team_id": 102,
-            "bottom_team_id": 256,
+            "top_team_id": 256,
+            "bottom_team_id": 102,
             "top_seed": 25,
             "bottom_seed": 8,
-            "host_team_id": 102,
-            "top_name_raw": "Bleckley Co",
-            "bot_name_raw": "Toombs Co",
+            "host_team_id": 256,
+            "top_name_raw": "Toombs Co: 2",
+            "bot_name_raw": "Bleckley Co: 0",
             "game": 4,
             "feeds_into": 18
           },
