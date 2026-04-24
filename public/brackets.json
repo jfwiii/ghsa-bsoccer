@@ -999,8 +999,8 @@
             "top_seed": 30,
             "bottom_seed": 3,
             "host_team_id": 272,
-            "top_name_raw": "Westminster: 10",
-            "bot_name_raw": "Union Grove: 0",
+            "top_name_raw": "Westminster",
+            "bot_name_raw": "Union Grove",
             "game": 13,
             "feeds_into": 23
           },
@@ -1030,13 +1030,13 @@
           },
           {
             "position": 16,
-            "top_team_id": 264,
-            "bottom_team_id": 581,
+            "top_team_id": 581,
+            "bottom_team_id": 264,
             "top_seed": 22,
             "bottom_seed": 11,
-            "host_team_id": 264,
-            "top_name_raw": "Ware Co",
-            "bot_name_raw": "Walnut Grove",
+            "host_team_id": 581,
+            "top_name_raw": "Walnut Grove: 3",
+            "bot_name_raw": "Ware Co: 0",
             "game": 16,
             "feeds_into": 24
           }
@@ -1051,12 +1051,12 @@
             "position": 1,
             "top_from_game": 1,
             "bottom_from_game": 2,
-            "top_team_id": 272,
-            "bottom_team_id": 292,
+            "top_team_id": null,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Westminster",
-            "bot_name_raw": "Clarkston",
+            "top_name_raw": null,
+            "bot_name_raw": null,
             "feeds_into": 25
           },
           {
