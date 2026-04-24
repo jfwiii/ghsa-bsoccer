@@ -946,13 +946,13 @@
           },
           {
             "position": 9,
-            "top_team_id": 165,
-            "bottom_team_id": 321,
+            "top_team_id": 321,
+            "bottom_team_id": 165,
             "top_seed": 31,
             "bottom_seed": 2,
-            "host_team_id": 165,
-            "top_name_raw": "McDonough",
-            "bot_name_raw": "Centennial",
+            "host_team_id": 321,
+            "top_name_raw": "Centennial: 5",
+            "bot_name_raw": "McDonough: 1",
             "game": 9,
             "feeds_into": 21
           },
