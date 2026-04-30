@@ -630,12 +630,12 @@
             "position": 1,
             "top_from_game": 1,
             "bottom_from_game": 2,
-            "top_team_id": 169,
-            "bottom_team_id": 137,
+            "top_team_id": 137,
+            "bottom_team_id": 169,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Jackson Co",
-            "bot_name_raw": "Decatur",
+            "top_name_raw": "Decatur: 2",
+            "bot_name_raw": "Jackson Co: 0",
             "feeds_into": 25
           },
           {
@@ -647,8 +647,8 @@
             "bottom_team_id": 184,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Northgate",
-            "bot_name_raw": "Lee Co",
+            "top_name_raw": "Northgate: 2",
+            "bot_name_raw": "Lee Co: 1",
             "feeds_into": 25
           },
           {
@@ -656,12 +656,12 @@
             "position": 3,
             "top_from_game": 5,
             "bottom_from_game": 6,
-            "top_team_id": 8,
-            "bottom_team_id": 568,
+            "top_team_id": 568,
+            "bottom_team_id": 8,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Habersham Cent",
-            "bot_name_raw": "Johns Creek",
+            "top_name_raw": "Johns Creek: 7",
+            "bot_name_raw": "Habersham Cent: 0",
             "feeds_into": 26
           },
           {
@@ -669,12 +669,12 @@
             "position": 4,
             "top_from_game": 7,
             "bottom_from_game": 8,
-            "top_team_id": 231,
-            "bottom_team_id": 229,
+            "top_team_id": 229,
+            "bottom_team_id": 231,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Rome",
-            "bot_name_raw": "Riverwood",
+            "top_name_raw": "Riverwood: 5",
+            "bot_name_raw": "Rome: 0",
             "feeds_into": 26
           },
           {
@@ -686,8 +686,8 @@
             "bottom_team_id": 49,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "River Ridge",
-            "bot_name_raw": "McIntosh",
+            "top_name_raw": "River Ridge: 2",
+            "bot_name_raw": "McIntosh: 1",
             "feeds_into": 27
           },
           {
@@ -699,8 +699,8 @@
             "bottom_team_id": 29,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Dunwoody",
-            "bot_name_raw": "Glynn Acad",
+            "top_name_raw": "Dunwoody: 3",
+            "bot_name_raw": "Glynn Acad: 2",
             "feeds_into": 27
           },
           {
@@ -712,8 +712,8 @@
             "bottom_team_id": 371,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Pope",
-            "bot_name_raw": "Kennesaw Mtn",
+            "top_name_raw": "Pope: 5",
+            "bot_name_raw": "Kennesaw Mtn: 2",
             "feeds_into": 28
           },
           {
@@ -722,11 +722,11 @@
             "top_from_game": 15,
             "bottom_from_game": 16,
             "top_team_id": 150,
-            "bottom_team_id": 86,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Gainesville",
-            "bot_name_raw": "Clarke Cent",
+            "top_name_raw": "Gainesville: 5",
+            "bot_name_raw": "Clarke Cent: 1",
             "feeds_into": 28
           }
         ]
@@ -740,12 +740,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 137,
+            "bottom_team_id": 319,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Decatur",
+            "bot_name_raw": "Northgate",
             "feeds_into": 29
           },
           {
@@ -753,12 +753,12 @@
             "position": 2,
             "top_from_game": 19,
             "bottom_from_game": 20,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 568,
+            "bottom_team_id": 229,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Johns Creek",
+            "bot_name_raw": "Riverwood",
             "feeds_into": 29
           },
           {
@@ -766,12 +766,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 570,
+            "bottom_team_id": 79,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "River Ridge",
+            "bot_name_raw": "Dunwoody",
             "feeds_into": 30
           },
           {
@@ -779,12 +779,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 74,
+            "bottom_team_id": 150,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Pope",
+            "bot_name_raw": "Gainesville",
             "feeds_into": 30
           }
         ]
@@ -1489,8 +1489,8 @@
             "bottom_team_id": 4,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Mary Persons",
-            "bot_name_raw": "Stone Mountain",
+            "top_name_raw": "Mary Persons: 3",
+            "bot_name_raw": "Stone Mountain: 1",
             "feeds_into": 25
           },
           {
@@ -1511,12 +1511,12 @@
             "position": 4,
             "top_from_game": 7,
             "bottom_from_game": 8,
-            "top_team_id": 234,
-            "bottom_team_id": 14,
+            "top_team_id": 14,
+            "bottom_team_id": 234,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Sandy Creek",
-            "bot_name_raw": "Bainbridge",
+            "top_name_raw": "Bainbridge: 8",
+            "bot_name_raw": "Sandy Creek: 0",
             "feeds_into": 26
           },
           {
@@ -1554,8 +1554,8 @@
             "bottom_team_id": 112,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Oconee Co",
-            "bot_name_raw": "Cairo",
+            "top_name_raw": "Oconee Co: 7",
+            "bot_name_raw": "Cairo: 1",
             "feeds_into": 28
           },
           {
@@ -1567,7 +1567,7 @@
             "bottom_team_id": 173,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "E Hall",
+            "top_name_raw": "E Hall: 2",
             "bot_name_raw": "\"Johnson",
             "feeds_into": 28
           }
@@ -1582,12 +1582,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": 270,
-            "bottom_team_id": 113,
+            "top_team_id": 611,
+            "bottom_team_id": 194,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "W Laurens",
-            "bot_name_raw": "Calhoun",
+            "top_name_raw": "Islands",
+            "bot_name_raw": "Mary Persons",
             "feeds_into": 29
           },
           {
@@ -1595,12 +1595,12 @@
             "position": 2,
             "top_from_game": 19,
             "bottom_from_game": 20,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 171,
+            "bottom_team_id": 14,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Jefferson",
+            "bot_name_raw": "Bainbridge",
             "feeds_into": 29
           },
           {
@@ -1608,12 +1608,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 270,
+            "bottom_team_id": 113,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "W Laurens",
+            "bot_name_raw": "Calhoun",
             "feeds_into": 30
           },
           {
@@ -1621,12 +1621,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 212,
+            "bottom_team_id": 144,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Oconee Co",
+            "bot_name_raw": "E Hall",
             "feeds_into": 30
           }
         ]
@@ -2383,8 +2383,8 @@
             "bottom_team_id": 170,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Barrow",
-            "bot_name_raw": "Jeff Davis",
+            "top_name_raw": "Barrow: 3",
+            "bot_name_raw": "Jeff Davis: 0",
             "feeds_into": 27
           },
           {
@@ -2405,12 +2405,12 @@
             "position": 8,
             "top_from_game": 15,
             "bottom_from_game": 16,
-            "top_team_id": 240,
-            "bottom_team_id": 680,
+            "top_team_id": null,
+            "bottom_team_id": 240,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Social Circle",
-            "bot_name_raw": "ACE Char",
+            "top_name_raw": "ACE Char: 3",
+            "bot_name_raw": "Social Circle: 1",
             "feeds_into": 28
           }
         ]
@@ -2450,12 +2450,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 221,
+            "bottom_team_id": 701,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Putnam Co",
+            "bot_name_raw": "Barrow",
             "feeds_into": 30
           },
           {
@@ -2463,12 +2463,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 95,
+            "bottom_team_id": 680,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Armuchee",
+            "bot_name_raw": "ACE Char",
             "feeds_into": 30
           }
         ]
@@ -2639,12 +2639,12 @@
             "position": 1,
             "top_from_game": 1,
             "bottom_from_game": 2,
-            "top_team_id": 202,
-            "bottom_team_id": 97,
+            "top_team_id": 97,
+            "bottom_team_id": 202,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Montgomery Co",
-            "bot_name_raw": "Atkinson Co",
+            "top_name_raw": "Atkinson Co: 10",
+            "bot_name_raw": "Montgomery Co: 0",
             "feeds_into": 13
           },
           {
@@ -2656,8 +2656,8 @@
             "bottom_team_id": 190,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Trion",
-            "bot_name_raw": "Macon Co",
+            "top_name_raw": "Trion: 10",
+            "bot_name_raw": "Macon Co: 1",
             "feeds_into": 13
           },
           {
@@ -2669,8 +2669,8 @@
             "bottom_team_id": 347,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Lk Oconee Acad",
-            "bot_name_raw": "Echols Co",
+            "top_name_raw": "Lk Oconee Acad: 1",
+            "bot_name_raw": "Echols Co: 0",
             "feeds_into": 14
           },
           {
@@ -2697,12 +2697,12 @@
             "position": 1,
             "top_from_game": 9,
             "bottom_from_game": 10,
-            "top_team_id": 205,
-            "bottom_team_id": 151,
+            "top_team_id": 97,
+            "bottom_team_id": 259,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Mt Zion,Carr",
-            "bot_name_raw": "GA Military",
+            "top_name_raw": "Atkinson Co",
+            "bot_name_raw": "Trion",
             "feeds_into": 15
           },
           {
@@ -2710,12 +2710,12 @@
             "position": 2,
             "top_from_game": 11,
             "bottom_from_game": 12,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 678,
+            "bottom_team_id": 196,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Lk Oconee Acad",
+            "bot_name_raw": "Metter",
             "feeds_into": 15
           }
         ]
