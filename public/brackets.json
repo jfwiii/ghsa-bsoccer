@@ -1476,8 +1476,8 @@
             "bottom_team_id": 378,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Islands",
-            "bot_name_raw": "Chestatee",
+            "top_name_raw": "Islands: 3",
+            "bot_name_raw": "Chestatee: 0",
             "feeds_into": 25
           },
           {
@@ -1498,12 +1498,12 @@
             "position": 3,
             "top_from_game": 5,
             "bottom_from_game": 6,
-            "top_team_id": 211,
-            "bottom_team_id": 171,
+            "top_team_id": 171,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "NW Whitfield",
-            "bot_name_raw": "Jefferson",
+            "top_name_raw": "Jefferson: 3",
+            "bot_name_raw": "NW Whitfield: 1",
             "feeds_into": 26
           },
           {
@@ -1528,8 +1528,8 @@
             "bottom_team_id": 214,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "W Laurens",
-            "bot_name_raw": "Peach Co",
+            "top_name_raw": "W Laurens: 3",
+            "bot_name_raw": "Peach Co: 0",
             "feeds_into": 27
           },
           {
@@ -1541,8 +1541,8 @@
             "bottom_team_id": 12,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Calhoun",
-            "bot_name_raw": "LaGrange",
+            "top_name_raw": "Calhoun: 4",
+            "bot_name_raw": "LaGrange: 1",
             "feeds_into": 27
           },
           {
@@ -1582,12 +1582,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 270,
+            "bottom_team_id": 113,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "W Laurens",
+            "bot_name_raw": "Calhoun",
             "feeds_into": 29
           },
           {
@@ -2331,8 +2331,8 @@
             "bottom_team_id": 256,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Jasper County",
-            "bot_name_raw": "Toombs Co",
+            "top_name_raw": "Jasper County: 4",
+            "bot_name_raw": "Toombs Co: 3",
             "feeds_into": 25
           },
           {
@@ -2344,8 +2344,8 @@
             "bottom_team_id": 654,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Thomasville",
-            "bot_name_raw": "Woodville-Tomp",
+            "top_name_raw": "Thomasville: 7",
+            "bot_name_raw": "Woodville-Tomp: 1",
             "feeds_into": 26
           },
           {
@@ -2357,8 +2357,8 @@
             "bottom_team_id": 300,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Bremen",
-            "bot_name_raw": "Fannin Co",
+            "top_name_raw": "Bremen: 3",
+            "bot_name_raw": "Fannin Co: 2",
             "feeds_into": 26
           },
           {
@@ -2370,8 +2370,8 @@
             "bottom_team_id": 262,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Putnam Co",
-            "bot_name_raw": "Vidalia",
+            "top_name_raw": "Putnam Co: 4",
+            "bot_name_raw": "Vidalia: 1",
             "feeds_into": 27
           },
           {
@@ -2396,8 +2396,8 @@
             "bottom_team_id": 138,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Armuchee",
-            "bot_name_raw": "Dodge Co",
+            "top_name_raw": "Armuchee: 10",
+            "bot_name_raw": "Dodge Co: 1",
             "feeds_into": 28
           },
           {
@@ -2424,12 +2424,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 199,
+            "bottom_team_id": 203,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Model",
+            "bot_name_raw": "Jasper County",
             "feeds_into": 29
           },
           {
@@ -2437,12 +2437,12 @@
             "position": 2,
             "top_from_game": 19,
             "bottom_from_game": 20,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 254,
+            "bottom_team_id": 105,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Thomasville",
+            "bot_name_raw": "Bremen",
             "feeds_into": 29
           },
           {
@@ -2678,12 +2678,12 @@
             "position": 4,
             "top_from_game": 7,
             "bottom_from_game": 8,
-            "top_team_id": 681,
-            "bottom_team_id": 196,
+            "top_team_id": 196,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Atlanta Class",
-            "bot_name_raw": "Metter",
+            "top_name_raw": "Metter: 5",
+            "bot_name_raw": "Atlanta Class: 1",
             "feeds_into": 14
           }
         ]
@@ -2697,12 +2697,12 @@
             "position": 1,
             "top_from_game": 9,
             "bottom_from_game": 10,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 205,
+            "bottom_team_id": 151,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Mt Zion,Carr",
+            "bot_name_raw": "GA Military",
             "feeds_into": 15
           },
           {
