@@ -3019,8 +3019,8 @@
             "bottom_team_id": 94,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Fellowship Chr",
-            "bot_name_raw": "Aquinas",
+            "top_name_raw": "Fellowship Chr: 2",
+            "bot_name_raw": "Aquinas: 0",
             "feeds_into": 27
           },
           {
@@ -3042,11 +3042,11 @@
             "top_from_game": 15,
             "bottom_from_game": 16,
             "top_team_id": 333,
-            "bottom_team_id": 236,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Paideia",
-            "bot_name_raw": "Sav Cntry Day",
+            "top_name_raw": "Paideia: 2",
+            "bot_name_raw": "Sav Cntry Day: 1",
             "feeds_into": 28
           }
         ]
