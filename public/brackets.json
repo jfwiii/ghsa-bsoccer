@@ -287,12 +287,12 @@
             "position": 7,
             "top_from_game": 13,
             "bottom_from_game": 14,
-            "top_team_id": 309,
-            "bottom_team_id": 76,
+            "top_team_id": 76,
+            "bottom_team_id": 309,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "N Forsyth",
-            "bot_name_raw": "Walton",
+            "top_name_raw": "Walton: 4",
+            "bot_name_raw": "N Forsyth: 0",
             "feeds_into": 28
           },
           {
@@ -1958,12 +1958,12 @@
             "position": 6,
             "top_from_game": 11,
             "bottom_from_game": 12,
-            "top_team_id": 233,
-            "bottom_team_id": 219,
+            "top_team_id": 219,
+            "bottom_team_id": 233,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Salem",
-            "bot_name_raw": "Pike Co",
+            "top_name_raw": "Pike Co: 5",
+            "bot_name_raw": "Salem: 1",
             "feeds_into": 27
           },
           {
@@ -3006,8 +3006,8 @@
             "bottom_team_id": 337,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Hebron Chr",
-            "bot_name_raw": "Walker",
+            "top_name_raw": "Hebron Chr: 3",
+            "bot_name_raw": "Walker: 2",
             "feeds_into": 27
           },
           {
@@ -3060,12 +3060,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 397,
+            "bottom_team_id": 406,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Hebron Chr",
+            "bot_name_raw": "Fellowship Chr",
             "feeds_into": 29
           },
           {
