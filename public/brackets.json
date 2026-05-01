@@ -1932,12 +1932,12 @@
             "position": 4,
             "top_from_game": 7,
             "bottom_from_game": 8,
-            "top_team_id": 93,
-            "bottom_team_id": 358,
+            "top_team_id": null,
+            "bottom_team_id": 93,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Appling Co",
-            "bot_name_raw": "Savannah Arts",
+            "top_name_raw": "Savannah Arts: 4",
+            "bot_name_raw": "Appling Co: 3",
             "feeds_into": 26
           },
           {
