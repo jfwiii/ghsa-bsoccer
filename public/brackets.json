@@ -1897,8 +1897,8 @@
             "bottom_team_id": 206,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Columbus",
-            "bot_name_raw": "Murray Co",
+            "top_name_raw": "Columbus: 4",
+            "bot_name_raw": "Murray Co: 0",
             "feeds_into": 25
           },
           {
@@ -1945,12 +1945,12 @@
             "position": 5,
             "top_from_game": 9,
             "bottom_from_game": 10,
-            "top_team_id": 261,
-            "bottom_team_id": 132,
+            "top_team_id": 132,
+            "bottom_team_id": 261,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Union Co",
-            "bot_name_raw": "Crisp Co",
+            "top_name_raw": "Crisp Co: 2",
+            "bot_name_raw": "Union Co: 1",
             "feeds_into": 27
           },
           {
@@ -1975,8 +1975,8 @@
             "bottom_team_id": 244,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Pierce Co",
-            "bot_name_raw": "Spencer",
+            "top_name_raw": "Pierce Co: 3",
+            "bot_name_raw": "Spencer: 0",
             "feeds_into": 28
           },
           {
@@ -2003,12 +2003,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 132,
+            "bottom_team_id": 219,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Crisp Co",
+            "bot_name_raw": "Pike Co",
             "feeds_into": 29
           },
           {
@@ -2976,12 +2976,12 @@
             "position": 3,
             "top_from_game": 5,
             "bottom_from_game": 6,
-            "top_team_id": 96,
-            "bottom_team_id": 188,
+            "top_team_id": 188,
+            "bottom_team_id": 96,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Athens Acad",
-            "bot_name_raw": "Lovett",
+            "top_name_raw": "Lovett: 4",
+            "bot_name_raw": "Athens Acad: 3",
             "feeds_into": 26
           },
           {
