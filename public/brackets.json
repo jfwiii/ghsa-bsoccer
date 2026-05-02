@@ -1094,8 +1094,8 @@
             "bottom_team_id": 369,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "St. Pius X",
-            "bot_name_raw": "Blessed Tr",
+            "top_name_raw": "St. Pius X: 3",
+            "bot_name_raw": "Blessed Tr: 1",
             "feeds_into": 26
           },
           {
@@ -1174,12 +1174,12 @@
             "position": 2,
             "top_from_game": 19,
             "bottom_from_game": 20,
-            "top_team_id": 292,
-            "bottom_team_id": 581,
+            "top_team_id": 134,
+            "bottom_team_id": 232,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Clarkston",
-            "bot_name_raw": "Walnut Grove",
+            "top_name_raw": "Dalton",
+            "bot_name_raw": "St. Pius X",
             "feeds_into": 29
           },
           {
@@ -1187,12 +1187,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 292,
+            "bottom_team_id": 581,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Clarkston",
+            "bot_name_raw": "Walnut Grove",
             "feeds_into": 30
           },
           {
