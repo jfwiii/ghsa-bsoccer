@@ -319,12 +319,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": 384,
-            "bottom_team_id": 116,
+            "top_team_id": 116,
+            "bottom_team_id": 384,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Peachtree Rdg",
-            "bot_name_raw": "Carrollton",
+            "top_name_raw": "Carrollton: 2",
+            "bot_name_raw": "Peachtree Rdg: 1",
             "feeds_into": 29
           },
           {
@@ -336,8 +336,8 @@
             "bottom_team_id": 574,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Meadowcreek",
-            "bot_name_raw": "Lambert",
+            "top_name_raw": "Meadowcreek: 2",
+            "bot_name_raw": "Lambert: 1",
             "feeds_into": 29
           },
           {
@@ -345,12 +345,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": 59,
-            "bottom_team_id": 308,
+            "top_team_id": 308,
+            "bottom_team_id": 59,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Campbell",
-            "bot_name_raw": "Collins Hill",
+            "top_name_raw": "Collins Hill: 3",
+            "bot_name_raw": "Campbell: 2",
             "feeds_into": 30
           },
           {
@@ -377,12 +377,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 116,
+            "bottom_team_id": 10,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Carrollton",
+            "bot_name_raw": "Meadowcreek",
             "feeds_into": 31
           },
           {
@@ -390,12 +390,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 308,
+            "bottom_team_id": 76,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Collins Hill",
+            "bot_name_raw": "Walton",
             "feeds_into": 31
           }
         ]
@@ -744,8 +744,8 @@
             "bottom_team_id": 319,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Decatur",
-            "bot_name_raw": "Northgate",
+            "top_name_raw": "Decatur: 3",
+            "bot_name_raw": "Northgate: 0",
             "feeds_into": 29
           },
           {
@@ -757,8 +757,8 @@
             "bottom_team_id": 229,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Johns Creek",
-            "bot_name_raw": "Riverwood",
+            "top_name_raw": "Johns Creek: 7",
+            "bot_name_raw": "Riverwood: 1",
             "feeds_into": 29
           },
           {
@@ -770,8 +770,8 @@
             "bottom_team_id": 79,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "River Ridge",
-            "bot_name_raw": "Dunwoody",
+            "top_name_raw": "River Ridge: 5",
+            "bot_name_raw": "Dunwoody: 0",
             "feeds_into": 30
           },
           {
@@ -779,12 +779,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": 74,
-            "bottom_team_id": 150,
+            "top_team_id": 150,
+            "bottom_team_id": 74,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Pope",
-            "bot_name_raw": "Gainesville",
+            "top_name_raw": "Gainesville: 3",
+            "bot_name_raw": "Pope: 1",
             "feeds_into": 30
           }
         ]
@@ -798,12 +798,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 137,
+            "bottom_team_id": 568,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Decatur",
+            "bot_name_raw": "Johns Creek",
             "feeds_into": 31
           },
           {
@@ -811,12 +811,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 570,
+            "bottom_team_id": 150,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "River Ridge",
+            "bot_name_raw": "Gainesville",
             "feeds_into": 31
           }
         ]
@@ -1161,12 +1161,12 @@
             "position": 1,
             "top_from_game": 17,
             "bottom_from_game": 18,
-            "top_team_id": 27,
-            "bottom_team_id": 193,
+            "top_team_id": 193,
+            "bottom_team_id": 27,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Benedictine",
-            "bot_name_raw": "Marist",
+            "top_name_raw": "Marist: 5",
+            "bot_name_raw": "Benedictine: 1",
             "feeds_into": 29
           },
           {
@@ -1178,8 +1178,8 @@
             "bottom_team_id": 232,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Dalton",
-            "bot_name_raw": "St. Pius X",
+            "top_name_raw": "Dalton: 2",
+            "bot_name_raw": "St. Pius X: 1",
             "feeds_into": 29
           },
           {
@@ -1187,12 +1187,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": 321,
-            "bottom_team_id": 285,
+            "top_team_id": 285,
+            "bottom_team_id": 321,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Centennial",
-            "bot_name_raw": "Midtown",
+            "top_name_raw": "Midtown: 3",
+            "bot_name_raw": "Centennial: 2",
             "feeds_into": 30
           },
           {
@@ -1200,12 +1200,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": 292,
-            "bottom_team_id": 581,
+            "top_team_id": 581,
+            "bottom_team_id": 292,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Clarkston",
-            "bot_name_raw": "Walnut Grove",
+            "top_name_raw": "Walnut Grove: 2",
+            "bot_name_raw": "Clarkston: 1",
             "feeds_into": 30
           }
         ]
@@ -1219,12 +1219,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 193,
+            "bottom_team_id": 134,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Marist",
+            "bot_name_raw": "Dalton",
             "feeds_into": 31
           },
           {
@@ -1232,12 +1232,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 285,
+            "bottom_team_id": 581,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Midtown",
+            "bot_name_raw": "Walnut Grove",
             "feeds_into": 31
           }
         ]
@@ -1586,8 +1586,8 @@
             "bottom_team_id": 194,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Islands",
-            "bot_name_raw": "Mary Persons",
+            "top_name_raw": "Islands: 3",
+            "bot_name_raw": "Mary Persons: 0",
             "feeds_into": 29
           },
           {
@@ -1612,8 +1612,8 @@
             "bottom_team_id": 113,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "W Laurens",
-            "bot_name_raw": "Calhoun",
+            "top_name_raw": "W Laurens: 2",
+            "bot_name_raw": "Calhoun: 1",
             "feeds_into": 30
           },
           {
@@ -1621,12 +1621,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": 212,
-            "bottom_team_id": 144,
+            "top_team_id": 144,
+            "bottom_team_id": 212,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Oconee Co",
-            "bot_name_raw": "E Hall",
+            "top_name_raw": "E Hall: 2",
+            "bot_name_raw": "Oconee Co: 0",
             "feeds_into": 30
           }
         ]
@@ -1640,12 +1640,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 611,
+            "bottom_team_id": 171,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Islands",
+            "bot_name_raw": "Jefferson",
             "feeds_into": 31
           },
           {
@@ -1653,12 +1653,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 270,
+            "bottom_team_id": 144,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "W Laurens",
+            "bot_name_raw": "E Hall",
             "feeds_into": 31
           }
         ]
@@ -2007,8 +2007,8 @@
             "bottom_team_id": 175,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Columbus",
-            "bot_name_raw": "Jordan",
+            "top_name_raw": "Columbus: 3",
+            "bot_name_raw": "Jordan: 2",
             "feeds_into": 29
           },
           {
@@ -2029,12 +2029,12 @@
             "position": 3,
             "top_from_game": 21,
             "bottom_from_game": 22,
-            "top_team_id": 132,
-            "bottom_team_id": 219,
+            "top_team_id": 219,
+            "bottom_team_id": 132,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Crisp Co",
-            "bot_name_raw": "Pike Co",
+            "top_name_raw": "Pike Co: 3",
+            "bot_name_raw": "Crisp Co: 2",
             "feeds_into": 30
           },
           {
@@ -2061,12 +2061,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 126,
+            "bottom_team_id": 358,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Columbus",
+            "bot_name_raw": "Savannah Arts",
             "feeds_into": 31
           },
           {
@@ -2074,12 +2074,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 219,
+            "bottom_team_id": 218,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Pike Co",
+            "bot_name_raw": "Pierce Co",
             "feeds_into": 31
           }
         ]
@@ -2428,8 +2428,8 @@
             "bottom_team_id": 203,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Model",
-            "bot_name_raw": "Jasper County",
+            "top_name_raw": "Model: 5",
+            "bot_name_raw": "Jasper County: 0",
             "feeds_into": 29
           },
           {
@@ -2482,12 +2482,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 701,
-            "bottom_team_id": 95,
+            "top_team_id": 199,
+            "bottom_team_id": 254,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Barrow",
-            "bot_name_raw": "Armuchee",
+            "top_name_raw": "Model",
+            "bot_name_raw": "Thomasville",
             "feeds_into": 31
           },
           {
@@ -2495,12 +2495,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 701,
+            "bottom_team_id": 95,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Barrow",
+            "bot_name_raw": "Armuchee",
             "feeds_into": 31
           }
         ]
@@ -3061,11 +3061,11 @@
             "top_from_game": 17,
             "bottom_from_game": 18,
             "top_team_id": 342,
-            "bottom_team_id": 156,
+            "bottom_team_id": null,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Whitefield Acad",
-            "bot_name_raw": "GACS",
+            "top_name_raw": "Whitefield Acad: 1",
+            "bot_name_raw": "GACS: 0",
             "feeds_into": 29
           },
           {
@@ -3073,12 +3073,12 @@
             "position": 2,
             "top_from_game": 19,
             "bottom_from_game": 20,
-            "top_team_id": 188,
-            "bottom_team_id": 328,
+            "top_team_id": 328,
+            "bottom_team_id": 188,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Lovett",
-            "bot_name_raw": "Atlanta Int",
+            "top_name_raw": "Atlanta Int: 3",
+            "bot_name_raw": "Lovett: 1",
             "feeds_into": 29
           },
           {
@@ -3099,12 +3099,12 @@
             "position": 4,
             "top_from_game": 23,
             "bottom_from_game": 24,
-            "top_team_id": 646,
+            "top_team_id": 334,
             "bottom_team_id": 333,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Mt Vernon",
-            "bot_name_raw": "Paideia",
+            "top_name_raw": "Mt Vernon: 2",
+            "bot_name_raw": "Paideia: 0",
             "feeds_into": 30
           }
         ]
@@ -3118,12 +3118,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 342,
+            "bottom_team_id": 328,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Whitefield Acad",
+            "bot_name_raw": "Atlanta Int",
             "feeds_into": 31
           },
           {
@@ -3131,12 +3131,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 397,
+            "bottom_team_id": 646,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null,
+            "top_name_raw": "Hebron Chr",
+            "bot_name_raw": "Mt Vernon",
             "feeds_into": 31
           }
         ]
