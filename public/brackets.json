@@ -377,12 +377,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 116,
-            "bottom_team_id": 10,
+            "top_team_id": 10,
+            "bottom_team_id": 116,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Carrollton",
-            "bot_name_raw": "Meadowcreek",
+            "top_name_raw": "Meadowcreek: 1",
+            "bot_name_raw": "Carrollton: 0",
             "feeds_into": 31
           },
           {
@@ -390,12 +390,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": 308,
-            "bottom_team_id": 76,
+            "top_team_id": 76,
+            "bottom_team_id": 308,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Collins Hill",
-            "bot_name_raw": "Walton",
+            "top_name_raw": "Walton: 2",
+            "bot_name_raw": "Collins Hill: 1",
             "feeds_into": 31
           }
         ]
@@ -409,12 +409,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 10,
+            "bottom_team_id": 76,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Meadowcreek",
+            "bot_name_raw": "Walton"
           }
         ]
       }
@@ -798,12 +798,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 137,
-            "bottom_team_id": 568,
+            "top_team_id": 568,
+            "bottom_team_id": 137,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Decatur",
-            "bot_name_raw": "Johns Creek",
+            "top_name_raw": "Johns Creek: 3",
+            "bot_name_raw": "Decatur: 0",
             "feeds_into": 31
           },
           {
@@ -815,8 +815,8 @@
             "bottom_team_id": 150,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "River Ridge",
-            "bot_name_raw": "Gainesville",
+            "top_name_raw": "River Ridge: 1",
+            "bot_name_raw": "Gainesville: 0",
             "feeds_into": 31
           }
         ]
@@ -830,12 +830,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 568,
+            "bottom_team_id": 570,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Johns Creek",
+            "bot_name_raw": "River Ridge"
           }
         ]
       }
@@ -1219,12 +1219,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 193,
-            "bottom_team_id": 134,
+            "top_team_id": 134,
+            "bottom_team_id": 193,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Marist",
-            "bot_name_raw": "Dalton",
+            "top_name_raw": "Dalton: 3",
+            "bot_name_raw": "Marist: 0",
             "feeds_into": 31
           },
           {
@@ -1236,8 +1236,8 @@
             "bottom_team_id": 581,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Midtown",
-            "bot_name_raw": "Walnut Grove",
+            "top_name_raw": "Midtown: 3",
+            "bot_name_raw": "Walnut Grove: 1",
             "feeds_into": 31
           }
         ]
@@ -1251,12 +1251,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 134,
+            "bottom_team_id": 285,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Dalton",
+            "bot_name_raw": "Midtown"
           }
         ]
       }
@@ -1644,8 +1644,8 @@
             "bottom_team_id": 171,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Islands",
-            "bot_name_raw": "Jefferson",
+            "top_name_raw": "Islands: 4",
+            "bot_name_raw": "Jefferson: 3",
             "feeds_into": 31
           },
           {
@@ -1672,12 +1672,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 611,
+            "bottom_team_id": 144,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Islands",
+            "bot_name_raw": "E Hall"
           }
         ]
       }
@@ -2061,12 +2061,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 126,
-            "bottom_team_id": 358,
+            "top_team_id": null,
+            "bottom_team_id": 126,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Columbus",
-            "bot_name_raw": "Savannah Arts",
+            "top_name_raw": "Savannah Arts: 2",
+            "bot_name_raw": "Columbus: 1",
             "feeds_into": 31
           },
           {
@@ -2074,12 +2074,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": 219,
-            "bottom_team_id": 218,
+            "top_team_id": 218,
+            "bottom_team_id": 219,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Pike Co",
-            "bot_name_raw": "Pierce Co",
+            "top_name_raw": "Pierce Co: 2",
+            "bot_name_raw": "Pike Co: 1",
             "feeds_into": 31
           }
         ]
@@ -2093,12 +2093,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 358,
+            "bottom_team_id": 218,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Savannah Arts",
+            "bot_name_raw": "Pierce Co"
           }
         ]
       }
@@ -3122,8 +3122,8 @@
             "bottom_team_id": 328,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Whitefield Acad",
-            "bot_name_raw": "Atlanta Int",
+            "top_name_raw": "Whitefield Acad: 1",
+            "bot_name_raw": "Atlanta Int: 0",
             "feeds_into": 31
           },
           {
@@ -3132,11 +3132,11 @@
             "top_from_game": 27,
             "bottom_from_game": 28,
             "top_team_id": 397,
-            "bottom_team_id": 646,
+            "bottom_team_id": 334,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Hebron Chr",
-            "bot_name_raw": "Mt Vernon",
+            "top_name_raw": "Hebron Chr: 2",
+            "bot_name_raw": "Mt Vernon: 1",
             "feeds_into": 31
           }
         ]
@@ -3150,12 +3150,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 342,
+            "bottom_team_id": 397,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Whitefield Acad",
+            "bot_name_raw": "Hebron Chr"
           }
         ]
       }
