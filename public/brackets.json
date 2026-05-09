@@ -1653,12 +1653,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": 270,
-            "bottom_team_id": 144,
+            "top_team_id": 144,
+            "bottom_team_id": 270,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "W Laurens",
-            "bot_name_raw": "E Hall",
+            "top_name_raw": "E Hall: 6",
+            "bot_name_raw": "W Laurens: 3",
             "feeds_into": 31
           }
         ]
@@ -2482,12 +2482,12 @@
             "position": 1,
             "top_from_game": 25,
             "bottom_from_game": 26,
-            "top_team_id": 199,
-            "bottom_team_id": 254,
+            "top_team_id": 254,
+            "bottom_team_id": 199,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Model",
-            "bot_name_raw": "Thomasville",
+            "top_name_raw": "Thomasville: 3",
+            "bot_name_raw": "Model: 2",
             "feeds_into": 31
           },
           {
@@ -2495,12 +2495,12 @@
             "position": 2,
             "top_from_game": 27,
             "bottom_from_game": 28,
-            "top_team_id": 701,
-            "bottom_team_id": 95,
+            "top_team_id": 95,
+            "bottom_team_id": 701,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Barrow",
-            "bot_name_raw": "Armuchee",
+            "top_name_raw": "Armuchee: 2",
+            "bot_name_raw": "Barrow: 1",
             "feeds_into": 31
           }
         ]
@@ -2514,12 +2514,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": null,
-            "bottom_team_id": null,
+            "top_team_id": 254,
+            "bottom_team_id": 95,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": null,
-            "bot_name_raw": null
+            "top_name_raw": "Thomasville",
+            "bot_name_raw": "Armuchee"
           }
         ]
       }
