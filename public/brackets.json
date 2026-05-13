@@ -2733,8 +2733,8 @@
             "bottom_team_id": 196,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Atkinson Co",
-            "bot_name_raw": "Metter"
+            "top_name_raw": "Atkinson Co: 3",
+            "bot_name_raw": "Metter: 1"
           }
         ]
       }
@@ -3154,8 +3154,8 @@
             "bottom_team_id": 397,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Whitefield Acad",
-            "bot_name_raw": "Hebron Chr"
+            "top_name_raw": "Whitefield Acad: 1",
+            "bot_name_raw": "Hebron Chr: 0"
           }
         ]
       }
