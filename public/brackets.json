@@ -834,8 +834,8 @@
             "bottom_team_id": 570,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Johns Creek",
-            "bot_name_raw": "River Ridge"
+            "top_name_raw": "Johns Creek: 2",
+            "bot_name_raw": "River Ridge: 0"
           }
         ]
       }
@@ -2093,12 +2093,12 @@
             "position": 1,
             "top_from_game": 29,
             "bottom_from_game": 30,
-            "top_team_id": 358,
+            "top_team_id": null,
             "bottom_team_id": 218,
             "top_seed": null,
             "bottom_seed": null,
-            "top_name_raw": "Savannah Arts",
-            "bot_name_raw": "Pierce Co"
+            "top_name_raw": "Savannah Arts: 2",
+            "bot_name_raw": "Pierce Co: 0"
           }
         ]
       }
